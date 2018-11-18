@@ -16,6 +16,8 @@ class Login: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // 从“注册”返回
+    @IBAction func exitFromRegister(_ segue : UIStoryboardSegue) {}
 
     /*
     // MARK: - Navigation
