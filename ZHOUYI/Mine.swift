@@ -10,8 +10,9 @@ import UIKit
 
 class Mine: UITableViewController {
     
+    let numOfSections = 3
     var ACellList : [String] = [String]()
-    
+
     func initList() {
         ACellList.append("设置")
         ACellList.append("关于")
@@ -35,7 +36,7 @@ class Mine: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
 //        return tableView.numberOfSections
-        return 3
+        return numOfSections
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,12 +45,12 @@ class Mine: UITableViewController {
         switch section {
         case 0: // 头像栏
             return 1
-        case 1: // 空白栏:BlankCell0
+        case 1: // 空白栏
             return 1
         case 2: // 基本设置栏，不随登陆与否变化
             return 2;
         default:
-            return 0
+            return 1
         }
     }
 
@@ -58,13 +59,13 @@ class Mine: UITableViewController {
         // Configure the cell...
         switch indexPath.section {
         case 0:
-            let AvatarCell = tableView.dequeueReusableCell(withIdentifier: "AvatarCell", for: indexPath)
-            AvatarCell.textLabel?.text = "This is Avatar Cell."
-            return AvatarCell
+            let avatarCell = tableView.dequeueReusableCell(withIdentifier: "AvatarCell", for: indexPath)
+            avatarCell.textLabel?.text = "This is Avatar Cell."
+            return avatarCell
         case 2:
-            let ACell = tableView.dequeueReusableCell(withIdentifier: "ACell", for: indexPath)
-            ACell.textLabel?.text = "This is A Cell."
-            return ACell
+            let aCell = tableView.dequeueReusableCell(withIdentifier: "ACell", for: indexPath)
+            aCell.textLabel?.text = ACellList[indexPath.row]
+            return aCell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BlankCell0", for: indexPath)
             return cell
