@@ -11,7 +11,6 @@
 		7E5121022199C90B00DE06B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121002199C90B00DE06B3 /* Main.storyboard */; };
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
 		7E5121072199C90C00DE06B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121052199C90C00DE06B3 /* LaunchScreen.storyboard */; };
-		7E51210F2199CD3F00DE06B3 /* Mine-TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E51210E2199CD3F00DE06B3 /* Mine-TableViewController.swift */; };
 		7E5121112199CDE000DE06B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121102199CDE000DE06B3 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -22,7 +21,6 @@
 		7E5121032199C90C00DE06B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E5121062199C90C00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E5121082199C90C00DE06B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7E51210E2199CD3F00DE06B3 /* Mine-TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mine-TableViewController.swift"; sourceTree = "<group>"; };
 		7E5121102199CDE000DE06B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +56,6 @@
 			children = (
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
-				7E51210E2199CD3F00DE06B3 /* Mine-TableViewController.swift */,
 				7E5121032199C90C00DE06B3 /* Assets.xcassets */,
 				7E5121052199C90C00DE06B3 /* LaunchScreen.storyboard */,
 				7E5121082199C90C00DE06B3 /* Info.plist */,
@@ -139,7 +136,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E51210F2199CD3F00DE06B3 /* Mine-TableViewController.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
