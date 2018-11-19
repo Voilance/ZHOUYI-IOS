@@ -18,30 +18,57 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJg-yv-sD2">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0an-D1-dAC">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="JJg-yv-sD2" firstAttribute="leading" secondItem="2e3-ee-k8d" secondAttribute="leading" id="IPZ-Rc-mfu"/>
-                            <constraint firstItem="2e3-ee-k8d" firstAttribute="bottom" secondItem="JJg-yv-sD2" secondAttribute="bottom" id="X8Z-WR-sXS"/>
-                            <constraint firstItem="JJg-yv-sD2" firstAttribute="top" secondItem="2e3-ee-k8d" secondAttribute="top" id="s2R-Ni-Ffw"/>
-                            <constraint firstItem="2e3-ee-k8d" firstAttribute="trailing" secondItem="JJg-yv-sD2" secondAttribute="trailing" id="xKv-Le-pEh"/>
+                            <constraint firstItem="2e3-ee-k8d" firstAttribute="bottom" secondItem="0an-D1-dAC" secondAttribute="bottom" id="Dnq-0j-Upc"/>
+                            <constraint firstItem="2e3-ee-k8d" firstAttribute="trailing" secondItem="0an-D1-dAC" secondAttribute="trailing" id="IYu-gx-bBf"/>
+                            <constraint firstItem="0an-D1-dAC" firstAttribute="leading" secondItem="2e3-ee-k8d" secondAttribute="leading" id="WyX-u7-fLE"/>
+                            <constraint firstItem="0an-D1-dAC" firstAttribute="top" secondItem="2e3-ee-k8d" secondAttribute="top" id="zhS-Dh-8E9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2e3-ee-k8d"/>
                     </view>
                     <navigationItem key="navigationItem" title="周易" id="IsF-FG-vbn">
                         <leftBarButtonItems>
-                            <barButtonItem title="&lt; " id="Wbv-kb-BHs"/>
-                            <barButtonItem title=" &gt;" id="6iG-Gs-ZDt"/>
+                            <barButtonItem title="&lt; " id="Wbv-kb-BHs">
+                                <connections>
+                                    <action selector="goBack:" destination="jts-Yt-aLI" id="z4Z-ad-Fjm"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title=" &gt;" id="6iG-Gs-ZDt">
+                                <connections>
+                                    <action selector="goForward:" destination="jts-Yt-aLI" id="dKk-vx-d5A"/>
+                                </connections>
+                            </barButtonItem>
                         </leftBarButtonItems>
                         <rightBarButtonItems>
-                            <barButtonItem systemItem="refresh" id="XUa-yS-ose"/>
-                            <barButtonItem systemItem="stop" id="WIc-zx-NRx"/>
+                            <barButtonItem systemItem="refresh" id="XUa-yS-ose">
+                                <connections>
+                                    <action selector="reload:" destination="jts-Yt-aLI" id="bgB-MJ-r0C"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="stop" id="WIc-zx-NRx">
+                                <connections>
+                                    <action selector="stopLoading:" destination="jts-Yt-aLI" id="pNc-rf-pdM"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="btGoBack" destination="Wbv-kb-BHs" id="G2T-el-fOV"/>
+                        <outlet property="btGoForward" destination="6iG-Gs-ZDt" id="9fv-UQ-C8a"/>
+                        <outlet property="btReload" destination="XUa-yS-ose" id="qrH-wA-WWF"/>
+                        <outlet property="btStopLoading" destination="WIc-zx-NRx" id="buf-Bu-1tl"/>
+                        <outlet property="webView" destination="0an-D1-dAC" id="ygk-h2-k5t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdB-Bt-LxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
