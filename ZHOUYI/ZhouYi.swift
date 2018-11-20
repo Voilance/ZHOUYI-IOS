@@ -20,9 +20,9 @@ class ZhouYi: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-//        let url = URL(string: "http://120.76.128.110:12510")
-        let url = URL(string: "https://www.baidu.com")
+//         Do any additional setup after loading the view.
+        let url = URL(string: "http://120.76.128.110:12510")
+//        let url = URL(string: "https://www.baidu.com")
         let request = URLRequest(url: url!)
         webView.load(request)
     }

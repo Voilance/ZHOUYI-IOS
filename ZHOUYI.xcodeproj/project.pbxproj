@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		181D3F2121A196F000DB90E3 /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2021A196F000DB90E3 /* Mine.swift */; };
+		181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2421A3E4B000DB90E3 /* Yi.swift */; };
 		7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */; };
 		7E5121022199C90B00DE06B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121002199C90B00DE06B3 /* Main.storyboard */; };
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		181D3F2021A196F000DB90E3 /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
+		181D3F2421A3E4B000DB90E3 /* Yi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yi.swift; sourceTree = "<group>"; };
 		7E5120F92199C90B00DE06B3 /* ZHOUYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHOUYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E5121012199C90B00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
+				181D3F2421A3E4B000DB90E3 /* Yi.swift */,
 				7E67EF3821A1C73400DCEC56 /* ZhouYi.swift */,
 				181D3F2021A196F000DB90E3 /* Mine.swift */,
 				7E67EF3621A16F9000DCEC56 /* Login.swift */,
@@ -153,6 +156,7 @@
 				181D3F2121A196F000DB90E3 /* Mine.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E67EF3921A1C73400DCEC56 /* ZhouYi.swift in Sources */,
+				181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
