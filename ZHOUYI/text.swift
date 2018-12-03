@@ -1,5 +1,5 @@
 //
-//  Result.swift
+//  text.swift
 //  ZHOUYI
 //
 //  Created by ZHUPF on 2018/12/3.
@@ -8,14 +8,20 @@
 
 import UIKit
 
-class Result: UIViewController {
-
+class text: UIViewController {
+    
+    @IBOutlet weak var stack: UIStackView!
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    func initStackView() {
+        
+    }
 
     /*
     // MARK: - Navigation
