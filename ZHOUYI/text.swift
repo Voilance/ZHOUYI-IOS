@@ -16,6 +16,7 @@ class text: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        label.text = "空" + "\n" + "空";
         // Do any additional setup after loading the view.
     }
     
