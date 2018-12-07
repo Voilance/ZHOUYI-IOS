@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftHTTP
 
 class Register: UIViewController {
 
@@ -16,6 +17,17 @@ class Register: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func onRegister() -> Void {
+        let requestJsonData = ["name": "", "passwd": ""]
+        HTTP.POST("http://120.76.128.110:12510/web/UserSignUp", parameters: requestJsonData) { response in
+            do {
+                let responseJsonData = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
+                let result = responseJsonData.object(forKey: "result")
+            } catch {
+                print(error)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

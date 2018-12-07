@@ -16,9 +16,49 @@
 		7E5121112199CDE000DE06B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121102199CDE000DE06B3 /* Images.xcassets */; };
 		7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67EF3421A1557B00DCEC56 /* Register.swift */; };
 		7E67EF3721A16F9000DCEC56 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67EF3621A16F9000DCEC56 /* Login.swift */; };
+		7E6D28AC21BAD7C800B88A6D /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; };
+		7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E71A04D21B50DDD00FF5CC4 /* Result.swift */; };
 		7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E780CB621AE728000F6B8A3 /* Extension.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7E6D28A821BAD7B700B88A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD901619C8D8B500DD99B6;
+			remoteInfo = SwiftHTTP;
+		};
+		7E6D28AA21BAD7B700B88A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 6BFD902119C8D8B500DD99B6;
+			remoteInfo = SwiftHTTPTests;
+		};
+		7E6D28AE21BAD7C800B88A6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 6BFD901519C8D8B500DD99B6;
+			remoteInfo = SwiftHTTP;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7E6D28B021BAD7C800B88A6D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		181D3F2021A196F000DB90E3 /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
@@ -32,6 +72,7 @@
 		7E5121102199CDE000DE06B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7E67EF3421A1557B00DCEC56 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		7E67EF3621A16F9000DCEC56 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		7E71A04D21B50DDD00FF5CC4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		7E780CB621AE728000F6B8A3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6D28AC21BAD7C800B88A6D /* SwiftHTTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +92,7 @@
 		7E5120F02199C90B00DE06B3 = {
 			isa = PBXGroup;
 			children = (
+				7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */,
 				7E5120FB2199C90B00DE06B3 /* ZHOUYI */,
 				7E5120FA2199C90B00DE06B3 /* Products */,
 			);
@@ -82,6 +125,15 @@
 			path = ZHOUYI;
 			sourceTree = "<group>";
 		};
+		7E6D28A421BAD7B700B88A6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */,
+				7E6D28AB21BAD7B700B88A6D /* SwiftHTTPTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -92,10 +144,12 @@
 				7E5120F52199C90B00DE06B3 /* Sources */,
 				7E5120F62199C90B00DE06B3 /* Frameworks */,
 				7E5120F72199C90B00DE06B3 /* Resources */,
+				7E6D28B021BAD7C800B88A6D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7E6D28AF21BAD7C800B88A6D /* PBXTargetDependency */,
 			);
 			name = ZHOUYI;
 			productName = ZHOUYI;
@@ -128,12 +182,35 @@
 			mainGroup = 7E5120F02199C90B00DE06B3;
 			productRefGroup = 7E5120FA2199C90B00DE06B3 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7E6D28A421BAD7B700B88A6D /* Products */;
+					ProjectRef = 7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7E5120F82199C90B00DE06B3 /* ZHOUYI */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftHTTP.framework;
+			remoteRef = 7E6D28A821BAD7B700B88A6D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E6D28AB21BAD7B700B88A6D /* SwiftHTTPTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SwiftHTTPTests.xctest;
+			remoteRef = 7E6D28AA21BAD7B700B88A6D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7E5120F72199C90B00DE06B3 /* Resources */ = {
@@ -165,6 +242,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7E6D28AF21BAD7C800B88A6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftHTTP;
+			targetProxy = 7E6D28AE21BAD7C800B88A6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7E5121002199C90B00DE06B3 /* Main.storyboard */ = {
@@ -305,6 +390,7 @@
 		7E51210C2199C90C00DE06B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ZHOUYI/Info.plist;
@@ -322,6 +408,7 @@
 		7E51210D2199C90C00DE06B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ZHOUYI/Info.plist;
