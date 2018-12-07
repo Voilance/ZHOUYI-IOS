@@ -17,7 +17,6 @@
 		7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67EF3421A1557B00DCEC56 /* Register.swift */; };
 		7E67EF3721A16F9000DCEC56 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67EF3621A16F9000DCEC56 /* Login.swift */; };
 		7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E71A04D21B50DDD00FF5CC4 /* Result.swift */; };
-		7E71A05821B519B700FF5CC4 /* text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E71A05721B519B700FF5CC4 /* text.swift */; };
 		7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E780CB621AE728000F6B8A3 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		7E67EF3421A1557B00DCEC56 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		7E67EF3621A16F9000DCEC56 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7E71A04D21B50DDD00FF5CC4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		7E71A05721B519B700FF5CC4 /* text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = text.swift; sourceTree = "<group>"; };
 		7E780CB621AE728000F6B8A3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +70,6 @@
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
 				7E71A04D21B50DDD00FF5CC4 /* Result.swift */,
 				7E780CB621AE728000F6B8A3 /* Extension.swift */,
-				7E71A05721B519B700FF5CC4 /* text.swift */,
 				181D3F2421A3E4B000DB90E3 /* Yi.swift */,
 				181D3F2021A196F000DB90E3 /* Mine.swift */,
 				7E67EF3621A16F9000DCEC56 /* Login.swift */,
@@ -159,7 +156,6 @@
 			files = (
 				7E67EF3721A16F9000DCEC56 /* Login.swift in Sources */,
 				7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */,
-				7E71A05821B519B700FF5CC4 /* text.swift in Sources */,
 				7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */,
 				181D3F2121A196F000DB90E3 /* Mine.swift in Sources */,
 				7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */,
