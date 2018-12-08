@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		181D3F2121A196F000DB90E3 /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2021A196F000DB90E3 /* Mine.swift */; };
 		181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2421A3E4B000DB90E3 /* Yi.swift */; };
+		18F10EED21BB783A00119038 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F10EEC21BB783A00119038 /* Test.swift */; };
 		7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */; };
 		7E5121022199C90B00DE06B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121002199C90B00DE06B3 /* Main.storyboard */; };
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		181D3F2021A196F000DB90E3 /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
 		181D3F2421A3E4B000DB90E3 /* Yi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yi.swift; sourceTree = "<group>"; };
+		18F10EEC21BB783A00119038 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		7E5120F92199C90B00DE06B3 /* ZHOUYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHOUYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E5121012199C90B00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
+				18F10EEC21BB783A00119038 /* Test.swift */,
 				7E71A04D21B50DDD00FF5CC4 /* Result.swift */,
 				7E780CB621AE728000F6B8A3 /* Extension.swift */,
 				181D3F2421A3E4B000DB90E3 /* Yi.swift */,
@@ -236,6 +239,7 @@
 				7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */,
 				181D3F2121A196F000DB90E3 /* Mine.swift in Sources */,
 				7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */,
+				18F10EED21BB783A00119038 /* Test.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */,
 			);

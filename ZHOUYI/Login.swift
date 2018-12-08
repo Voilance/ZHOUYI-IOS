@@ -7,14 +7,38 @@
 //
 
 import UIKit
+import SwiftHTTP
 
 class Login: UIViewController {
-
+    
+    // 控件
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    // 控件功能
+    @IBAction func onLogin(_ sender: Any) {
+        let userName = userNameTextField.text
+        let userPassword = userPasswordTextField.text
+        let requestJson = ["name": userName, "password": userPassword]
+        HTTP.POST("http://120.76.128.110:12510/web/UserLogin", parameters: requestJson, requestSerializer: JSONParameterSerializer()) { response in
+            do {
+                let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
+                if let result = responseJson.object(forKey: "result") {
+                    print(result)
+                }
+            } catch {
+                print("onLogin error:")
+                print(error)
+            }
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
     
     // 从“注册”返回
     @IBAction func exitFromRegister(_ segue : UIStoryboardSegue) {}
