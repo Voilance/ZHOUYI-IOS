@@ -31,7 +31,7 @@ class Register: UIViewController {
                     print(responseJson)
                     let result = responseJson.object(forKey: "result") as? String
                     if result == "success" {
-                        GlobalUser.initGlobalUser(inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: nil, inputLogin: false)
+                        GlobalUser.initGlobalUser(inputId: nil, inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: nil, inputLogin: false)
                         
                         DispatchQueue.main.async {
                             self.view.makeToast("注册成功")

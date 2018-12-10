@@ -11,6 +11,7 @@ import Foundation
 class User: NSObject, NSCoding {
     
     // 用户属性
+    var id: Int?
     var name: String?
     var password: String?
     var tel: String?
@@ -21,7 +22,8 @@ class User: NSObject, NSCoding {
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("LOCAL_USER")
     
-    init(inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?, inputLogin: Bool?) {
+    init(inputId: Int?, inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?, inputLogin: Bool?) {
+        self.id = inputId
         self.name = inputName
         self.password = inputPassword
         self.tel = inputTel
@@ -30,6 +32,7 @@ class User: NSObject, NSCoding {
     }
     
     func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "idKey")
         aCoder.encode(name, forKey: "nameKey")
         aCoder.encode(password, forKey: "passwordKey")
         aCoder.encode(tel, forKey: "telKey")
@@ -38,6 +41,7 @@ class User: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        id = aDecoder.decodeObject(forKey: "idKey") as? Int
         name = aDecoder.decodeObject(forKey: "nameKey") as? String
         password = aDecoder.decodeObject(forKey: "passwordKey") as? String
         tel = aDecoder.decodeObject(forKey: "telKey") as? String

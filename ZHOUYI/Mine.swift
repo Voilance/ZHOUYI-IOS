@@ -31,11 +31,17 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         mTableView.delegate = self
         mTableView.dataSource = self
-        avatarButton.imageView?.layer.cornerRadius = avatarButton.frame.width / 2
+        avatarButton.imageView?.layer.cornerRadius = avatarButton.frame.width / 2 // 圆形头像
         setAvatar()
+        GlobalUser.loadGlobalUserData()
+        // 如果现在处于未登录状态且上次退出程序时处于登陆状态，则尝试自动登录
+        if !GlobalUser.online! && GlobalUser.login! {
+            onAutoLogin()
+        }
         // Do any additional setup after loading the view.
     }
     
+    // 根据登陆状态设置头像
     func setAvatar() -> Void {
         if GlobalUser.online == true {
             avatarButton.setImage(UIImage(named: "login_title.png"), for: UIControl.State.normal)
@@ -44,8 +50,48 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    // 尝试自动登录，验证token是否过期
     func onAutoLogin() -> Void {
-        
+        let requestJson = ["id": GlobalUser.id, "token": GlobalUser.token] as [String : Any]
+        HTTP.POST("http://120.76.128.110:12510/web/CheckLogin", parameters: requestJson, requestSerializer: JSONParameterSerializer()) { response in
+            do {
+                let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
+                let result = responseJson.object(forKey: "result") as? String
+                if result == "success" {
+                    self.onLogin()
+                }
+            } catch {
+                print("onAutoLogin:")
+                print(error)
+            }
+        }
+    }
+    
+    // 如果token没过期则登录账号
+    func onLogin() -> Void {
+        let requestJson = ["name": GlobalUser.name, "password": GlobalUser.password]
+        HTTP.POST("http://120.76.128.110:12510/web/UserLogin", parameters: requestJson, requestSerializer: JSONParameterSerializer()) { response in
+            do {
+                let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
+                let result = responseJson.object(forKey: "result") as? String
+                if result == "success" {
+                    let userId = responseJson.object(forKey: "userId") as? Int
+                    let userTel = responseJson.object(forKey: "phone") as? String
+                    let userToken = responseJson.object(forKey: "token") as? String
+                    GlobalUser.initGlobalUser(inputId: userId, inputName: GlobalUser.name, inputPassword: GlobalUser.password, inputTel: userTel, inputToken: userToken, inputLogin: true)
+                    GlobalUser.online = true
+                    GlobalUser.saveGlobalUserData()
+                    
+                    DispatchQueue.main.async {
+                        self.setAvatar()
+                        self.mTableView.reloadData()
+                    }
+                }
+            } catch {
+                print("onLogin error:")
+                print(error)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

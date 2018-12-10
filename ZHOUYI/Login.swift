@@ -26,14 +26,14 @@ class Login: UIViewController {
                 print(responseJson)
                 if let result = responseJson.object(forKey: "result") as? String {
                     if result == "success" {
+                        let userId = responseJson.object(forKey: "userId") as? Int
                         let userTel = responseJson.object(forKey: "phone") as? String
                         let userToken = responseJson.object(forKey: "token") as? String
-                        GlobalUser.initGlobalUser(inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: userToken, inputLogin: true)
+                        GlobalUser.initGlobalUser(inputId: userId, inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: userToken, inputLogin: true)
                         GlobalUser.online = true
                         GlobalUser.saveGlobalUserData()
                         
                         DispatchQueue.main.async {
-                            self.view.makeToast("登陆成功")
                             self.performSegue(withIdentifier: "LoginExitToMine", sender: nil)
                         }
                     }
