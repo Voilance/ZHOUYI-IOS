@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftHTTP
+import ToastSwiftFramework
 
 class Login: UIViewController {
     
@@ -22,8 +23,19 @@ class Login: UIViewController {
         HTTP.POST("http://120.76.128.110:12510/web/UserLogin", parameters: requestJson, requestSerializer: JSONParameterSerializer()) { response in
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
-                if let result = responseJson.object(forKey: "result") {
-                    print(result)
+                print(responseJson)
+                if let result = responseJson.object(forKey: "result") as? String {
+                    if result == "success" {
+                        let userTel = responseJson.object(forKey: "phone") as? String
+                        let userToken = responseJson.object(forKey: "token") as? String
+                        GlobalUser.initGlobalUser(inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: userToken)
+                        GlobalUser.saveGlobalUserData()
+                        
+                        DispatchQueue.main.async {
+                            self.view.makeToast("登陆成功")
+                            self.performSegue(withIdentifier: "LoginExitToMine", sender: nil)
+                        }
+                    }
                 }
             } catch {
                 print("onLogin error:")
@@ -36,12 +48,19 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // 将本地用户数据加载到输入框
+        GlobalUser.loadGlobalUserData() // 只是为了确保加载进来了所以Load多次
+        userNameTextField.text = GlobalUser.name
+        userPasswordTextField.text = GlobalUser.password
         // Do any additional setup after loading the view.
     }
     
     
-    // 从“注册”返回
-    @IBAction func exitFromRegister(_ segue : UIStoryboardSegue) {}
+    // 从“注册”成功注册后返回
+    @IBAction func exitFromRegister(_ segue : UIStoryboardSegue) {
+        userNameTextField.text = GlobalUser.name
+        userPasswordTextField.text = GlobalUser.password
+    }
 
     /*
     // MARK: - Navigation

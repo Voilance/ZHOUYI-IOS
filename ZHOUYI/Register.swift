@@ -8,25 +8,48 @@
 
 import UIKit
 import SwiftHTTP
+import ToastSwiftFramework
 
 class Register: UIViewController {
-
+    
+    // 控件
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userPasswordTextField: UITextField!
+    @IBOutlet weak var comfirmPasswordTextField: UITextField!
+    @IBOutlet weak var userTelTextField: UITextField!
+    // 控件功能
+    @IBAction func onRegister(_ sender: Any) {
+        let userName = userNameTextField.text
+        let userPassword = userPasswordTextField.text
+        let confirmPassword = comfirmPasswordTextField.text
+        let userTel = userTelTextField.text
+        let requestJson = ["name": userName, "passwd": userPassword, "phone": userTel]
+        if userPassword == confirmPassword {
+            HTTP.POST("http://120.76.128.110:12510/web/UserSignUp", parameters: requestJson, requestSerializer: JSONParameterSerializer()) { response in
+                do {
+                    let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
+                    print(responseJson)
+                    let result = responseJson.object(forKey: "result") as? String
+                    if result == "success" {
+                        GlobalUser.initGlobalUser(inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: nil)
+                        
+                        DispatchQueue.main.async {
+                            self.view.makeToast("注册成功")
+                            self.performSegue(withIdentifier: "RegisterExitToLogin", sender: nil)
+                        }
+                    }
+                } catch {
+                    print("onRegister error:")
+                    print(error)
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    
-    func onRegister() -> Void {
-        let requestJsonData = ["name": "", "passwd": ""]
-        HTTP.POST("http://120.76.128.110:12510/web/UserSignUp", parameters: requestJsonData) { response in
-            do {
-                let responseJsonData = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
-                let result = responseJsonData.object(forKey: "result")
-            } catch {
-                print(error)
-            }
-        }
     }
 
     /*

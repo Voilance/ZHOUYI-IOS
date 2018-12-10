@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		181D3F2121A196F000DB90E3 /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2021A196F000DB90E3 /* Mine.swift */; };
 		181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2421A3E4B000DB90E3 /* Yi.swift */; };
-		18F10EED21BB783A00119038 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F10EEC21BB783A00119038 /* Test.swift */; };
+		7E11EF7721BC06C90013F75D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF7621BC06C90013F75D /* User.swift */; };
+		7E11EF7A21BC0A750013F75D /* GlobalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF7921BC0A750013F75D /* GlobalUser.swift */; };
+		7E11EF8621BE06CD0013F75D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; };
+		7E11EF8721BE06CD0013F75D /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E11EF8B21BE0E7E0013F75D /* TestUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF8A21BE0E7E0013F75D /* TestUIViewController.swift */; };
+		7E11EF8F21BE47E70013F75D /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF8E21BE47E70013F75D /* Mine.swift */; };
 		7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */; };
 		7E5121022199C90B00DE06B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121002199C90B00DE06B3 /* Main.storyboard */; };
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
@@ -24,6 +28,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7E11EF8221BE06BD0013F75D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 151796E71BE68E4B004BA6E5;
+			remoteInfo = "Toast-Swift";
+		};
+		7E11EF8421BE06BD0013F75D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2A37434E1CBFAF4B006A3BAB;
+			remoteInfo = ToastSwiftFramework;
+		};
+		7E11EF8821BE06CD0013F75D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 2A37434D1CBFAF4B006A3BAB;
+			remoteInfo = ToastSwiftFramework;
+		};
 		7E6D28A821BAD7B700B88A6D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */;
@@ -55,6 +80,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */,
+				7E11EF8721BE06CD0013F75D /* ToastSwiftFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,9 +88,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		181D3F2021A196F000DB90E3 /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
 		181D3F2421A3E4B000DB90E3 /* Yi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yi.swift; sourceTree = "<group>"; };
-		18F10EEC21BB783A00119038 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		7E11EF7621BC06C90013F75D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7E11EF7921BC0A750013F75D /* GlobalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUser.swift; sourceTree = "<group>"; };
+		7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Toast-Swift.xcodeproj"; path = "Toast-Swift-master/Toast-Swift.xcodeproj"; sourceTree = "<group>"; };
+		7E11EF8A21BE0E7E0013F75D /* TestUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUIViewController.swift; sourceTree = "<group>"; };
+		7E11EF8E21BE47E70013F75D /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
 		7E5120F92199C90B00DE06B3 /* ZHOUYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHOUYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E5121012199C90B00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,15 +114,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E6D28AC21BAD7C800B88A6D /* SwiftHTTP.framework in Frameworks */,
+				7E11EF8621BE06CD0013F75D /* ToastSwiftFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E11EF7E21BE06BC0013F75D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7E11EF8321BE06BD0013F75D /* Toast-Swift.app */,
+				7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		7E5120F02199C90B00DE06B3 = {
 			isa = PBXGroup;
 			children = (
+				7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */,
 				7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */,
 				7E5120FB2199C90B00DE06B3 /* ZHOUYI */,
 				7E5120FA2199C90B00DE06B3 /* Products */,
@@ -111,13 +151,15 @@
 		7E5120FB2199C90B00DE06B3 /* ZHOUYI */ = {
 			isa = PBXGroup;
 			children = (
+				7E11EF8E21BE47E70013F75D /* Mine.swift */,
+				7E11EF8A21BE0E7E0013F75D /* TestUIViewController.swift */,
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
-				18F10EEC21BB783A00119038 /* Test.swift */,
+				7E11EF7621BC06C90013F75D /* User.swift */,
+				7E11EF7921BC0A750013F75D /* GlobalUser.swift */,
 				7E71A04D21B50DDD00FF5CC4 /* Result.swift */,
 				7E780CB621AE728000F6B8A3 /* Extension.swift */,
 				181D3F2421A3E4B000DB90E3 /* Yi.swift */,
-				181D3F2021A196F000DB90E3 /* Mine.swift */,
 				7E67EF3621A16F9000DCEC56 /* Login.swift */,
 				7E67EF3421A1557B00DCEC56 /* Register.swift */,
 				7E5121032199C90C00DE06B3 /* Assets.xcassets */,
@@ -153,6 +195,7 @@
 			);
 			dependencies = (
 				7E6D28AF21BAD7C800B88A6D /* PBXTargetDependency */,
+				7E11EF8921BE06CD0013F75D /* PBXTargetDependency */,
 			);
 			name = ZHOUYI;
 			productName = ZHOUYI;
@@ -190,6 +233,10 @@
 					ProductGroup = 7E6D28A421BAD7B700B88A6D /* Products */;
 					ProjectRef = 7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */;
 				},
+				{
+					ProductGroup = 7E11EF7E21BE06BC0013F75D /* Products */;
+					ProjectRef = 7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -199,6 +246,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		7E11EF8321BE06BD0013F75D /* Toast-Swift.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Toast-Swift.app";
+			remoteRef = 7E11EF8221BE06BD0013F75D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ToastSwiftFramework.framework;
+			remoteRef = 7E11EF8421BE06BD0013F75D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -234,13 +295,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E11EF8B21BE0E7E0013F75D /* TestUIViewController.swift in Sources */,
 				7E67EF3721A16F9000DCEC56 /* Login.swift in Sources */,
+				7E11EF7A21BC0A750013F75D /* GlobalUser.swift in Sources */,
 				7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */,
 				7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */,
-				181D3F2121A196F000DB90E3 /* Mine.swift in Sources */,
 				7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */,
-				18F10EED21BB783A00119038 /* Test.swift in Sources */,
+				7E11EF7721BC06C90013F75D /* User.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
+				7E11EF8F21BE47E70013F75D /* Mine.swift in Sources */,
 				181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +311,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7E11EF8921BE06CD0013F75D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ToastSwiftFramework;
+			targetProxy = 7E11EF8821BE06CD0013F75D /* PBXContainerItemProxy */;
+		};
 		7E6D28AF21BAD7C800B88A6D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwiftHTTP;
