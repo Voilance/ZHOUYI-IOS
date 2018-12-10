@@ -28,7 +28,8 @@ class Login: UIViewController {
                     if result == "success" {
                         let userTel = responseJson.object(forKey: "phone") as? String
                         let userToken = responseJson.object(forKey: "token") as? String
-                        GlobalUser.initGlobalUser(inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: userToken)
+                        GlobalUser.initGlobalUser(inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: userToken, inputLogin: true)
+                        GlobalUser.online = true
                         GlobalUser.saveGlobalUserData()
                         
                         DispatchQueue.main.async {

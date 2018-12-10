@@ -15,16 +15,18 @@ class User: NSObject, NSCoding {
     var password: String?
     var tel: String?
     var token: String?
+    var login: Bool?
     
     // 存在本地的用户信息
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("LOCAL_USER")
     
-    init(inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?) {
+    init(inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?, inputLogin: Bool?) {
         self.name = inputName
         self.password = inputPassword
         self.tel = inputTel
         self.token = inputToken
+        self.login = inputLogin
     }
     
     func encode(with aCoder: NSCoder) {
@@ -32,6 +34,7 @@ class User: NSObject, NSCoding {
         aCoder.encode(password, forKey: "passwordKey")
         aCoder.encode(tel, forKey: "telKey")
         aCoder.encode(token, forKey: "tokenKey")
+        aCoder.encode(login, forKey: "loginKey")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,5 +42,6 @@ class User: NSObject, NSCoding {
         password = aDecoder.decodeObject(forKey: "passwordKey") as? String
         tel = aDecoder.decodeObject(forKey: "telKey") as? String
         token = aDecoder.decodeObject(forKey: "tokenKey") as? String
+        login = aDecoder.decodeObject(forKey: "loginKey") as? Bool
     }
 }

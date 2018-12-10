@@ -15,6 +15,8 @@ class GlobalUser: NSObject {
     static var password: String? = ""
     static var tel: String? = ""
     static var token: String? = ""
+    static var login: Bool? = false
+    static var online: Bool? = false
     
     static func getGlobalUserName() -> String? {
         return self.name
@@ -40,18 +42,31 @@ class GlobalUser: NSObject {
     static func setGlobalUserToken(inputToken: String?) -> Void {
         self.token = inputToken
     }
+    static func getGlobalUserLogin() -> Bool? {
+        return self.login
+    }
+    static func setGlobalUserLogin(inputLogin: Bool?) -> Void {
+        self.login = inputLogin
+    }
+    static func getGlobalUserOnline() -> Bool? {
+        return self.online
+    }
+    static func setGlobalUserOnline(inputOnline: Bool?) -> Void {
+        self.online = inputOnline
+    }
     
     // “初始化”全局用户属性
-    static func initGlobalUser(inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?) -> Void {
+    static func initGlobalUser(inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?, inputLogin: Bool?) -> Void {
         setGlobalUserName(inputName: inputName)
         setGlobalUserPassword(inputPassword: inputPassword)
         setGlobalUserTel(inputTel: inputTel)
         setGlobalUserToken(inputToken: inputToken)
+        setGlobalUserLogin(inputLogin: inputLogin)
     }
     
     // 保存用户数据
     static func saveGlobalUserData() -> Void {
-        let user: User = User(inputName: self.name, inputPassword: self.password, inputTel: self.tel, inputToken: self.token)
+        let user: User = User(inputName: self.name, inputPassword: self.password, inputTel: self.tel, inputToken: self.token, inputLogin: self.login)
         let saveSucceed = NSKeyedArchiver.archiveRootObject(user, toFile: User.ArchiveURL.path)
         if !saveSucceed {
             print("Save Global User Data failed!")
@@ -61,7 +76,7 @@ class GlobalUser: NSObject {
     // 读取用户数据
     static func loadGlobalUserData() -> Void {
         if let user = NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User {
-            initGlobalUser(inputName: user.name, inputPassword: user.password, inputTel: user.tel, inputToken: user.token)
+            initGlobalUser(inputName: user.name, inputPassword: user.password, inputTel: user.tel, inputToken: user.token, inputLogin: user.login)
         }
     }
 }
