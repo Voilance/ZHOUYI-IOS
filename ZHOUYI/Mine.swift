@@ -42,7 +42,6 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
         } else {
             avatarButton.setImage(UIImage(named: "defult_head.png"), for: UIControl.State.normal)
         }
-        print("haha")
     }
     
     func onAutoLogin() -> Void {
@@ -81,8 +80,12 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
             self.view.makeToast(optionList[2])
         case 3:
             self.view.makeToast(optionList[3])
-        case 4:
-            self.view.makeToast(optionList[4])
+        case 4: // 退出登录
+            GlobalUser.setGlobalUserLogin(inputLogin: false)
+            GlobalUser.setGlobalUserOnline(inputOnline: false)
+            GlobalUser.saveGlobalUserData()
+            setAvatar()
+            mTableView.reloadData()
         default:
             break
         }
