@@ -26,7 +26,40 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var guaXiangLabel6: UILabel!
     // 控件功能
     @IBAction func guaXiangButton1PickGuaXiang(_ sender: Any) {
-        pickGuaXiang(inputRow: 0)
+        pickGuaXiang(inputRow: 1)
+    }
+    @IBAction func guaXiangButton2PickGuaXiang(_ sender: Any) {
+        pickGuaXiang(inputRow: 2)
+    }
+    @IBAction func guaXiangButton3PickGuaXiang(_ sender: Any) {
+        pickGuaXiang(inputRow: 3)
+    }
+    @IBAction func guaXiangButton4PickGuaXiang(_ sender: Any) {
+        pickGuaXiang(inputRow: 4)
+    }
+    @IBAction func guaXiangButton5PickGuaXiang(_ sender: Any) {
+        pickGuaXiang(inputRow: 5)
+    }
+    @IBAction func guaXiangButton6PickGuaXiang(_ sender: Any) {
+        pickGuaXiang(inputRow: 6)
+    }
+    @IBAction func getRandomGuaXiang1(_ sender: Any) {
+        pickRandomGuaXiang(inputRow: 1)
+    }
+    @IBAction func getRandomGuaXiang2(_ sender: Any) {
+        pickRandomGuaXiang(inputRow: 2)
+    }
+    @IBAction func getRandomGuaXiang3(_ sender: Any) {
+        pickRandomGuaXiang(inputRow: 3)
+    }
+    @IBAction func getRandomGuaXiang4(_ sender: Any) {
+        pickRandomGuaXiang(inputRow: 4)
+    }
+    @IBAction func getRandomGuaXiang5(_ sender: Any) {
+        pickRandomGuaXiang(inputRow: 5)
+    }
+    @IBAction func pickRandomGuaXiang6(_ sender: Any) {
+        pickRandomGuaXiang(inputRow: 6)
     }
     
     var guaXiangPickerView: UIPickerView!
@@ -36,7 +69,9 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UIApplication.shared.applicationSupportsShakeToEdit = true
+        self.becomeFirstResponder()
+        
         guaXiangPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 270, height: 120))
         guaXiangPickerView.delegate = self
         guaXiangPickerView.dataSource = self
@@ -48,9 +83,29 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let YAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let row = self.guaXiangPickerView.selectedRow(inComponent: 0)
             switch inputRow {
-            case 0:
+            case 1:
                 self.guaXiangButton1.setImage(self.guaXiangAList[row], for: UIControl.State.normal)
                 self.guaXiangLabel1.text = self.guaXiangNameList[row]
+                break;
+            case 2:
+                self.guaXiangButton2.setImage(self.guaXiangAList[row], for: UIControl.State.normal)
+                self.guaXiangLabel2.text = self.guaXiangNameList[row]
+                break;
+            case 3:
+                self.guaXiangButton3.setImage(self.guaXiangAList[row], for: UIControl.State.normal)
+                self.guaXiangLabel3.text = self.guaXiangNameList[row]
+                break;
+            case 4:
+                self.guaXiangButton4.setImage(self.guaXiangAList[row], for: UIControl.State.normal)
+                self.guaXiangLabel4.text = self.guaXiangNameList[row]
+                break;
+            case 5:
+                self.guaXiangButton5.setImage(self.guaXiangAList[row], for: UIControl.State.normal)
+                self.guaXiangLabel5.text = self.guaXiangNameList[row]
+                break;
+            case 6:
+                self.guaXiangButton6.setImage(self.guaXiangAList[row], for: UIControl.State.normal)
+                self.guaXiangLabel6.text = self.guaXiangNameList[row]
                 break;
             default:
                 break;
@@ -61,6 +116,44 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         alert.addAction(YAction)
         alert.addAction(NAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func pickRandomGuaXiang(inputRow: Int) -> Void {
+        let randomNum = Int.random(in: 0..<4)
+        switch inputRow {
+        case 1:
+            self.guaXiangButton1.setImage(self.guaXiangAList[randomNum], for: UIControl.State.normal)
+            self.guaXiangLabel1.text = self.guaXiangNameList[randomNum]
+            break;
+        case 2:
+            self.guaXiangButton2.setImage(self.guaXiangAList[randomNum], for: UIControl.State.normal)
+            self.guaXiangLabel2.text = self.guaXiangNameList[randomNum]
+            break;
+        case 3:
+            self.guaXiangButton3.setImage(self.guaXiangAList[randomNum], for: UIControl.State.normal)
+            self.guaXiangLabel3.text = self.guaXiangNameList[randomNum]
+            break;
+        case 4:
+            self.guaXiangButton4.setImage(self.guaXiangAList[randomNum], for: UIControl.State.normal)
+            self.guaXiangLabel4.text = self.guaXiangNameList[randomNum]
+            break;
+        case 5:
+            self.guaXiangButton5.setImage(self.guaXiangAList[randomNum], for: UIControl.State.normal)
+            self.guaXiangLabel5.text = self.guaXiangNameList[randomNum]
+            break;
+        case 6:
+            self.guaXiangButton6.setImage(self.guaXiangAList[randomNum], for: UIControl.State.normal)
+            self.guaXiangLabel6.text = self.guaXiangNameList[randomNum]
+            break;
+        default:
+            break;
+        }
+    }
+    
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        for i in 1..<7 {
+            pickRandomGuaXiang(inputRow: i)
+        }
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
