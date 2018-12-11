@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2421A3E4B000DB90E3 /* Yi.swift */; };
+		182962E721BF700A005A4144 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182962E621BF700A005A4144 /* Reason.swift */; };
 		7E11EF7721BC06C90013F75D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF7621BC06C90013F75D /* User.swift */; };
 		7E11EF7A21BC0A750013F75D /* GlobalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF7921BC0A750013F75D /* GlobalUser.swift */; };
 		7E11EF8621BE06CD0013F75D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; };
@@ -89,6 +90,7 @@
 
 /* Begin PBXFileReference section */
 		181D3F2421A3E4B000DB90E3 /* Yi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yi.swift; sourceTree = "<group>"; };
+		182962E621BF700A005A4144 /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
 		7E11EF7621BC06C90013F75D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7E11EF7921BC0A750013F75D /* GlobalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUser.swift; sourceTree = "<group>"; };
 		7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Toast-Swift.xcodeproj"; path = "Toast-Swift-master/Toast-Swift.xcodeproj"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				7E11EF8A21BE0E7E0013F75D /* TestUIViewController.swift */,
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
+				182962E621BF700A005A4144 /* Reason.swift */,
 				7E11EF7621BC06C90013F75D /* User.swift */,
 				7E11EF7921BC0A750013F75D /* GlobalUser.swift */,
 				7E71A04D21B50DDD00FF5CC4 /* Result.swift */,
@@ -298,6 +301,7 @@
 				7E11EF8B21BE0E7E0013F75D /* TestUIViewController.swift in Sources */,
 				7E67EF3721A16F9000DCEC56 /* Login.swift in Sources */,
 				7E11EF7A21BC0A750013F75D /* GlobalUser.swift in Sources */,
+				182962E721BF700A005A4144 /* Reason.swift in Sources */,
 				7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */,
 				7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */,
 				7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */,
