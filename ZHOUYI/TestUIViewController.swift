@@ -7,15 +7,37 @@
 //
 
 import UIKit
+import ToastSwiftFramework
 
-class TestUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TestUIViewController: UIViewController {
     
+    @IBOutlet weak var timeLabel: UITextField!
     
-    @IBOutlet weak var mTableView: UITableView!
     @IBAction func onTest(_ sender: Any) {
-        list.append("B")
-        mTableView.reloadData()
         
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
+        datePicker.locale = Locale(identifier: "zh_CN")
+//        datePicker.datePickerMode = UIDatePicker.Mode.date
+        let alertController: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertController.Style.alert)
+        alertController.view.addSubview(datePicker)
+        self.present(alertController, animated: true, completion: nil)
+        
+//        let alertController: UIAlertController = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertController.Style.actionSheet)
+//        let datePicker = UIDatePicker()
+//        datePicker.locale = Locale(identifier: "zh_CN")
+//        alertController.addAction(UIAlertAction(title: "Y", style: UIAlertAction.Style.default, handler: { (UIAlertAction) in
+//            let date = datePicker.date
+//            let format = DateFormatter()
+//            format.dateFormat = "yyyy/MM/dd HH:mm:ss"
+//            let str = format.string(from: date)
+//            self.timeLabel.text = str
+//        }))
+//        alertController.addAction(UIAlertAction(title: "N", style: UIAlertAction.Style.cancel, handler: nil))
+//        alertController.view.addSubview(datePicker)
+//        self.present(alertController, animated: true, completion: nil)
+    }
+    @IBAction func showDatePicker(_ sender: Any) {
+        self.view.makeToast("click")
     }
     
     var list: [String] = [String]()
@@ -23,28 +45,7 @@ class TestUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mTableView.delegate = self
-        mTableView.dataSource = self
-        list.append("A")
         // Do any additional setup after loading the view.
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "this is cell"
-        return cell
     }
 
     /*
@@ -56,5 +57,6 @@ class TestUIViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    
 
 }
