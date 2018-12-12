@@ -27,9 +27,11 @@ class Login: UIViewController {
                 if let result = responseJson.object(forKey: "result") as? String {
                     if result == "success" {
                         let userId = responseJson.object(forKey: "userId") as? Int
+                        let userRealName = responseJson.object(forKey: "realname") as? String
                         let userTel = responseJson.object(forKey: "phone") as? String
+                        let userBirthYM = responseJson.object(forKey: "birthYM") as? String
                         let userToken = responseJson.object(forKey: "token") as? String
-                        GlobalUser.initGlobalUser(inputId: userId, inputName: userName, inputPassword: userPassword, inputTel: userTel, inputToken: userToken, inputLogin: true)
+                        GlobalUser.initGlobalUser(inputId: userId, inputName: userName, inputPassword: userPassword, inputRealName: userRealName, inputTel: userTel, inputBirthYM: userBirthYM, inputToken: userToken, inputLogin: true)
                         GlobalUser.online = true
                         GlobalUser.saveGlobalUserData()
                         

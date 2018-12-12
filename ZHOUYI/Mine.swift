@@ -24,7 +24,7 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    let optionList: [String] = ["设置", "关于", "历史记录", "待定", "退出登录"]
+    let optionList: [String] = ["个人信息", "关于", "历史记录", "退出登录"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
         GlobalUser.loadGlobalUserData()
         // 如果现在处于未登录状态且上次退出程序时处于登陆状态，则尝试自动登录
         if !GlobalUser.online! && GlobalUser.login! {
-            onAutoLogin()
+            onCheckToken()
         }
         // Do any additional setup after loading the view.
     }
@@ -51,14 +51,14 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     // 尝试自动登录，验证token是否过期
-    func onAutoLogin() -> Void {
-        let requestJson = ["id": GlobalUser.id, "token": GlobalUser.token] as [String : Any]
+    func onCheckToken() -> Void {
+        let requestJson = ["id": GlobalUser.id!, "token": GlobalUser.token!] as [String : Any]
         HTTP.POST("http://120.76.128.110:12510/web/CheckLogin", parameters: requestJson, requestSerializer: JSONParameterSerializer()) { response in
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
                 let result = responseJson.object(forKey: "result") as? String
                 if result == "success" {
-                    self.onLogin()
+                    self.onAutoLogin()
                 }
             } catch {
                 print("onAutoLogin:")
@@ -68,7 +68,7 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     // 如果token没过期则登录账号
-    func onLogin() -> Void {
+    func onAutoLogin() -> Void {
         let requestJson = ["name": GlobalUser.name, "password": GlobalUser.password]
         HTTP.POST("http://120.76.128.110:12510/web/UserLogin", parameters: requestJson, requestSerializer: JSONParameterSerializer()) { response in
             do {
@@ -76,9 +76,11 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 let result = responseJson.object(forKey: "result") as? String
                 if result == "success" {
                     let userId = responseJson.object(forKey: "userId") as? Int
+                    let userRealName = responseJson.object(forKey: "realname") as? String
                     let userTel = responseJson.object(forKey: "phone") as? String
+                    let userBirthYM = responseJson.object(forKey: "birthYM") as? String
                     let userToken = responseJson.object(forKey: "token") as? String
-                    GlobalUser.initGlobalUser(inputId: userId, inputName: GlobalUser.name, inputPassword: GlobalUser.password, inputTel: userTel, inputToken: userToken, inputLogin: true)
+                    GlobalUser.initGlobalUser(inputId: userId, inputName: GlobalUser.name, inputPassword: GlobalUser.password, inputRealName: userRealName, inputTel: userTel, inputBirthYM: userBirthYM, inputToken: userToken, inputLogin: true)
                     GlobalUser.online = true
                     GlobalUser.saveGlobalUserData()
                     
@@ -104,7 +106,7 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if GlobalUser.online == true {
-            return 5
+            return 4
         } else {
             return 2
         }
@@ -118,15 +120,13 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case 0:
-            self.view.makeToast(optionList[0])
-        case 1:
+        case 0: // 个人信息
+            self.performSegue(withIdentifier: "MineToInfo", sender: nil)
+        case 1: // 关于
             self.view.makeToast(optionList[1])
-        case 2:
+        case 2: // 历史记录
             self.view.makeToast(optionList[2])
-        case 3:
-            self.view.makeToast(optionList[3])
-        case 4: // 退出登录
+        case 3: // 退出登录
             GlobalUser.setGlobalUserLogin(inputLogin: false)
             GlobalUser.setGlobalUserOnline(inputOnline: false)
             GlobalUser.saveGlobalUserData()

@@ -14,7 +14,9 @@ class GlobalUser: NSObject {
     static var id: Int? = nil
     static var name: String? = nil
     static var password: String? = nil
+    static var realName: String? = nil
     static var tel: String? = nil
+    static var birthYM: String? = nil
     static var token: String? = nil
     static var login: Bool? = false
     static var online: Bool? = false
@@ -37,11 +39,23 @@ class GlobalUser: NSObject {
     static func setGlobalUserPassword(inputPassword: String?) -> Void {
         self.password = inputPassword
     }
+    static func getGlobalUserRealName() -> String? {
+        return self.realName
+    }
+    static func setGlobalUserRealName(inputRealName: String?) -> Void {
+        self.realName = inputRealName
+    }
     static func getGlobalUserTel() -> String? {
         return self.tel
     }
     static func setGlobalUserTel(inputTel: String?) -> Void {
         self.tel = inputTel
+    }
+    static func getGlobalUserBirthYM() -> String? {
+        return self.birthYM
+    }
+    static func setGlobalUserBirthYM(inputBirthYM: String?) -> Void {
+        self.birthYM = inputBirthYM
     }
     static func getGlobalUserToken() -> String? {
         return self.token
@@ -63,18 +77,20 @@ class GlobalUser: NSObject {
     }
     
     // “初始化”全局用户属性
-    static func initGlobalUser(inputId: Int?, inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?, inputLogin: Bool?) -> Void {
+    static func initGlobalUser(inputId: Int?, inputName: String?, inputPassword: String?, inputRealName: String?, inputTel: String?, inputBirthYM: String?, inputToken: String?, inputLogin: Bool?) -> Void {
         setGlobalUserID(inputId: inputId)
         setGlobalUserName(inputName: inputName)
         setGlobalUserPassword(inputPassword: inputPassword)
+        setGlobalUserRealName(inputRealName: inputRealName)
         setGlobalUserTel(inputTel: inputTel)
+        setGlobalUserBirthYM(inputBirthYM: inputBirthYM)
         setGlobalUserToken(inputToken: inputToken)
         setGlobalUserLogin(inputLogin: inputLogin)
     }
     
     // 保存用户数据
     static func saveGlobalUserData() -> Void {
-        let user: User = User(inputId: self.id, inputName: self.name, inputPassword: self.password, inputTel: self.tel, inputToken: self.token, inputLogin: self.login)
+        let user: User = User(inputId: self.id, inputName: self.name, inputPassword: self.password, inputRealName: self.realName, inputTel: self.tel, inputBirthYM: self.birthYM, inputToken: self.token, inputLogin: self.login)
         let saveSucceed = NSKeyedArchiver.archiveRootObject(user, toFile: User.ArchiveURL.path)
         if !saveSucceed {
             print("Save Global User Data failed!")
@@ -84,7 +100,7 @@ class GlobalUser: NSObject {
     // 读取用户数据
     static func loadGlobalUserData() -> Void {
         if let user = NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User {
-            initGlobalUser(inputId: user.id, inputName: user.name, inputPassword: user.password, inputTel: user.tel, inputToken: user.token, inputLogin: user.login)
+            initGlobalUser(inputId: user.id, inputName: user.name, inputPassword: user.password, inputRealName: user.realName, inputTel: user.tel, inputBirthYM: user.birthYM, inputToken: user.token, inputLogin: user.login)
         }
     }
 }

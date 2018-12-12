@@ -14,7 +14,9 @@ class User: NSObject, NSCoding {
     var id: Int?
     var name: String?
     var password: String?
+    var realName: String?
     var tel: String?
+    var birthYM: String?
     var token: String?
     var login: Bool?
     
@@ -22,11 +24,13 @@ class User: NSObject, NSCoding {
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("LOCAL_USER")
     
-    init(inputId: Int?, inputName: String?, inputPassword: String?, inputTel: String?, inputToken: String?, inputLogin: Bool?) {
+    init(inputId: Int?, inputName: String?, inputPassword: String?, inputRealName: String?, inputTel: String?, inputBirthYM: String?, inputToken: String?, inputLogin: Bool?) {
         self.id = inputId
         self.name = inputName
         self.password = inputPassword
+        self.realName = inputRealName
         self.tel = inputTel
+        self.birthYM = inputBirthYM
         self.token = inputToken
         self.login = inputLogin
     }
@@ -35,7 +39,9 @@ class User: NSObject, NSCoding {
         aCoder.encode(id, forKey: "idKey")
         aCoder.encode(name, forKey: "nameKey")
         aCoder.encode(password, forKey: "passwordKey")
+        aCoder.encode(realName, forKey: "realNameKey")
         aCoder.encode(tel, forKey: "telKey")
+        aCoder.encode(birthYM, forKey: "birthYMKey")
         aCoder.encode(token, forKey: "tokenKey")
         aCoder.encode(login, forKey: "loginKey")
     }
@@ -44,7 +50,9 @@ class User: NSObject, NSCoding {
         id = aDecoder.decodeObject(forKey: "idKey") as? Int
         name = aDecoder.decodeObject(forKey: "nameKey") as? String
         password = aDecoder.decodeObject(forKey: "passwordKey") as? String
+        realName = aDecoder.decodeObject(forKey: "realNameKey") as? String
         tel = aDecoder.decodeObject(forKey: "telKey") as? String
+        birthYM = aDecoder.decodeObject(forKey: "birthYMKey") as? String
         token = aDecoder.decodeObject(forKey: "tokenKey") as? String
         login = aDecoder.decodeObject(forKey: "loginKey") as? Bool
     }

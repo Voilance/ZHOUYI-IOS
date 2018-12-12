@@ -12,6 +12,7 @@ import ToastSwiftFramework
 class TestUIViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var timeLabel: UITextField!
+    @IBOutlet weak var label: UILabel!
     
     @IBAction func onTest(_ sender: Any) {
         

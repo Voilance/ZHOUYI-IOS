@@ -27,6 +27,7 @@
 		7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E71A04D21B50DDD00FF5CC4 /* Result.swift */; };
 		7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E780CB621AE728000F6B8A3 /* Extension.swift */; };
+		7EC7D7A621C106A0008F86CE /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7D7A521C106A0008F86CE /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		7E71A04D21B50DDD00FF5CC4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		7E780CB621AE728000F6B8A3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		7EC7D7A521C106A0008F86CE /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 				188358DD21BFE009009E8D38 /* GuaXiang.swift */,
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
+				7EC7D7A521C106A0008F86CE /* UserInfo.swift */,
 				182962E621BF700A005A4144 /* Reason.swift */,
 				7E11EF7621BC06C90013F75D /* User.swift */,
 				7E11EF7921BC0A750013F75D /* GlobalUser.swift */,
@@ -309,6 +312,7 @@
 				7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */,
 				7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */,
 				7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */,
+				7EC7D7A621C106A0008F86CE /* UserInfo.swift in Sources */,
 				7E11EF7721BC06C90013F75D /* User.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E11EF8F21BE47E70013F75D /* Mine.swift in Sources */,
