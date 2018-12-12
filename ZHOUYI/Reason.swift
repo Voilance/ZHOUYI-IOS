@@ -18,7 +18,7 @@ class Reason: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
         datePicker.locale = Locale(identifier: "zh_CN")
         datePicker.datePickerMode = UIDatePicker.Mode.date
-        let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
         let YAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "yyyy年MM月dd日"
