@@ -9,64 +9,39 @@
 import UIKit
 import ToastSwiftFramework
 
-class TestUIViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class TestUIViewController: UIViewController {
     
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var timeLabel: UITextField!
     @IBOutlet weak var label: UILabel!
     
     @IBAction func onTest(_ sender: Any) {
         
-        let alert: UIAlertController = UIAlertController(title: "\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         
-        let YAction = UIAlertAction(title: "确定", style: .default, handler: { action in
-            
-        })
-        let NAction = UIAlertAction(title: "取消", style: .default, handler: nil)
-        alert.view.addSubview(pv)
-        alert.addAction(YAction)
-        alert.addAction(NAction)
-        self.present(alert, animated: true, completion: nil)
     }
     @IBAction func showDatePicker(_ sender: Any) {
         self.view.makeToast("click")
     }
     
-    var pv: UIPickerView!
-    var list = [UIImage(named: "guaxiang6.jpg"), UIImage(named: "guaxiang7.jpg")]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        pv = UIPickerView()
-        pv.dataSource = self
-        pv.delegate = self
+//        button.titleLabel?.numberOfLines = 0
+        button.setAttributedTitle(fuWenBen(), for: UIControl.State.normal)
         // Do any additional setup after loading the view.
     }
-
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1 // 父母，兄弟，官鬼，子孙，妻财，世，应
-    }
-    // 设置行数
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return list.count
-    }
     
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return 60
+    func fuWenBen() -> NSMutableAttributedString {
+        let ns = NSMutableAttributedString()
+        let a = NSAttributedString.init(string: "a  ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+        let b = NSAttributedString.init(string: "b\n", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue])
+        let c = NSAttributedString.init(string: "c  ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.red])
+        let d = NSAttributedString.init(string: "d", attributes: [NSAttributedString.Key.foregroundColor : UIColor.blue])
+        ns.append(a)
+        ns.append(b)
+        ns.append(c)
+        ns.append(d)
+        return ns
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return "hi"
-//    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let image = list[row]
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 260, height: 60))
-        imageView.image = list[row]
-        
-        return imageView
-    }
-    
     
     /*
     // MARK: - Navigation
