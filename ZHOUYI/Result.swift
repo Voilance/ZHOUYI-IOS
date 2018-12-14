@@ -34,6 +34,13 @@ class Result: UIViewController {
     @IBOutlet weak var ShiYing3: UILabel!
     @IBOutlet weak var ShiYing4: UILabel!
     @IBOutlet weak var ShiYing5: UILabel!
+    // 装卦
+    @IBOutlet weak var ZhuangGua0: UIButton!
+    @IBOutlet weak var ZhuangGua1: UIButton!
+    @IBOutlet weak var ZhuangGua2: UIButton!
+    @IBOutlet weak var ZhuangGua3: UIButton!
+    @IBOutlet weak var ZhuangGua4: UIButton!
+    @IBOutlet weak var ZhuangGua5: UIButton!
     // 变卦
     @IBOutlet weak var BianGua0: UIButton!
     @IBOutlet weak var BianGua1: UIButton!
@@ -113,6 +120,28 @@ class Result: UIViewController {
     @IBOutlet weak var BianYao3: UILabel!
     @IBOutlet weak var BianYao4: UILabel!
     // 控件功能
+    // 装卦数据轮流显示
+    @IBAction func onZhuangGuaShowInTurn(_ sender: Any) {
+        zhuangGuaDataShowInTurn()
+    }
+    @IBAction func onZhuangGuaShowInTurn0(_ sender: Any) {
+        zhuangGuaDataShowInTurn()
+    }
+    @IBAction func onZhuangGuaShowInTurn1(_ sender: Any) {
+        zhuangGuaDataShowInTurn()
+    }
+    @IBAction func onZhuangGuaShowInTurn2(_ sender: Any) {
+        zhuangGuaDataShowInTurn()
+    }
+    @IBAction func onZhuangGuaShowInTurn3(_ sender: Any) {
+        zhuangGuaDataShowInTurn()
+    }
+    @IBAction func onZhuangGuaShowInTurn4(_ sender: Any) {
+        zhuangGuaDataShowInTurn()
+    }
+    @IBAction func onZhuangGuaShowInTurn5(_ sender: Any) {
+        zhuangGuaDataShowInTurn()
+    }
     // 变卦显示全部或部分
     @IBAction func onBianGuaShowAllOrNot(_ sender: Any) {
         bianGuaDataShowAllOrNot()
@@ -168,6 +197,15 @@ class Result: UIViewController {
     var reason: String = ""
     // 亲表
     var qinTable: [String] = [String]()
+    // 装卦区数据
+    var zhuangGuaTianGan: [String] = [String]()
+    var zhuangGuaDiZhi: [String] = [String]()
+    var zhuangGuaWuXing: [String] = [String]()
+    var zhuangGuaL1: [String] = [String]()
+    var zhuangGuaL2: [String] = [String]()
+    var zhuangGuaKong: [String] = ["", "", "", "", "", ""]
+    var zhuangGuaShowIndex: [Int] = [Int]()
+    var zhuangGuaTurn: Int = 0
     // 变卦区数据
     var bianGuaTianGan: [String] = [String]()
     var bianGuaDiZhi: [String] = [String]()
@@ -290,10 +328,30 @@ class Result: UIViewController {
     func onInitZhuangGuaTable(inputJson: AnyObject) -> Void {
         let basicData = inputJson.object(forKey: "basicData") as AnyObject
         if let index = inputJson.object(forKey: "showIndex") as? [Int] {
-            print(index)
+            zhuangGuaShowIndex = index
         }
+        if let index = inputJson.object(forKey: "kongIndex") as? [Int] {
+            for i in index {
+                zhuangGuaKong[i] = "空"
+            }
+        }
+        // 处理装卦列
+        // 天干
+        var str = fuckYouString(inputString: basicData.object(forKey: "heavenly_stems") as! String)
+        zhuangGuaTianGan = str.components(separatedBy: ",")
+        // 地支
+        str = fuckYouString(inputString: basicData.object(forKey: "earthly_branches") as! String)
+        zhuangGuaDiZhi = str.components(separatedBy: ",")
+        // 五行
+        str = fuckYouString(inputString: basicData.object(forKey: "five_elements") as! String)
+        zhuangGuaWuXing = str.components(separatedBy: ",")
+        // 轮转第二列
+        zhuangGuaL1 = inputJson.object(forKey: "column2") as! [String]
+        // 轮转第三列
+        zhuangGuaL2 = inputJson.object(forKey: "column3") as! [String]
+        zhuangGuaDataShowInTurn()
         // 处理六亲列
-        var str = fuckYouString(inputString: basicData.object(forKey: "six_relatives") as! String)
+        str = fuckYouString(inputString: basicData.object(forKey: "six_relatives") as! String)
         let LiuQinList: [String] = str.components(separatedBy: ",")
         LiuQin0.text = getVerticalString(inputString: LiuQinList[0])
         LiuQin1.text = getVerticalString(inputString: LiuQinList[1])
@@ -365,6 +423,43 @@ class Result: UIViewController {
         }
         
         onGetGuaXiang()
+    }
+    // 装卦区域数据轮流显示
+    func zhuangGuaDataShowInTurn() -> Void {
+        let AColor: UIColor = UIColor(red: 29/255, green: 27/255, blue: 116/255, alpha: 1)
+        let BColor: UIColor = UIColor(red: 33/255, green: 129/255, blue: 53/255, alpha: 1)
+        let CColor: UIColor = UIColor(red: 134/255, green: 0, blue: 0, alpha: 1)
+        switch zhuangGuaTurn {
+        case 0:
+            ZhuangGua0.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[0], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaWuXing[0], inputCColor: CColor, inputD: zhuangGuaKong[0]), for: .normal)
+            ZhuangGua1.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[1], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaWuXing[1], inputCColor: CColor, inputD: zhuangGuaKong[1]), for: .normal)
+            ZhuangGua2.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[2], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaWuXing[2], inputCColor: CColor, inputD: zhuangGuaKong[2]), for: .normal)
+            ZhuangGua3.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[3], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaWuXing[3], inputCColor: CColor, inputD: zhuangGuaKong[3]), for: .normal)
+            ZhuangGua4.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[4], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaWuXing[4], inputCColor: CColor, inputD: zhuangGuaKong[4]), for: .normal)
+            ZhuangGua5.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[5], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaWuXing[5], inputCColor: CColor, inputD: zhuangGuaKong[5]), for: .normal)
+            zhuangGuaTurn = 1
+            break
+        case 1:
+            ZhuangGua0.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[0], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaL1[0], inputCColor: CColor, inputD: zhuangGuaKong[0]), for: .normal)
+            ZhuangGua1.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[1], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaL1[1], inputCColor: CColor, inputD: zhuangGuaKong[1]), for: .normal)
+            ZhuangGua2.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[2], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaL1[2], inputCColor: CColor, inputD: zhuangGuaKong[2]), for: .normal)
+            ZhuangGua3.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[3], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaL1[3], inputCColor: CColor, inputD: zhuangGuaKong[3]), for: .normal)
+            ZhuangGua4.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[4], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaL1[4], inputCColor: CColor, inputD: zhuangGuaKong[4]), for: .normal)
+            ZhuangGua5.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[5], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaL1[5], inputCColor: CColor, inputD: zhuangGuaKong[5]), for: .normal)
+            zhuangGuaTurn = 2
+            break
+        case 2:
+            ZhuangGua0.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[0], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaL2[0], inputCColor: CColor, inputD: zhuangGuaKong[0]), for: .normal)
+            ZhuangGua1.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[1], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaL2[1], inputCColor: CColor, inputD: zhuangGuaKong[1]), for: .normal)
+            ZhuangGua2.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[2], inputAColor: AColor, inputB: zhuangGuaTianGan[0], inputBColor: BColor, inputC: zhuangGuaL2[2], inputCColor: CColor, inputD: zhuangGuaKong[2]), for: .normal)
+            ZhuangGua3.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[3], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaL2[3], inputCColor: CColor, inputD: zhuangGuaKong[3]), for: .normal)
+            ZhuangGua4.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[4], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaL2[4], inputCColor: CColor, inputD: zhuangGuaKong[4]), for: .normal)
+            ZhuangGua5.setAttributedTitle(getGuaTableFuWenBen(inputA: zhuangGuaDiZhi[5], inputAColor: AColor, inputB: zhuangGuaTianGan[1], inputBColor: BColor, inputC: zhuangGuaL2[5], inputCColor: CColor, inputD: zhuangGuaKong[5]), for: .normal)
+            zhuangGuaTurn = 0
+            break
+        default:
+            break
+        }
     }
     
     // 处理变卦区数据
