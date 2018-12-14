@@ -62,6 +62,11 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         pickRandomGuaXiang(inputRow: 6)
     }
     
+    var Date: String = ""
+    var YongShen: String = ""
+    var Reason: String = ""
+    var GuaXiangList: [Int] = [6, 6, 6, 6, 6, 6]
+    
     var guaXiangPickerView: UIPickerView!
     let guaXiangNameList = ["阴变阳", "阳爻", "阴爻", "阳变阴"]
     let guaXiangAList = [UIImage(named: "GA6"), UIImage(named: "GA7"), UIImage(named: "GA8"), UIImage(named: "GA9")]
@@ -82,6 +87,7 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let alert = UIAlertController(title: "\n\n\n\n\n", message: nil, preferredStyle: UIAlertController.Style.alert)
         let YAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let row = self.guaXiangPickerView.selectedRow(inComponent: 0)
+            self.GuaXiangList[inputRow - 1] = row + 6
             switch inputRow {
             case 1:
                 self.guaXiangButton1.setImage(self.guaXiangAList[row], for: UIControl.State.normal)
@@ -120,6 +126,7 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickRandomGuaXiang(inputRow: Int) -> Void {
         let randomNum = Int.random(in: 0..<4)
+        self.GuaXiangList[inputRow - 1] = randomNum + 6
         switch inputRow {
         case 1:
             self.guaXiangButton1.setImage(self.guaXiangAList[randomNum], for: UIControl.State.normal)
@@ -174,14 +181,19 @@ class GuaXiang: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         return imageView
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "ToResult" {
+            let Result = segue.destination as! Result
+            Result.date = Date
+            Result.reason = Reason
+            Result.yongShen = YongShen
+            Result.guaXiangList = GuaXiangList
+        }
     }
-    */
-
+ 
 }

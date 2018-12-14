@@ -34,6 +34,20 @@ class Result: UIViewController {
     @IBOutlet weak var ShiYing3: UILabel!
     @IBOutlet weak var ShiYing4: UILabel!
     @IBOutlet weak var ShiYing5: UILabel!
+    // 变卦六亲
+    @IBOutlet weak var BianGuaLiuQin0: UILabel!
+    @IBOutlet weak var BianGuaLiuQin1: UILabel!
+    @IBOutlet weak var BianGuaLiuQin2: UILabel!
+    @IBOutlet weak var BianGuaLiuQin3: UILabel!
+    @IBOutlet weak var BianGuaLiuQin4: UILabel!
+    @IBOutlet weak var BianGuaLiuQin5: UILabel!
+    // 伏神六亲
+    @IBOutlet weak var FuShenLiuQin0: UILabel!
+    @IBOutlet weak var FuShenLiuQin1: UILabel!
+    @IBOutlet weak var FuShenLiuQin2: UILabel!
+    @IBOutlet weak var FuShenLiuQin3: UILabel!
+    @IBOutlet weak var FuShenLiuQin4: UILabel!
+    @IBOutlet weak var FuShenLiuQin5: UILabel!
     // 卦象
     @IBOutlet weak var GuaXiang0: UIImageView!
     @IBOutlet weak var GuaXiang1: UIImageView!
@@ -46,13 +60,20 @@ class Result: UIViewController {
     @IBOutlet weak var Month: UILabel!
     @IBOutlet weak var Year: UILabel!
     @IBOutlet weak var Date: UILabel!
+    // 事由
+    @IBOutlet weak var Reason: UILabel!
     // 月
     @IBOutlet weak var Yue: UILabel!
-    @IBOutlet weak var Yue0: UILabel!
-    @IBOutlet weak var Yue1: UILabel!
-    @IBOutlet weak var Yue2: UILabel!
-    @IBOutlet weak var Yue3: UILabel!
-    @IBOutlet weak var Yue4: UILabel!
+    @IBOutlet weak var Attr0: UILabel!
+    @IBOutlet weak var Attr1: UILabel!
+    @IBOutlet weak var Attr2: UILabel!
+    @IBOutlet weak var Attr3: UILabel!
+    @IBOutlet weak var Attr4: UILabel!
+    @IBOutlet weak var WuXing0: UILabel!
+    @IBOutlet weak var WuXing1: UILabel!
+    @IBOutlet weak var WuXing2: UILabel!
+    @IBOutlet weak var WuXing3: UILabel!
+    @IBOutlet weak var WuXing4: UILabel!
     // 亲
     @IBOutlet weak var Qing0: UILabel!
     @IBOutlet weak var Qing1: UILabel!
@@ -77,23 +98,42 @@ class Result: UIViewController {
     @IBOutlet weak var BianYao2: UILabel!
     @IBOutlet weak var BianYao3: UILabel!
     @IBOutlet weak var BianYao4: UILabel!
-    
     // 控件功能
-
+    // 伏神显示全部或部分
+    @IBAction func onFuShenShowAllOrNot(_ sender: Any) {
+        fuShenDataShowAllOrNot()
+    }
+    
     // 起卦日期
     var date: String? = "2019-01-01"
     // 起卦卦象列表
     var guaXiangList: [Int?] = [9, 7, 7, 7, 7, 8]
-    // 六神表
+    // 起卦用神
     var yongShen: String = "世"
+    // 起卦原因
+    var reason: String = ""
     // 亲表
-    var QinTable: [String] = [String]()
+    var qinTable: [String] = [String]()
+    // 变卦区数据
+    var bianGuaTianGan: [String] = [String]()
+    var bianGuaDiZhi: [String] = [String]()
+    var bianGuaWuXing: [String] = [String]()
+    var bianGuaShowIndex: [Int] = [Int]()
+    var bianGuaLiuQin: [String] = [String]()
+    var bianGuaShowAll: Bool = false
+    // 伏神区数据
+    var fuShenTianGan: [String] = [String]()
+    var fuShenDiZhi: [String] = [String]()
+    var fuShenWuXing: [String] = [String]()
+    var fuShenShowIndex: [Int] = [Int]()
+    var fuShenLiuQin: [String] = [String]()
+    var fuShenShowAll: Bool = false
     // 用神对应的六亲的首字
-    var Z: String = "世"
+    var sz: String = "世"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         onGetResult()
         // Do any additional setup after loading the view.
     }
@@ -114,7 +154,10 @@ class Result: UIViewController {
                     self.Month.text = self.getVerticalString(inputString: month)
                     self.Year.text = self.getVerticalString(inputString: year)
                     self.Date.text = self.date
+                    // 初始化月表头
                     self.Yue.text = self.getSubCharacterAsString(inputString: month, inputIndex: 1) + "月"
+                    // 初始化事由
+                    self.Reason.text = self.getVerticalString(inputString: self.reason)
                     // 初始化六神（兽）
                     self.onGetLiuShen(inputDay: self.getSubCharacterAsString(inputString: day, inputIndex: 0))
                 }
@@ -144,6 +187,8 @@ class Result: UIViewController {
                     
                     DispatchQueue.main.async {
                         self.onInitZhuangGuaTable(inputJson: zhuangGuaTable)
+                        self.onInitBianGuaTable(inputJson: bianGuaTable)
+                        self.onInitFuShenTable(inputJson: fuShenTable)
                         self.onInitMonthTable(inputJson: monthTable)
                         self.onInitQingTable(inputJson: qingTable)
                         self.onInitShenTable()
@@ -188,6 +233,9 @@ class Result: UIViewController {
     // 处理装卦区
     func onInitZhuangGuaTable(inputJson: AnyObject) -> Void {
         let basicData = inputJson.object(forKey: "basicData") as AnyObject
+        if let index = inputJson.object(forKey: "showIndex") as? [Int] {
+            print(index)
+        }
         // 处理六亲列
         var str = fuckYouString(inputString: basicData.object(forKey: "six_relatives") as! String)
         let LiuQinList: [String] = str.components(separatedBy: ",")
@@ -255,58 +303,137 @@ class Result: UIViewController {
         }
         // 处理神表
         if yongShen == "世" {
-            Z = getSubCharacterAsString(inputString: LiuQinList[ShiIndex], inputIndex: 0)
+            sz = getSubCharacterAsString(inputString: LiuQinList[ShiIndex], inputIndex: 0)
         } else if yongShen == "用" {
-            Z = getSubCharacterAsString(inputString: LiuQinList[YingIndex], inputIndex: 0)
+            sz = getSubCharacterAsString(inputString: LiuQinList[YingIndex], inputIndex: 0)
         }
         
         onGetGuaXiang()
+    }
+    
+    // 处理变卦区数据
+    func onInitBianGuaTable(inputJson: AnyObject) -> Void {
+        let basicData = inputJson.object(forKey: "basicData") as AnyObject
+        if let index = inputJson.object(forKey: "showIndex") as? [Int] {
+            bianGuaShowIndex = index
+        }
+        // 天干
+        var str = fuckYouString(inputString: basicData.object(forKey: "heavenly_stems") as! String)
+        bianGuaTianGan = str.components(separatedBy: ",")
+        // 地支
+        str = fuckYouString(inputString: basicData.object(forKey: "earthly_branches") as! String)
+        bianGuaDiZhi = str.components(separatedBy: ",")
+        // 五行
+        str = fuckYouString(inputString: basicData.object(forKey: "five_elements") as! String)
+        bianGuaWuXing = str.components(separatedBy: ",")
+        // 六亲
+        str = fuckYouString(inputString: basicData.object(forKey: "six_relatives") as! String)
+        bianGuaLiuQin = str.components(separatedBy: ",")
+    }
+    
+    // 处理伏神区数据
+    func onInitFuShenTable(inputJson: AnyObject) -> Void {
+        let basicData = inputJson.object(forKey: "basicData") as AnyObject
+        if let index = inputJson.object(forKey: "showIndex") as? [Int] {
+            fuShenShowIndex = index
+        }
+        // 天干
+        var str = fuckYouString(inputString: basicData.object(forKey: "heavenly_stems") as! String)
+        fuShenTianGan = str.components(separatedBy: ",")
+        // 地支
+        str = fuckYouString(inputString: basicData.object(forKey: "earthly_branches") as! String)
+        fuShenDiZhi = str.components(separatedBy: ",")
+        // 五行
+        str = fuckYouString(inputString: basicData.object(forKey: "five_elements") as! String)
+        fuShenWuXing = str.components(separatedBy: ",")
+        // 六亲
+        str = fuckYouString(inputString: basicData.object(forKey: "six_relatives") as! String)
+        fuShenLiuQin = str.components(separatedBy: ",")
+        fuShenDataShowAllOrNot()
+    }
+    // 伏神区数据全部或部分显示
+    func fuShenDataShowAllOrNot() -> Void {
+        if fuShenShowAll {
+            FuShenLiuQin0.text = getVerticalString(inputString: fuShenLiuQin[0])
+            FuShenLiuQin1.text = getVerticalString(inputString: fuShenLiuQin[1])
+            FuShenLiuQin2.text = getVerticalString(inputString: fuShenLiuQin[2])
+            FuShenLiuQin3.text = getVerticalString(inputString: fuShenLiuQin[3])
+            FuShenLiuQin4.text = getVerticalString(inputString: fuShenLiuQin[4])
+            FuShenLiuQin5.text = getVerticalString(inputString: fuShenLiuQin[5])
+        } else {
+            FuShenLiuQin0.text = ""
+            FuShenLiuQin1.text = ""
+            FuShenLiuQin2.text = ""
+            FuShenLiuQin3.text = ""
+            FuShenLiuQin4.text = ""
+            FuShenLiuQin5.text = ""
+            for i in fuShenShowIndex {
+                switch (i) {
+                case 0:
+                    FuShenLiuQin0.text = getVerticalString(inputString: fuShenLiuQin[0])
+                    break;
+                case 1:
+                    FuShenLiuQin1.text = getVerticalString(inputString: fuShenLiuQin[1])
+                    break;
+                case 2:
+                    FuShenLiuQin2.text = getVerticalString(inputString: fuShenLiuQin[2])
+                    break;
+                case 3:
+                    FuShenLiuQin3.text = getVerticalString(inputString: fuShenLiuQin[3])
+                    break;
+                case 4:
+                    FuShenLiuQin4.text = getVerticalString(inputString: fuShenLiuQin[4])
+                    break;
+                case 5:
+                    FuShenLiuQin5.text = getVerticalString(inputString: fuShenLiuQin[5])
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+        fuShenShowAll = !fuShenShowAll
     }
     
     func fuckYouString(inputString: String) -> String {
         return inputString.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
     }
     
-    // 处理变卦区
-    func onInitBianGuaTable(inputJson: Any) -> Void {
-        print(inputJson)
-    }
-    
-    // 处理伏神区
-    func onInitFuShenTable(inputJson: Any) -> Void {
-        print(inputJson)
-    }
-    
     // 处理月表
     func onInitMonthTable(inputJson: AnyObject) -> Void {
         let attr:[String] = inputJson.object(forKey: "attr") as! [String]
         let wuXing:[String] = inputJson.object(forKey: "wuxing") as! [String]
-        Yue0.text = attr[0] + wuXing[0]
-        Yue1.text = attr[1] + wuXing[1]
-        Yue2.text = attr[2] + wuXing[2]
-        Yue3.text = attr[3] + wuXing[3]
-        Yue4.text = attr[4] + wuXing[4]
+        Attr0.text = attr[0]
+        Attr1.text = attr[1]
+        Attr2.text = attr[2]
+        Attr3.text = attr[3]
+        Attr4.text = attr[4]
+        WuXing0.text = wuXing[0]
+        WuXing1.text = wuXing[1]
+        WuXing2.text = wuXing[2]
+        WuXing3.text = wuXing[3]
+        WuXing4.text = wuXing[4]
     }
     
     // 处理亲表
     func onInitQingTable(inputJson: Any) -> Void {
-        QinTable = inputJson as![String]
-        Qing0.text = QinTable[0]
-        Qing1.text = QinTable[1]
-        Qing2.text = QinTable[2]
-        Qing3.text = QinTable[3]
-        Qing4.text = QinTable[4]
+        qinTable = inputJson as![String]
+        Qing0.text = qinTable[0]
+        Qing1.text = qinTable[1]
+        Qing2.text = qinTable[2]
+        Qing3.text = qinTable[3]
+        Qing4.text = qinTable[4]
         
         if yongShen == "官鬼" || yongShen == "父母" || yongShen == "兄弟" || yongShen == "子孙" || yongShen == "妻财" {
-            Z = getSubCharacterAsString(inputString: yongShen, inputIndex: 0)
+            sz = getSubCharacterAsString(inputString: yongShen, inputIndex: 0)
         }
     }
     
     // 处理神表
     func onInitShenTable() -> Void {
         var index = 0
-        for i in 0 ..< QinTable.count {
-            if QinTable[i] == Z {
+        for i in 0 ..< qinTable.count {
+            if qinTable[i] == sz {
                 index = i
                 break
             }
