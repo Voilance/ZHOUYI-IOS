@@ -34,6 +34,13 @@ class Result: UIViewController {
     @IBOutlet weak var ShiYing3: UILabel!
     @IBOutlet weak var ShiYing4: UILabel!
     @IBOutlet weak var ShiYing5: UILabel!
+    // 变卦
+    @IBOutlet weak var BianGua0: UIButton!
+    @IBOutlet weak var BianGua1: UIButton!
+    @IBOutlet weak var BianGua2: UIButton!
+    @IBOutlet weak var BianGua3: UIButton!
+    @IBOutlet weak var BianGua4: UIButton!
+    @IBOutlet weak var BianGua5: UIButton!
     // 变卦六亲
     @IBOutlet weak var BianGuaLiuQin0: UILabel!
     @IBOutlet weak var BianGuaLiuQin1: UILabel!
@@ -41,6 +48,13 @@ class Result: UIViewController {
     @IBOutlet weak var BianGuaLiuQin3: UILabel!
     @IBOutlet weak var BianGuaLiuQin4: UILabel!
     @IBOutlet weak var BianGuaLiuQin5: UILabel!
+    // 伏神
+    @IBOutlet weak var FuShen0: UIButton!
+    @IBOutlet weak var FuShen1: UIButton!
+    @IBOutlet weak var FuShen2: UIButton!
+    @IBOutlet weak var FuShen3: UIButton!
+    @IBOutlet weak var FuShen4: UIButton!
+    @IBOutlet weak var FuShen5: UIButton!
     // 伏神六亲
     @IBOutlet weak var FuShenLiuQin0: UILabel!
     @IBOutlet weak var FuShenLiuQin1: UILabel!
@@ -99,8 +113,48 @@ class Result: UIViewController {
     @IBOutlet weak var BianYao3: UILabel!
     @IBOutlet weak var BianYao4: UILabel!
     // 控件功能
+    // 变卦显示全部或部分
+    @IBAction func onBianGuaShowAllOrNot(_ sender: Any) {
+        bianGuaDataShowAllOrNot()
+    }
+    @IBAction func onBianGuaShowAllOrNot0(_ sender: Any) {
+        bianGuaDataShowAllOrNot()
+    }
+    @IBAction func onBianGuaShowAllOrNot1(_ sender: Any) {
+        bianGuaDataShowAllOrNot()
+    }
+    @IBAction func onBianGuaShowAllOrNot2(_ sender: Any) {
+        bianGuaDataShowAllOrNot()
+    }
+    @IBAction func onBianGuaShowAllOrNot3(_ sender: Any) {
+        bianGuaDataShowAllOrNot()
+    }
+    @IBAction func onBianGuaShowAllOrNot4(_ sender: Any) {
+        bianGuaDataShowAllOrNot()
+    }
+    @IBAction func onBianGuaShowAllOrNot5(_ sender: Any) {
+        bianGuaDataShowAllOrNot()
+    }
     // 伏神显示全部或部分
     @IBAction func onFuShenShowAllOrNot(_ sender: Any) {
+        fuShenDataShowAllOrNot()
+    }
+    @IBAction func onFuShenShowAllOrNot0(_ sender: Any) {
+        fuShenDataShowAllOrNot()
+    }
+    @IBAction func onFuShenShowAllOrNot1(_ sender: Any) {
+        fuShenDataShowAllOrNot()
+    }
+    @IBAction func onFuShenShowAllOrNot2(_ sender: Any) {
+        fuShenDataShowAllOrNot()
+    }
+    @IBAction func onFuShenShowAllOrNot3(_ sender: Any) {
+        fuShenDataShowAllOrNot()
+    }
+    @IBAction func onFuShenShowAllOrNot4(_ sender: Any) {
+        fuShenDataShowAllOrNot()
+    }
+    @IBAction func onFuShenShowAllOrNot5(_ sender: Any) {
         fuShenDataShowAllOrNot()
     }
     
@@ -118,6 +172,7 @@ class Result: UIViewController {
     var bianGuaTianGan: [String] = [String]()
     var bianGuaDiZhi: [String] = [String]()
     var bianGuaWuXing: [String] = [String]()
+    var bianGuaKong: [String] = ["", "", "", "", "", ""]
     var bianGuaShowIndex: [Int] = [Int]()
     var bianGuaLiuQin: [String] = [String]()
     var bianGuaShowAll: Bool = false
@@ -125,6 +180,7 @@ class Result: UIViewController {
     var fuShenTianGan: [String] = [String]()
     var fuShenDiZhi: [String] = [String]()
     var fuShenWuXing: [String] = [String]()
+    var fuShenKong: [String] = ["", "", "", "", "", ""]
     var fuShenShowIndex: [Int] = [Int]()
     var fuShenLiuQin: [String] = [String]()
     var fuShenShowAll: Bool = false
@@ -317,6 +373,11 @@ class Result: UIViewController {
         if let index = inputJson.object(forKey: "showIndex") as? [Int] {
             bianGuaShowIndex = index
         }
+        if let index = inputJson.object(forKey: "kongIndex") as? [Int] {
+            for i in index {
+                bianGuaKong[i] = "空"
+            }
+        }
         // 天干
         var str = fuckYouString(inputString: basicData.object(forKey: "heavenly_stems") as! String)
         bianGuaTianGan = str.components(separatedBy: ",")
@@ -329,6 +390,72 @@ class Result: UIViewController {
         // 六亲
         str = fuckYouString(inputString: basicData.object(forKey: "six_relatives") as! String)
         bianGuaLiuQin = str.components(separatedBy: ",")
+        bianGuaDataShowAllOrNot()
+    }
+    // 变卦区数据全部或部分显示
+    func bianGuaDataShowAllOrNot() -> Void {
+        let AColor: UIColor = UIColor(red: 177/255, green: 83/255, blue: 100/255, alpha: 1)
+        let BColor: UIColor = AColor
+        let CColor: UIColor = UIColor.black
+        if bianGuaShowAll {
+            BianGua0.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[0], inputAColor: AColor, inputB: bianGuaTianGan[0], inputBColor: BColor, inputC: bianGuaWuXing[0], inputCColor: CColor, inputD: bianGuaKong[0]), for: .normal)
+            BianGua1.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[1], inputAColor: AColor, inputB: bianGuaTianGan[0], inputBColor: BColor, inputC: bianGuaWuXing[1], inputCColor: CColor, inputD: bianGuaKong[1]), for: .normal)
+            BianGua2.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[2], inputAColor: AColor, inputB: bianGuaTianGan[0], inputBColor: BColor, inputC: bianGuaWuXing[2], inputCColor: CColor, inputD: bianGuaKong[2]), for: .normal)
+            BianGua3.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[3], inputAColor: AColor, inputB: bianGuaTianGan[1], inputBColor: BColor, inputC: bianGuaWuXing[3], inputCColor: CColor, inputD: bianGuaKong[3]), for: .normal)
+            BianGua4.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[4], inputAColor: AColor, inputB: bianGuaTianGan[1], inputBColor: BColor, inputC: bianGuaWuXing[4], inputCColor: CColor, inputD: bianGuaKong[4]), for: .normal)
+            BianGua5.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[5], inputAColor: AColor, inputB: bianGuaTianGan[1], inputBColor: BColor, inputC: bianGuaWuXing[5], inputCColor: CColor, inputD: bianGuaKong[5]), for: .normal)
+            BianGuaLiuQin0.text = getVerticalString(inputString: bianGuaLiuQin[0])
+            BianGuaLiuQin1.text = getVerticalString(inputString: bianGuaLiuQin[1])
+            BianGuaLiuQin2.text = getVerticalString(inputString: bianGuaLiuQin[2])
+            BianGuaLiuQin3.text = getVerticalString(inputString: bianGuaLiuQin[3])
+            BianGuaLiuQin4.text = getVerticalString(inputString: bianGuaLiuQin[4])
+            BianGuaLiuQin5.text = getVerticalString(inputString: bianGuaLiuQin[5])
+        } else {
+            BianGua0.setAttributedTitle(nil, for: .normal)
+            BianGua1.setAttributedTitle(nil, for: .normal)
+            BianGua2.setAttributedTitle(nil, for: .normal)
+            BianGua3.setAttributedTitle(nil, for: .normal)
+            BianGua4.setAttributedTitle(nil, for: .normal)
+            BianGua5.setAttributedTitle(nil, for: .normal)
+            BianGuaLiuQin0.text = ""
+            BianGuaLiuQin1.text = ""
+            BianGuaLiuQin2.text = ""
+            BianGuaLiuQin3.text = ""
+            BianGuaLiuQin4.text = ""
+            BianGuaLiuQin5.text = ""
+            for i in bianGuaShowIndex {
+                switch (i) {
+                case 0:
+                    BianGua0.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[0], inputAColor: AColor, inputB: bianGuaTianGan[0], inputBColor: BColor, inputC: bianGuaWuXing[0], inputCColor: CColor, inputD: bianGuaKong[0]), for: .normal)
+                    BianGuaLiuQin0.text = getVerticalString(inputString: bianGuaLiuQin[0])
+                    break;
+                case 1:
+                    BianGua1.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[1], inputAColor: AColor, inputB: bianGuaTianGan[0], inputBColor: BColor, inputC: bianGuaWuXing[1], inputCColor: CColor, inputD: bianGuaKong[1]), for: .normal)
+                    BianGuaLiuQin1.text = getVerticalString(inputString: bianGuaLiuQin[1])
+                    break;
+                case 2:
+                    BianGua2.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[2], inputAColor: AColor, inputB: bianGuaTianGan[0], inputBColor: BColor, inputC: bianGuaWuXing[2], inputCColor: CColor, inputD: bianGuaKong[2]), for: .normal)
+                    BianGuaLiuQin2.text = getVerticalString(inputString: bianGuaLiuQin[2])
+
+                    break;
+                case 3:
+                    BianGua3.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[3], inputAColor: AColor, inputB: bianGuaTianGan[1], inputBColor: BColor, inputC: bianGuaWuXing[3], inputCColor: CColor, inputD: bianGuaKong[3]), for: .normal)
+                    BianGuaLiuQin3.text = getVerticalString(inputString: bianGuaLiuQin[3])
+                    break;
+                case 4:
+                    BianGua4.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[4], inputAColor: AColor, inputB: bianGuaTianGan[1], inputBColor: BColor, inputC: bianGuaWuXing[4], inputCColor: CColor, inputD: bianGuaKong[4]), for: .normal)
+                    BianGuaLiuQin4.text = getVerticalString(inputString: bianGuaLiuQin[4])
+                    break;
+                case 5:
+                    BianGua5.setAttributedTitle(getGuaTableFuWenBen(inputA: bianGuaDiZhi[5], inputAColor: AColor, inputB: bianGuaTianGan[1], inputBColor: BColor, inputC: bianGuaWuXing[5], inputCColor: CColor, inputD: bianGuaKong[5]), for: .normal)
+                    BianGuaLiuQin5.text = getVerticalString(inputString: bianGuaLiuQin[5])
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+        bianGuaShowAll = !bianGuaShowAll
     }
     
     // 处理伏神区数据
@@ -336,6 +463,11 @@ class Result: UIViewController {
         let basicData = inputJson.object(forKey: "basicData") as AnyObject
         if let index = inputJson.object(forKey: "showIndex") as? [Int] {
             fuShenShowIndex = index
+        }
+        if let index = inputJson.object(forKey: "kongIndex") as? [Int] {
+            for i in index {
+                fuShenKong[i] = "空"
+            }
         }
         // 天干
         var str = fuckYouString(inputString: basicData.object(forKey: "heavenly_stems") as! String)
@@ -353,7 +485,16 @@ class Result: UIViewController {
     }
     // 伏神区数据全部或部分显示
     func fuShenDataShowAllOrNot() -> Void {
+        let AColor: UIColor = UIColor(red: 38/255, green: 111/255, blue: 36/255, alpha: 1)
+        let BColor: UIColor = AColor
+        let CColor: UIColor = UIColor(red: 183/255, green: 75/255, blue: 78/255, alpha: 1)
         if fuShenShowAll {
+            FuShen0.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[0], inputAColor: AColor, inputB: fuShenTianGan[0], inputBColor: BColor, inputC: fuShenWuXing[0], inputCColor: CColor, inputD: fuShenKong[0]), for: .normal)
+            FuShen1.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[1], inputAColor: AColor, inputB: fuShenTianGan[0], inputBColor: BColor, inputC: fuShenWuXing[1], inputCColor: CColor, inputD: fuShenKong[1]), for: .normal)
+            FuShen2.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[2], inputAColor: AColor, inputB: fuShenTianGan[0], inputBColor: BColor, inputC: fuShenWuXing[2], inputCColor: CColor, inputD: fuShenKong[2]), for: .normal)
+            FuShen3.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[3], inputAColor: AColor, inputB: fuShenTianGan[1], inputBColor: BColor, inputC: fuShenWuXing[3], inputCColor: CColor, inputD: fuShenKong[3]), for: .normal)
+            FuShen4.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[4], inputAColor: AColor, inputB: fuShenTianGan[1], inputBColor: BColor, inputC: fuShenWuXing[4], inputCColor: CColor, inputD: fuShenKong[4]), for: .normal)
+            FuShen5.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[5], inputAColor: AColor, inputB: fuShenTianGan[1], inputBColor: BColor, inputC: fuShenWuXing[5], inputCColor: CColor, inputD: fuShenKong[5]), for: .normal)
             FuShenLiuQin0.text = getVerticalString(inputString: fuShenLiuQin[0])
             FuShenLiuQin1.text = getVerticalString(inputString: fuShenLiuQin[1])
             FuShenLiuQin2.text = getVerticalString(inputString: fuShenLiuQin[2])
@@ -361,6 +502,12 @@ class Result: UIViewController {
             FuShenLiuQin4.text = getVerticalString(inputString: fuShenLiuQin[4])
             FuShenLiuQin5.text = getVerticalString(inputString: fuShenLiuQin[5])
         } else {
+            FuShen0.setAttributedTitle(nil, for: .normal)
+            FuShen1.setAttributedTitle(nil, for: .normal)
+            FuShen2.setAttributedTitle(nil, for: .normal)
+            FuShen3.setAttributedTitle(nil, for: .normal)
+            FuShen4.setAttributedTitle(nil, for: .normal)
+            FuShen5.setAttributedTitle(nil, for: .normal)
             FuShenLiuQin0.text = ""
             FuShenLiuQin1.text = ""
             FuShenLiuQin2.text = ""
@@ -370,21 +517,27 @@ class Result: UIViewController {
             for i in fuShenShowIndex {
                 switch (i) {
                 case 0:
+                    FuShen0.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[0], inputAColor: AColor, inputB: fuShenTianGan[0], inputBColor: BColor, inputC: fuShenWuXing[0], inputCColor: CColor, inputD: fuShenKong[0]), for: .normal)
                     FuShenLiuQin0.text = getVerticalString(inputString: fuShenLiuQin[0])
                     break;
                 case 1:
+                    FuShen1.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[1], inputAColor: AColor, inputB: fuShenTianGan[0], inputBColor: BColor, inputC: fuShenWuXing[1], inputCColor: CColor, inputD: fuShenKong[1]), for: .normal)
                     FuShenLiuQin1.text = getVerticalString(inputString: fuShenLiuQin[1])
                     break;
                 case 2:
+                    FuShen2.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[2], inputAColor: AColor, inputB: fuShenTianGan[0], inputBColor: BColor, inputC: fuShenWuXing[2], inputCColor: CColor, inputD: fuShenKong[2]), for: .normal)
                     FuShenLiuQin2.text = getVerticalString(inputString: fuShenLiuQin[2])
                     break;
                 case 3:
+                    FuShen3.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[3], inputAColor: AColor, inputB: fuShenTianGan[1], inputBColor: BColor, inputC: fuShenWuXing[3], inputCColor: CColor, inputD: fuShenKong[3]), for: .normal)
                     FuShenLiuQin3.text = getVerticalString(inputString: fuShenLiuQin[3])
                     break;
                 case 4:
+                    FuShen4.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[4], inputAColor: AColor, inputB: fuShenTianGan[1], inputBColor: BColor, inputC: fuShenWuXing[4], inputCColor: CColor, inputD: fuShenKong[4]), for: .normal)
                     FuShenLiuQin4.text = getVerticalString(inputString: fuShenLiuQin[4])
                     break;
                 case 5:
+                    FuShen5.setAttributedTitle(getGuaTableFuWenBen(inputA: fuShenDiZhi[5], inputAColor: AColor, inputB: fuShenTianGan[1], inputBColor: BColor, inputC: fuShenWuXing[5], inputCColor: CColor, inputD: fuShenKong[5]), for: .normal)
                     FuShenLiuQin5.text = getVerticalString(inputString: fuShenLiuQin[5])
                     break;
                 default:
@@ -397,6 +550,20 @@ class Result: UIViewController {
     
     func fuckYouString(inputString: String) -> String {
         return inputString.replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
+    }
+    
+    // 处理卦表的富文本
+    func getGuaTableFuWenBen(inputA: String, inputAColor: UIColor, inputB: String, inputBColor: UIColor, inputC: String, inputCColor: UIColor, inputD: String) -> NSMutableAttributedString {
+        let str = NSMutableAttributedString()
+        let a = NSAttributedString.init(string: inputA + " ", attributes: [NSAttributedString.Key.foregroundColor : inputAColor])
+        let b = NSAttributedString.init(string: inputB + "\n", attributes: [NSAttributedString.Key.foregroundColor : inputBColor])
+        let c = NSAttributedString.init(string: inputC + " ", attributes: [NSAttributedString.Key.foregroundColor : inputCColor])
+        let d = NSAttributedString.init(string: inputD, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white, NSAttributedString.Key.backgroundColor : UIColor.gray])
+        str.append(a)
+        str.append(b)
+        str.append(c)
+        str.append(d)
+        return str
     }
     
     // 处理月表
