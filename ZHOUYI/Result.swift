@@ -197,6 +197,8 @@ class Result: UIViewController {
     var reason: String = ""
     // 亲表
     var qinTable: [String] = [String]()
+    // 是否成功返回数据
+    var code: Int = 1
     // 装卦区数据
     var zhuangGuaTianGan: [String] = [String]()
     var zhuangGuaDiZhi: [String] = [String]()
@@ -267,8 +269,8 @@ class Result: UIViewController {
         HTTP.POST("http://119.23.76.43:8081/table/item", parameters: guaXiangList, requestSerializer: JSONParameterSerializer()) { response in
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
-                let code = responseJson.object(forKey: "code") as! Int
-                if code == 0 {
+                self.code = responseJson.object(forKey: "code") as! Int
+                if self.code == 0 {
                     self.onGetDate()
                     let data = responseJson.object(forKey: "data") as AnyObject
                     let zhuangGuaTable = data.object(forKey: "zhuangGuaTable") as AnyObject
@@ -426,6 +428,9 @@ class Result: UIViewController {
     }
     // 装卦区域数据轮流显示
     func zhuangGuaDataShowInTurn() -> Void {
+        if code != 0 {
+            return
+        }
         let AColor: UIColor = UIColor(red: 29/255, green: 27/255, blue: 116/255, alpha: 1)
         let BColor: UIColor = UIColor(red: 33/255, green: 129/255, blue: 53/255, alpha: 1)
         let CColor: UIColor = UIColor(red: 134/255, green: 0, blue: 0, alpha: 1)
@@ -489,6 +494,9 @@ class Result: UIViewController {
     }
     // 变卦区数据全部或部分显示
     func bianGuaDataShowAllOrNot() -> Void {
+        if code != 0 {
+            return
+        }
         let AColor: UIColor = UIColor(red: 177/255, green: 83/255, blue: 100/255, alpha: 1)
         let BColor: UIColor = AColor
         let CColor: UIColor = UIColor.black
@@ -580,6 +588,9 @@ class Result: UIViewController {
     }
     // 伏神区数据全部或部分显示
     func fuShenDataShowAllOrNot() -> Void {
+        if code != 0 {
+            return
+        }
         let AColor: UIColor = UIColor(red: 38/255, green: 111/255, blue: 36/255, alpha: 1)
         let BColor: UIColor = AColor
         let CColor: UIColor = UIColor(red: 183/255, green: 75/255, blue: 78/255, alpha: 1)

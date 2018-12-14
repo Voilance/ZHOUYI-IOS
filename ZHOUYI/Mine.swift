@@ -123,7 +123,7 @@ class Mine: UIViewController, UITableViewDelegate, UITableViewDataSource {
         case 0: // 个人信息
             self.performSegue(withIdentifier: "MineToInfo", sender: nil)
         case 1: // 关于
-            self.view.makeToast(optionList[1])
+            self.performSegue(withIdentifier: "MineToAbout", sender: nil)
         case 2: // 历史记录
             self.view.makeToast(optionList[2])
         case 3: // 退出登录
