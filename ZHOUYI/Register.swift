@@ -10,13 +10,14 @@ import UIKit
 import SwiftHTTP
 import ToastSwiftFramework
 
-class Register: UIViewController {
+class Register: UIViewController, UITextFieldDelegate {
     
     // 控件
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
     @IBOutlet weak var comfirmPasswordTextField: UITextField!
     @IBOutlet weak var userTelTextField: UITextField!
+    @IBOutlet weak var checkCodeTextField: UITextField!
     // 控件功能
     @IBAction func onRegister(_ sender: Any) {
         let userName = userNameTextField.text
@@ -49,7 +50,17 @@ class Register: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userNameTextField.delegate = self
+        userPasswordTextField.delegate = self
+        comfirmPasswordTextField.delegate = self
+        userTelTextField.delegate = self
+        checkCodeTextField.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     /*

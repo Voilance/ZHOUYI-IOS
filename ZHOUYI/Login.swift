@@ -10,7 +10,7 @@ import UIKit
 import SwiftHTTP
 import ToastSwiftFramework
 
-class Login: UIViewController {
+class Login: UIViewController, UITextFieldDelegate {
     
     // 控件
     @IBOutlet weak var userNameTextField: UITextField!
@@ -50,12 +50,20 @@ class Login: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userNameTextField.delegate = self
+        userPasswordTextField.delegate = self
 
         // 将本地用户数据加载到输入框
         GlobalUser.loadGlobalUserData() // 只是为了确保加载进来了所以Load多次
         userNameTextField.text = GlobalUser.name
         userPasswordTextField.text = GlobalUser.password
         // Do any additional setup after loading the view.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     

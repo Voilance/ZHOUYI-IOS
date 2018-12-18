@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserInfo: UIViewController {
+class UserInfo: UIViewController, UITextFieldDelegate {
     
     // 控件
     @IBOutlet weak var userNameTextField: UITextField!
@@ -20,6 +20,11 @@ class UserInfo: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        userNameTextField.delegate = self
+        userRealNameTextField.delegate = self
+        userTelTextField.delegate = self
+        userBirthYMTextField.delegate = self
+        
         initUserInfo()
         // Do any additional setup after loading the view.
     }
@@ -29,6 +34,11 @@ class UserInfo: UIViewController {
         userRealNameTextField.text = GlobalUser.realName
         userTelTextField.text = GlobalUser.tel
         userBirthYMTextField.text = GlobalUser.birthYM
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
     /*

@@ -237,7 +237,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srl-t1-f81">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="srl-t1-f81">
                                                 <rect key="frame" x="100" y="0.0" width="255" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -257,7 +257,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZeF-QQ-mGZ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZeF-QQ-mGZ">
                                                 <rect key="frame" x="100" y="0.0" width="255" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -277,7 +277,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HaS-0w-v4r">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HaS-0w-v4r">
                                                 <rect key="frame" x="100" y="0.0" width="255" height="25"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -331,7 +331,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="NameTextField" destination="ZeF-QQ-mGZ" id="qlf-qU-kTO"/>
                         <outlet property="ReasonTextField" destination="srl-t1-f81" id="JPO-ei-AbL"/>
+                        <outlet property="RemarksTextField" destination="HaS-0w-v4r" id="kTW-CT-Uqt"/>
                         <outlet property="pickDateButton" destination="lFe-FM-f6W" id="3Ds-fs-1U4"/>
                         <outlet property="pickYongShenButton" destination="gos-Mm-lo1" id="uI7-sf-awD"/>
                     </connections>
@@ -843,7 +845,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jf5-XY-VUk">
                                                         <rect key="frame" x="61" y="0.0" width="57" height="440"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="g6" translatesAutoresizingMaskIntoConstraints="NO" id="T7G-Qo-HAn">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_title" translatesAutoresizingMaskIntoConstraints="NO" id="T7G-Qo-HAn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="57" height="62"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </imageView>
@@ -2409,6 +2411,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="注册" id="cV4-rz-qrQ"/>
                     <connections>
+                        <outlet property="checkCodeTextField" destination="PlG-tn-PmO" id="aZb-vO-uah"/>
                         <outlet property="comfirmPasswordTextField" destination="boD-ch-HsE" id="oCi-kG-Iyx"/>
                         <outlet property="userNameTextField" destination="BqM-L0-9KZ" id="FBC-sC-kVw"/>
                         <outlet property="userPasswordTextField" destination="eum-OX-ACZ" id="lfF-XO-EXL"/>
@@ -2441,7 +2444,7 @@
         <scene sceneID="Lkc-Q6-cGt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RcK-kw-i3l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="V0G-53-e7P"/>
+                    <tabBarItem key="tabBarItem" title="我的" image="person" id="V0G-53-e7P"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IyW-EH-cYQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2730,7 +2733,7 @@
         <scene sceneID="QN2-0j-gNF">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w8U-PH-59T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="周易" id="qaI-wJ-I9d"/>
+                    <tabBarItem key="tabBarItem" title="周易" image="yi" id="qaI-wJ-I9d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XrY-xa-q7d">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -2930,9 +2933,11 @@
         <image name="g9" width="530" height="530"/>
         <image name="gua_yao" width="162" height="162"/>
         <image name="login_title" width="500" height="500"/>
+        <image name="person" width="32" height="32"/>
         <image name="shi_zhong" width="162" height="162"/>
         <image name="shou_zhi" width="162" height="162"/>
         <image name="shu_zi" width="162" height="162"/>
+        <image name="yi" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="qOZ-a8-MdT"/>

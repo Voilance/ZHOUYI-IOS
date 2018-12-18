@@ -9,12 +9,14 @@
 import UIKit
 import ToastSwiftFramework
 
-class Reason: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class Reason: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     // 控件
     @IBOutlet weak var pickDateButton: UIButton!
     @IBOutlet weak var pickYongShenButton: UIButton!
     @IBOutlet weak var ReasonTextField: UITextField!
+    @IBOutlet weak var NameTextField: UITextField!
+    @IBOutlet weak var RemarksTextField: UITextField!
     // 控件功能
     @IBAction func onPickDate(_ sender: Any) {
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
@@ -24,8 +26,8 @@ class Reason: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         let YAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "yyyy-MM-dd"
-            self.Date = dateFormat.string(from: datePicker.date)
-            self.pickDateButton.setTitle(self.Date, for: UIControl.State.normal)
+            self.date = dateFormat.string(from: datePicker.date)
+            self.pickDateButton.setTitle(self.date, for: UIControl.State.normal)
         })
         let NAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.view.addSubview(datePicker)
@@ -47,14 +49,14 @@ class Reason: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     }
     @IBAction func toGuaXiang(_ sender: Any) {
         Reason = ReasonTextField.text ?? ""
-        if Date != "" && YongShen != "" {
+        if date != "" && YongShen != "" {
             performSegue(withIdentifier: "ToGuaXiang", sender: nil)
         } else {
             self.view.makeToast("卜卦日期或卜卦用神未选择!")
         }
     }
     
-    var Date: String = ""
+    var date: String = ""
     var YongShen: String = ""
     var Reason: String = ""
     
@@ -63,10 +65,21 @@ class Reason: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        date = dateFormat.string(from: Date.init())
+        pickDateButton.setTitle(date, for: .normal)
+        YongShen = "父母"
+        pickYongShenButton.setTitle(YongShen, for: .normal)
 
         YongShenPickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
         YongShenPickerView.delegate = self
         YongShenPickerView.dataSource = self
+        
+        ReasonTextField.delegate = self
+        NameTextField.delegate = self
+        RemarksTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -91,10 +104,15 @@ class Reason: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
         // Pass the selected object to the new view controller.
         if segue.identifier == "ToGuaXiang" {
             let GuaXiang = segue.destination as! GuaXiang
-            GuaXiang.Date = Date
+            GuaXiang.Date = date
             GuaXiang.YongShen = YongShen
             GuaXiang.Reason = Reason
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
 }
