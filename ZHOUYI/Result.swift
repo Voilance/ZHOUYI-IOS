@@ -81,6 +81,10 @@ class Result: UIViewController {
     @IBOutlet weak var Month: UILabel!
     @IBOutlet weak var Year: UILabel!
     @IBOutlet weak var Date: UILabel!
+    // 右侧变卦列
+    @IBOutlet weak var RightBianGua0: UILabel!
+    // 本归
+    @IBOutlet weak var BenGui0: UILabel!
     // 事由
     @IBOutlet weak var Reason: UILabel!
     // 月
@@ -424,6 +428,10 @@ class Result: UIViewController {
             sz = getSubCharacterAsString(inputString: LiuQinList[YingIndex], inputIndex: 0)
         }
         
+        // 处理右侧本归列
+        str = basicData.object(forKey: "content") as! String
+        BenGui0.text = getVerticalString(inputString: str)
+        
         onGetGuaXiang()
     }
     // 装卦区域数据轮流显示
@@ -491,6 +499,10 @@ class Result: UIViewController {
         str = fuckYouString(inputString: basicData.object(forKey: "six_relatives") as! String)
         bianGuaLiuQin = str.components(separatedBy: ",")
         bianGuaDataShowAllOrNot()
+        
+        // 处理右侧变卦列数据
+        str = basicData.object(forKey: "content") as! String
+        RightBianGua0.text = getVerticalString(inputString: str)
     }
     // 变卦区数据全部或部分显示
     func bianGuaDataShowAllOrNot() -> Void {
