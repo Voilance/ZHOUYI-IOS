@@ -270,7 +270,7 @@ class Result: UIViewController {
     
     // 获取卜卦的结果
     func onGetResult() -> Void {
-        HTTP.POST("http://119.23.76.43:8081/table/item", parameters: guaXiangList, requestSerializer: JSONParameterSerializer()) { response in
+        HTTP.POST("http://120.76.128.110:8081/table/item", parameters: guaXiangList, requestSerializer: JSONParameterSerializer()) { response in
             do {
                 let responseJson = try JSONSerialization.jsonObject(with: response.data, options: .mutableContainers) as AnyObject
                 self.code = responseJson.object(forKey: "code") as! Int
