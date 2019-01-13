@@ -7,28 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181D3F2421A3E4B000DB90E3 /* Yi.swift */; };
-		182962E721BF700A005A4144 /* Reason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182962E621BF700A005A4144 /* Reason.swift */; };
-		188358DE21BFE009009E8D38 /* GuaXiang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188358DD21BFE009009E8D38 /* GuaXiang.swift */; };
-		7E11EF7721BC06C90013F75D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF7621BC06C90013F75D /* User.swift */; };
-		7E11EF7A21BC0A750013F75D /* GlobalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF7921BC0A750013F75D /* GlobalUser.swift */; };
 		7E11EF8621BE06CD0013F75D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; };
 		7E11EF8721BE06CD0013F75D /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7E11EF8B21BE0E7E0013F75D /* TestUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF8A21BE0E7E0013F75D /* TestUIViewController.swift */; };
-		7E11EF8F21BE47E70013F75D /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E11EF8E21BE47E70013F75D /* Mine.swift */; };
-		7E480A3E21C3702F00ED7458 /* About.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E480A3D21C3702F00ED7458 /* About.swift */; };
 		7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */; };
 		7E5121022199C90B00DE06B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121002199C90B00DE06B3 /* Main.storyboard */; };
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
 		7E5121072199C90C00DE06B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121052199C90C00DE06B3 /* LaunchScreen.storyboard */; };
 		7E5121112199CDE000DE06B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121102199CDE000DE06B3 /* Images.xcassets */; };
-		7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67EF3421A1557B00DCEC56 /* Register.swift */; };
-		7E67EF3721A16F9000DCEC56 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E67EF3621A16F9000DCEC56 /* Login.swift */; };
 		7E6D28AC21BAD7C800B88A6D /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; };
 		7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E71A04D21B50DDD00FF5CC4 /* Result.swift */; };
-		7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E780CB621AE728000F6B8A3 /* Extension.swift */; };
-		7EC7D7A621C106A0008F86CE /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC7D7A521C106A0008F86CE /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,15 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		181D3F2421A3E4B000DB90E3 /* Yi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yi.swift; sourceTree = "<group>"; };
-		182962E621BF700A005A4144 /* Reason.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reason.swift; sourceTree = "<group>"; };
-		188358DD21BFE009009E8D38 /* GuaXiang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuaXiang.swift; sourceTree = "<group>"; };
-		7E11EF7621BC06C90013F75D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		7E11EF7921BC0A750013F75D /* GlobalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUser.swift; sourceTree = "<group>"; };
 		7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Toast-Swift.xcodeproj"; path = "Toast-Swift-master/Toast-Swift.xcodeproj"; sourceTree = "<group>"; };
-		7E11EF8A21BE0E7E0013F75D /* TestUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUIViewController.swift; sourceTree = "<group>"; };
-		7E11EF8E21BE47E70013F75D /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
-		7E480A3D21C3702F00ED7458 /* About.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = About.swift; sourceTree = "<group>"; };
 		7E5120F92199C90B00DE06B3 /* ZHOUYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHOUYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E5121012199C90B00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,12 +87,7 @@
 		7E5121062199C90C00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E5121082199C90C00DE06B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E5121102199CDE000DE06B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		7E67EF3421A1557B00DCEC56 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
-		7E67EF3621A16F9000DCEC56 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
-		7E71A04D21B50DDD00FF5CC4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		7E780CB621AE728000F6B8A3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		7EC7D7A521C106A0008F86CE /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,21 +133,8 @@
 		7E5120FB2199C90B00DE06B3 /* ZHOUYI */ = {
 			isa = PBXGroup;
 			children = (
-				7E11EF8E21BE47E70013F75D /* Mine.swift */,
-				7E11EF8A21BE0E7E0013F75D /* TestUIViewController.swift */,
-				188358DD21BFE009009E8D38 /* GuaXiang.swift */,
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
-				7E480A3D21C3702F00ED7458 /* About.swift */,
-				7EC7D7A521C106A0008F86CE /* UserInfo.swift */,
-				182962E621BF700A005A4144 /* Reason.swift */,
-				7E11EF7621BC06C90013F75D /* User.swift */,
-				7E11EF7921BC0A750013F75D /* GlobalUser.swift */,
-				7E71A04D21B50DDD00FF5CC4 /* Result.swift */,
-				7E780CB621AE728000F6B8A3 /* Extension.swift */,
-				181D3F2421A3E4B000DB90E3 /* Yi.swift */,
-				7E67EF3621A16F9000DCEC56 /* Login.swift */,
-				7E67EF3421A1557B00DCEC56 /* Register.swift */,
 				7E5121032199C90C00DE06B3 /* Assets.xcassets */,
 				7E5121052199C90C00DE06B3 /* LaunchScreen.storyboard */,
 				7E5121082199C90C00DE06B3 /* Info.plist */,
@@ -307,20 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E11EF8B21BE0E7E0013F75D /* TestUIViewController.swift in Sources */,
-				188358DE21BFE009009E8D38 /* GuaXiang.swift in Sources */,
-				7E67EF3721A16F9000DCEC56 /* Login.swift in Sources */,
-				7E11EF7A21BC0A750013F75D /* GlobalUser.swift in Sources */,
-				182962E721BF700A005A4144 /* Reason.swift in Sources */,
-				7E67EF3521A1557B00DCEC56 /* Register.swift in Sources */,
-				7E780CB721AE728000F6B8A3 /* Extension.swift in Sources */,
-				7E71A04E21B50DDD00FF5CC4 /* Result.swift in Sources */,
-				7EC7D7A621C106A0008F86CE /* UserInfo.swift in Sources */,
-				7E480A3E21C3702F00ED7458 /* About.swift in Sources */,
-				7E11EF7721BC06C90013F75D /* User.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
-				7E11EF8F21BE47E70013F75D /* Mine.swift in Sources */,
-				181D3F2521A3E4B000DB90E3 /* Yi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
