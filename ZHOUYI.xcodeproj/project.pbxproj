@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		7E11EF8621BE06CD0013F75D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; };
 		7E11EF8721BE06CD0013F75D /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7E15C82A21ECB33200E794F9 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82921ECB33200E794F9 /* Test.swift */; };
+		7E15C82E21ECD79300E794F9 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82D21ECD79300E794F9 /* AvatarCell.swift */; };
+		7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82F21ECD7D300E794F9 /* OptionCell.swift */; };
+		7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C83121ECD7FA00E794F9 /* MineViewController.swift */; };
 		7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */; };
 		7E5121022199C90B00DE06B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121002199C90B00DE06B3 /* Main.storyboard */; };
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
@@ -80,6 +84,10 @@
 
 /* Begin PBXFileReference section */
 		7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Toast-Swift.xcodeproj"; path = "Toast-Swift-master/Toast-Swift.xcodeproj"; sourceTree = "<group>"; };
+		7E15C82921ECB33200E794F9 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		7E15C82D21ECD79300E794F9 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		7E15C82F21ECD7D300E794F9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		7E15C83121ECD7FA00E794F9 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		7E5120F92199C90B00DE06B3 /* ZHOUYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHOUYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E5121012199C90B00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,6 +120,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7E15C82721ECAF7D00E794F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E15C82D21ECD79300E794F9 /* AvatarCell.swift */,
+				7E15C82F21ECD7D300E794F9 /* OptionCell.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E15C82821ECAF9C00E794F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7E15C83121ECD7FA00E794F9 /* MineViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		7E5120F02199C90B00DE06B3 = {
 			isa = PBXGroup;
 			children = (
@@ -133,8 +158,11 @@
 		7E5120FB2199C90B00DE06B3 /* ZHOUYI */ = {
 			isa = PBXGroup;
 			children = (
+				7E15C82821ECAF9C00E794F9 /* Controller */,
+				7E15C82721ECAF7D00E794F9 /* Model */,
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
 				7E5121002199C90B00DE06B3 /* Main.storyboard */,
+				7E15C82921ECB33200E794F9 /* Test.swift */,
 				7E5121032199C90C00DE06B3 /* Assets.xcassets */,
 				7E5121052199C90C00DE06B3 /* LaunchScreen.storyboard */,
 				7E5121082199C90C00DE06B3 /* Info.plist */,
@@ -268,7 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
+				7E15C82E21ECD79300E794F9 /* AvatarCell.swift in Sources */,
+				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
+				7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
