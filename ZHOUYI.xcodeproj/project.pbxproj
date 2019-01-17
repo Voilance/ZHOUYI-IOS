@@ -10,7 +10,6 @@
 		7E11EF8621BE06CD0013F75D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; };
 		7E11EF8721BE06CD0013F75D /* ToastSwiftFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E15C82A21ECB33200E794F9 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82921ECB33200E794F9 /* Test.swift */; };
-		7E15C82E21ECD79300E794F9 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82D21ECD79300E794F9 /* AvatarCell.swift */; };
 		7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82F21ECD7D300E794F9 /* OptionCell.swift */; };
 		7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C83121ECD7FA00E794F9 /* MineViewController.swift */; };
 		7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */; };
@@ -18,6 +17,10 @@
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
 		7E5121072199C90C00DE06B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121052199C90C00DE06B3 /* LaunchScreen.storyboard */; };
 		7E5121112199CDE000DE06B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121102199CDE000DE06B3 /* Images.xcassets */; };
+		7E5ACE9021F04CB70055A166 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5ACE8F21F04CB70055A166 /* User.swift */; };
+		7E5ACE9421F052A80055A166 /* GlobalUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5ACE9321F052A80055A166 /* GlobalUser.swift */; };
+		7E5ACE9621F0C0520055A166 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5ACE9521F0C0520055A166 /* SignInViewController.swift */; };
+		7E5ACE9921F0CB850055A166 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5ACE9821F0CB850055A166 /* Api.swift */; };
 		7E6D28AC21BAD7C800B88A6D /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; };
 		7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -85,7 +88,6 @@
 /* Begin PBXFileReference section */
 		7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Toast-Swift.xcodeproj"; path = "Toast-Swift-master/Toast-Swift.xcodeproj"; sourceTree = "<group>"; };
 		7E15C82921ECB33200E794F9 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
-		7E15C82D21ECD79300E794F9 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		7E15C82F21ECD7D300E794F9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		7E15C83121ECD7FA00E794F9 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		7E5120F92199C90B00DE06B3 /* ZHOUYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHOUYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,10 @@
 		7E5121062199C90C00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7E5121082199C90C00DE06B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E5121102199CDE000DE06B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		7E5ACE8F21F04CB70055A166 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7E5ACE9321F052A80055A166 /* GlobalUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUser.swift; sourceTree = "<group>"; };
+		7E5ACE9521F0C0520055A166 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		7E5ACE9821F0CB850055A166 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,8 +129,9 @@
 		7E15C82721ECAF7D00E794F9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7E15C82D21ECD79300E794F9 /* AvatarCell.swift */,
-				7E15C82F21ECD7D300E794F9 /* OptionCell.swift */,
+				7E5ACE8F21F04CB70055A166 /* User.swift */,
+				7E5ACE9321F052A80055A166 /* GlobalUser.swift */,
+				7E5ACE9821F0CB850055A166 /* Api.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				7E15C83121ECD7FA00E794F9 /* MineViewController.swift */,
+				7E5ACE9521F0C0520055A166 /* SignInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 		7E5120FB2199C90B00DE06B3 /* ZHOUYI */ = {
 			isa = PBXGroup;
 			children = (
+				7E8F197F21ED9A7400EC84C2 /* View */,
 				7E15C82821ECAF9C00E794F9 /* Controller */,
 				7E15C82721ECAF7D00E794F9 /* Model */,
 				7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */,
@@ -178,6 +187,14 @@
 				7E6D28AB21BAD7B700B88A6D /* SwiftHTTPTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7E8F197F21ED9A7400EC84C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7E15C82F21ECD7D300E794F9 /* OptionCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,11 +313,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E5ACE9621F0C0520055A166 /* SignInViewController.swift in Sources */,
 				7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
-				7E15C82E21ECD79300E794F9 /* AvatarCell.swift in Sources */,
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
+				7E5ACE9021F04CB70055A166 /* User.swift in Sources */,
 				7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */,
+				7E5ACE9921F0CB850055A166 /* Api.swift in Sources */,
+				7E5ACE9421F052A80055A166 /* GlobalUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
