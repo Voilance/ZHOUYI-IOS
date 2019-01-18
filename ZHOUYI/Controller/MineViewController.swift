@@ -15,14 +15,17 @@ class MineViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var AvatarButton: UIButton!                 // 头像
     @IBOutlet weak var OptionTableView: UITableView!           // 选项
     // 控件功能
-    @IBAction func ClickAvatarButton(_ sender: Any) { // 点击头像
-        GlobalUser.online = !(GlobalUser.online ?? false)
-        reloadView()
+    @IBAction func ClickAvatarButton(_ sender: Any) { // 点击头像跳转登录或个人信息
+        performSegue(withIdentifier: "MineToSignIn", sender: nil)
+//        GlobalUser.online = !(GlobalUser.online ?? false)
+//        reloadView()
     }
     
     let DefaultOptionList: [String] = ["关于", "设置"] // 默认选项列表
     let OptionList: [String] = ["待定", "关于", "设置"] // 登录后选项列表
     let OptionCellHeight: CGFloat = 50                // 每一项高度
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

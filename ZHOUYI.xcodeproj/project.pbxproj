@@ -12,6 +12,10 @@
 		7E15C82A21ECB33200E794F9 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82921ECB33200E794F9 /* Test.swift */; };
 		7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82F21ECD7D300E794F9 /* OptionCell.swift */; };
 		7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C83121ECD7FA00E794F9 /* MineViewController.swift */; };
+		7E4224FC21F19DFC003A7240 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4224FB21F19DFC003A7240 /* SignUpViewController.swift */; };
+		7E42250021F1A930003A7240 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4224FF21F1A930003A7240 /* UserInfoViewController.swift */; };
+		7E42250221F1B0D1003A7240 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42250121F1B0D1003A7240 /* AboutViewController.swift */; };
+		7E42250421F1B311003A7240 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E42250321F1B311003A7240 /* SettingViewController.swift */; };
 		7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */; };
 		7E5121022199C90B00DE06B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121002199C90B00DE06B3 /* Main.storyboard */; };
 		7E5121042199C90C00DE06B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E5121032199C90C00DE06B3 /* Assets.xcassets */; };
@@ -90,6 +94,10 @@
 		7E15C82921ECB33200E794F9 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		7E15C82F21ECD7D300E794F9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		7E15C83121ECD7FA00E794F9 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		7E4224FB21F19DFC003A7240 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7E4224FF21F1A930003A7240 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		7E42250121F1B0D1003A7240 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		7E42250321F1B311003A7240 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		7E5120F92199C90B00DE06B3 /* ZHOUYI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZHOUYI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E5120FC2199C90B00DE06B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E5121012199C90B00DE06B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -141,6 +149,10 @@
 			children = (
 				7E15C83121ECD7FA00E794F9 /* MineViewController.swift */,
 				7E5ACE9521F0C0520055A166 /* SignInViewController.swift */,
+				7E4224FB21F19DFC003A7240 /* SignUpViewController.swift */,
+				7E4224FF21F1A930003A7240 /* UserInfoViewController.swift */,
+				7E42250121F1B0D1003A7240 /* AboutViewController.swift */,
+				7E42250321F1B311003A7240 /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -315,12 +327,16 @@
 			files = (
 				7E5ACE9621F0C0520055A166 /* SignInViewController.swift in Sources */,
 				7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */,
+				7E42250221F1B0D1003A7240 /* AboutViewController.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
 				7E5ACE9021F04CB70055A166 /* User.swift in Sources */,
 				7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */,
+				7E4224FC21F19DFC003A7240 /* SignUpViewController.swift in Sources */,
+				7E42250021F1A930003A7240 /* UserInfoViewController.swift in Sources */,
 				7E5ACE9921F0CB850055A166 /* Api.swift in Sources */,
 				7E5ACE9421F052A80055A166 /* GlobalUser.swift in Sources */,
+				7E42250421F1B311003A7240 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
