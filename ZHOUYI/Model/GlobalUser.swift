@@ -23,14 +23,6 @@ class GlobalUser: NSObject {
     static var login: Bool? = false    // 用户上次退出应用时是否处于登陆状态
     static var online: Bool? = false   // 用户是否已经成功登陆在线
     
-    static func isLogin() -> Bool? {
-        return self.login
-    }
-    
-    static func isOnline() -> Bool? {
-        return self.online
-    }
-    
     // 将用户信息保存到本地
     static func saveUserInfo() {
         let user: User = User(initID: self.id,

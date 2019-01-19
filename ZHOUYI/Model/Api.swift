@@ -11,26 +11,11 @@ import SwiftHTTP
 
 class Api: NSObject {
     
-    static let SignInUrl: String =  "http://120.76.128.110:12510/web/UserLogin"
+    static let PROTOCOL: String = "http://"
+    static let HOST: String = "120.76.128.110"
+    static let PORT: String = ":12510"
     
-    static func signIn(nickname: String?, password: String?) -> Bool {
-        var result: Bool = false
-        let reqJson = ["name": nickname, "password": password]
-        HTTP.POST(SignInUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
-            do {
-                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
-                print(respJson)
-                result = true
-                print(result)
-                
-                DispatchQueue.main.async {
-                    return true
-                }
-            } catch {
-                print("Sign In Error:")
-                print(error)
-            }
-        }
-        return result
-    }
+    static let SignInUrl: String = PROTOCOL + HOST + PORT + "/web/UserLogin"
+    static let SignUpUrl: String = PROTOCOL + HOST + PORT + "/web/UserSignUp"
+    static let AuthTokenUrl: String = PROTOCOL + HOST + PORT + "/web/CheckLogin"
 }

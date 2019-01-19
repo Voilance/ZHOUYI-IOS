@@ -15,9 +15,13 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var AvatarButton: UIButton!
     @IBOutlet weak var InfoTableView: UITableView!
     
-    let InfoList: [String] = ["昵称", "绑定手机号", "更多"]
+    @IBAction func Exit(_ segue: UIStoryboardSegue) {
+        reloadView()
+    }
+    
+    let InfoList: [String] = ["用户名", "真实姓名", "绑定手机号", "出生年月"]
     var InfoDetailList: [String] = []
-    let InfoCellHeight: CGFloat = 50
+    let CellHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +37,18 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         
         // 初始化InfoDetailList
         InfoDetailList.append(GlobalUser.nickname ?? "nickname")
+        InfoDetailList.append(GlobalUser.realname ?? "realname")
         InfoDetailList.append(GlobalUser.tel ?? "tel")
-        InfoDetailList.append("more")
+        InfoDetailList.append(GlobalUser.birthday ?? "yyyy-mm")
+    }
+    
+    func reloadView() {
+        InfoDetailList.removeAll()
+        InfoDetailList.append(GlobalUser.nickname ?? "nickname")
+        InfoDetailList.append(GlobalUser.realname ?? "realname")
+        InfoDetailList.append(GlobalUser.tel ?? "tel")
+        InfoDetailList.append(GlobalUser.birthday ?? "yyyy-mm")
+        InfoTableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,11 +71,23 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return InfoCellHeight
+        return CellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        return
+        switch indexPath.row {
+        case InfoList.firstIndex(of: "用户名"):
+            self.performSegue(withIdentifier: "UserInfoToEditNickname", sender: nil)
+            break;
+        case InfoList.firstIndex(of: "真实姓名"):
+            self.performSegue(withIdentifier: "UserInfoToEditRealname", sender: nil)
+            break;
+        case InfoList.firstIndex(of: "出生年月"):
+            self.performSegue(withIdentifier: "UserInfoToEditBirthday", sender: nil)
+            break;
+        default:
+            break;
+        }
     }
 
     /*

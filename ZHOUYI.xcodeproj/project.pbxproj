@@ -27,6 +27,9 @@
 		7E5ACE9921F0CB850055A166 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E5ACE9821F0CB850055A166 /* Api.swift */; };
 		7E6D28AC21BAD7C800B88A6D /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; };
 		7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EAEA62221F2F2D0001D3459 /* EditNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */; };
+		7EAEA62421F2F9DE001D3459 /* EditRealnameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */; };
+		7EAEA62621F2FFF9001D3459 /* EditBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,9 @@
 		7E5ACE9521F0C0520055A166 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		7E5ACE9821F0CB850055A166 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
+		7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameViewController.swift; sourceTree = "<group>"; };
+		7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRealnameViewController.swift; sourceTree = "<group>"; };
+		7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBirthdayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,12 +153,8 @@
 		7E15C82821ECAF9C00E794F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7E15C83121ECD7FA00E794F9 /* MineViewController.swift */,
-				7E5ACE9521F0C0520055A166 /* SignInViewController.swift */,
-				7E4224FB21F19DFC003A7240 /* SignUpViewController.swift */,
-				7E4224FF21F1A930003A7240 /* UserInfoViewController.swift */,
-				7E42250121F1B0D1003A7240 /* AboutViewController.swift */,
-				7E42250321F1B311003A7240 /* SettingViewController.swift */,
+				7EAEA61F21F2F2A4001D3459 /* ZhouYi */,
+				7EAEA61C21F2F24D001D3459 /* Mine */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -207,6 +209,37 @@
 				7E15C82F21ECD7D300E794F9 /* OptionCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7EAEA61C21F2F24D001D3459 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				7EAEA62021F2F2B9001D3459 /* EditInfo */,
+				7E15C83121ECD7FA00E794F9 /* MineViewController.swift */,
+				7E5ACE9521F0C0520055A166 /* SignInViewController.swift */,
+				7E4224FB21F19DFC003A7240 /* SignUpViewController.swift */,
+				7E4224FF21F1A930003A7240 /* UserInfoViewController.swift */,
+				7E42250121F1B0D1003A7240 /* AboutViewController.swift */,
+				7E42250321F1B311003A7240 /* SettingViewController.swift */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		7EAEA61F21F2F2A4001D3459 /* ZhouYi */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ZhouYi;
+			sourceTree = "<group>";
+		};
+		7EAEA62021F2F2B9001D3459 /* EditInfo */ = {
+			isa = PBXGroup;
+			children = (
+				7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */,
+				7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */,
+				7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */,
+			);
+			path = EditInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,14 +360,17 @@
 			files = (
 				7E5ACE9621F0C0520055A166 /* SignInViewController.swift in Sources */,
 				7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */,
+				7EAEA62621F2FFF9001D3459 /* EditBirthdayViewController.swift in Sources */,
 				7E42250221F1B0D1003A7240 /* AboutViewController.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
 				7E5ACE9021F04CB70055A166 /* User.swift in Sources */,
 				7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */,
 				7E4224FC21F19DFC003A7240 /* SignUpViewController.swift in Sources */,
+				7EAEA62421F2F9DE001D3459 /* EditRealnameViewController.swift in Sources */,
 				7E42250021F1A930003A7240 /* UserInfoViewController.swift in Sources */,
 				7E5ACE9921F0CB850055A166 /* Api.swift in Sources */,
+				7EAEA62221F2F2D0001D3459 /* EditNicknameViewController.swift in Sources */,
 				7E5ACE9421F052A80055A166 /* GlobalUser.swift in Sources */,
 				7E42250421F1B311003A7240 /* SettingViewController.swift in Sources */,
 			);

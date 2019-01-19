@@ -13,8 +13,9 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     // 控件
     @IBOutlet weak var SettingTableView: UITableView!
 
+    let DefaultSettingList: [String] = ["请登录以获取更多帮助"]
     let SettingList: [String] = ["退出登录"]
-    let SettingCellHeight: CGFloat = 50
+    let CellHeight: CGFloat = 50
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +35,41 @@ class SettingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SettingList.count
+        return (GlobalUser.online ?? false) ? SettingList.count : DefaultSettingList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let settingCell = tableView.dequeueReusableCell(withIdentifier: "SettingCell", for: indexPath)
-        settingCell.textLabel?.text = SettingList[indexPath.row]
+        if (GlobalUser.online ?? false) {
+            settingCell.textLabel?.text = SettingList[indexPath.row]
+        } else {
+            settingCell.textLabel?.text = DefaultSettingList[indexPath.row]
+        }
         return settingCell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return SettingCellHeight
+        return CellHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (GlobalUser.online ?? false) {
+            switch indexPath.row {
+            case SettingList.firstIndex(of: "退出登录"):
+                GlobalUser.login = false
+                GlobalUser.online = false
+                GlobalUser.saveUserInfo()
+                self.performSegue(withIdentifier: "SettingToMine", sender: nil)
+                break;
+            default:
+                break;
+            }
+        } else {
+            switch indexPath.row {
+            default:
+                break;
+            }
+        }
     }
     
 

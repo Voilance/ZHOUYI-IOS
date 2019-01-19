@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="atY-lP-FgQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2bM-gO-GQA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -155,6 +155,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ckE-5f-cvp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zFF-dr-lck" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="775.20000000000005" y="1307.4962518740631"/>
         </scene>
@@ -176,7 +177,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="msU-Ix-kEi" userLabel="SignInInfoStackView">
                                 <rect key="frame" x="50" y="291" width="275" height="85"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JP8-iM-lax">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JP8-iM-lax">
                                         <rect key="frame" x="0.0" y="0.0" width="275" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="KMj-Qt-ycY"/>
@@ -185,14 +186,14 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Unp-Ew-KFl">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Unp-Ew-KFl">
                                         <rect key="frame" x="0.0" y="45" width="275" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Vbz-Mi-Q8W"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                             </stackView>
@@ -227,6 +228,21 @@
                                 </constraints>
                                 <state key="normal" title="忘记密码"/>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xsu-C3-enR" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeN-5c-ADu" userLabel="ToMine">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="9vG-nB-M0j"/>
+                                            <constraint firstAttribute="width" constant="5" id="h4y-Zc-mPv"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="zFF-dr-lck" kind="unwind" identifier="SignInToMine" unwindAction="Exit:" id="kFr-J6-JUY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -236,6 +252,7 @@
                             <constraint firstItem="ZuG-dQ-NqZ" firstAttribute="trailing" secondItem="sYT-Qh-c5J" secondAttribute="trailing" constant="5" id="6zW-k4-ebu"/>
                             <constraint firstItem="gue-C7-LaZ" firstAttribute="top" secondItem="msU-Ix-kEi" secondAttribute="bottom" constant="30" id="79V-eI-pib"/>
                             <constraint firstItem="ZuG-dQ-NqZ" firstAttribute="trailing" secondItem="msU-Ix-kEi" secondAttribute="trailing" constant="50" id="AuG-yc-NSs"/>
+                            <constraint firstItem="Xsu-C3-enR" firstAttribute="leading" secondItem="ZuG-dQ-NqZ" secondAttribute="leading" id="C8s-28-6Ej"/>
                             <constraint firstItem="ZuG-dQ-NqZ" firstAttribute="trailing" secondItem="gue-C7-LaZ" secondAttribute="trailing" constant="50" id="EFz-uA-PBK"/>
                             <constraint firstItem="msU-Ix-kEi" firstAttribute="leading" secondItem="ZuG-dQ-NqZ" secondAttribute="leading" constant="50" id="FAL-8x-2R0"/>
                             <constraint firstItem="jMy-cy-aqT" firstAttribute="leading" secondItem="ZuG-dQ-NqZ" secondAttribute="leading" constant="5" id="Gbm-sM-Lhg"/>
@@ -243,6 +260,7 @@
                             <constraint firstItem="gue-C7-LaZ" firstAttribute="leading" secondItem="ZuG-dQ-NqZ" secondAttribute="leading" constant="50" id="YGk-mH-bbn"/>
                             <constraint firstItem="ZuG-dQ-NqZ" firstAttribute="bottom" secondItem="jMy-cy-aqT" secondAttribute="bottom" constant="5" id="cth-aC-2qF"/>
                             <constraint firstItem="ZuG-dQ-NqZ" firstAttribute="trailing" secondItem="sYT-Qh-c5J" secondAttribute="trailing" constant="5" id="fa5-Mh-t4u"/>
+                            <constraint firstItem="Xsu-C3-enR" firstAttribute="top" secondItem="ZuG-dQ-NqZ" secondAttribute="top" id="lLa-78-sn2"/>
                             <constraint firstItem="gue-C7-LaZ" firstAttribute="centerX" secondItem="sSu-mK-tm5" secondAttribute="centerX" id="srj-GR-RsH"/>
                             <constraint firstItem="msU-Ix-kEi" firstAttribute="centerY" secondItem="sSu-mK-tm5" secondAttribute="centerY" id="vjY-JC-9z8"/>
                             <constraint firstItem="ZuG-dQ-NqZ" firstAttribute="bottom" secondItem="sYT-Qh-c5J" secondAttribute="bottom" constant="5" id="zgn-nN-RI9"/>
@@ -257,6 +275,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ovV-VK-lP8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PQf-hc-5Ve" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2800.8000000000002" y="1307.4962518740631"/>
         </scene>
@@ -284,7 +303,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uA3-Cp-Jms">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入用户名" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="uA3-Cp-Jms">
                                                 <rect key="frame" x="83" y="0.0" width="192" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="58w-1O-rme"/>
@@ -308,14 +327,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入至少6位密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apc-Ti-gNQ">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入至少6位密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="apc-Ti-gNQ">
                                                 <rect key="frame" x="83" y="0.0" width="192" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="8Ly-5H-lKD"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -332,14 +351,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请再次输入相同密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RQb-RR-g34">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请再次输入相同密码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RQb-RR-g34">
                                                 <rect key="frame" x="83" y="0.0" width="192" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="zcW-Gv-lqV"/>
                                                 </constraints>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -356,7 +375,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2Z-Hb-uL6">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入手机号码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="m2Z-Hb-uL6">
                                                 <rect key="frame" x="83" y="0.0" width="192" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="bcj-kb-mmd"/>
@@ -381,7 +400,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yFf-ff-kV1">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yFf-ff-kV1">
                                                 <rect key="frame" x="83" y="0.0" width="192" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="zFL-Pp-S29"/>
@@ -404,6 +423,9 @@
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ClickSignUpButton:" destination="VSY-Rn-3MM" eventType="touchUpInside" id="kFT-hA-ncN"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎使用周易！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6n-EI-t4e">
                                 <rect key="frame" x="50" y="143.5" width="275" height="50"/>
@@ -414,6 +436,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0PB-iW-Lja" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmE-jc-GqP" userLabel="ToSignIn">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="aOR-dV-Pj7"/>
+                                            <constraint firstAttribute="width" constant="5" id="z64-1c-tK4"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="PQf-hc-5Ve" kind="unwind" identifier="SignUpToSignIn" unwindAction="Exit:" id="J4o-f2-i28"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -424,8 +461,10 @@
                             <constraint firstItem="Q57-wF-VWr" firstAttribute="centerX" secondItem="tfA-dK-2d2" secondAttribute="centerX" id="VpA-0K-Kbc"/>
                             <constraint firstItem="p6n-EI-t4e" firstAttribute="leading" secondItem="ebA-yA-KJk" secondAttribute="leading" constant="50" id="Z28-Wq-geV"/>
                             <constraint firstItem="p6n-EI-t4e" firstAttribute="centerX" secondItem="tfA-dK-2d2" secondAttribute="centerX" id="cvk-rt-6uT"/>
+                            <constraint firstItem="0PB-iW-Lja" firstAttribute="top" secondItem="ebA-yA-KJk" secondAttribute="top" id="fJd-OC-sbs"/>
                             <constraint firstItem="kcR-fD-uwY" firstAttribute="centerX" secondItem="tfA-dK-2d2" secondAttribute="centerX" id="fNk-gd-lE4"/>
                             <constraint firstItem="ebA-yA-KJk" firstAttribute="trailing" secondItem="p6n-EI-t4e" secondAttribute="trailing" constant="50" id="kc3-8X-aAo"/>
+                            <constraint firstItem="0PB-iW-Lja" firstAttribute="leading" secondItem="ebA-yA-KJk" secondAttribute="leading" id="n6r-uq-6mf"/>
                             <constraint firstItem="kcR-fD-uwY" firstAttribute="leading" secondItem="ebA-yA-KJk" secondAttribute="leading" constant="50" id="ncc-p0-BUh"/>
                             <constraint firstItem="Q57-wF-VWr" firstAttribute="leading" secondItem="ebA-yA-KJk" secondAttribute="leading" constant="50" id="ob2-Tt-pzN"/>
                             <constraint firstItem="ebA-yA-KJk" firstAttribute="trailing" secondItem="Q57-wF-VWr" secondAttribute="trailing" constant="50" id="tcJ-vn-5qH"/>
@@ -433,6 +472,15 @@
                         <viewLayoutGuide key="safeArea" id="ebA-yA-KJk"/>
                     </view>
                     <navigationItem key="navigationItem" title="注册" id="h9V-cL-uNO"/>
+                    <connections>
+                        <outlet property="CaptchaButton" destination="3Nz-OK-fkY" id="pWw-LR-U1a"/>
+                        <outlet property="CaptchaTextField" destination="yFf-ff-kV1" id="gF0-7L-kJh"/>
+                        <outlet property="NicknameTextField" destination="uA3-Cp-Jms" id="4Y2-gd-3jP"/>
+                        <outlet property="PasswordConfirmTextField" destination="RQb-RR-g34" id="qk6-S1-BTI"/>
+                        <outlet property="PasswordTextField" destination="apc-Ti-gNQ" id="KcX-3F-9sk"/>
+                        <outlet property="SignUpButton" destination="Q57-wF-VWr" id="8q4-gi-h3s"/>
+                        <outlet property="TelTextField" destination="m2Z-Hb-uL6" id="bzV-rt-7wV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fV-8R-4Wp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -590,10 +638,10 @@
                                 <state key="normal" image="default_avatar"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e6e-5T-doC" userLabel="InfoTableView">
-                                <rect key="frame" x="5" y="294" width="365" height="150"/>
+                                <rect key="frame" x="5" y="294" width="365" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="Evv-T8-njn"/>
+                                    <constraint firstAttribute="height" constant="200" id="Evv-T8-njn"/>
                                 </constraints>
                                 <color key="separatorColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
@@ -623,6 +671,41 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mpJ-Xb-Zu9" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="15" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUE-aI-LUq" userLabel="EditNickname">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="NNo-Jt-rda"/>
+                                            <constraint firstAttribute="height" constant="5" id="ROP-bg-Q5o"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="voU-eP-DB1" kind="show" identifier="UserInfoToEditNickname" id="6go-MQ-AM9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8q-ac-qS7" userLabel="EditRealname">
+                                        <rect key="frame" x="5" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="nnr-np-bvT"/>
+                                            <constraint firstAttribute="width" constant="5" id="uvu-aL-XHR"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="E79-2F-Woz" kind="show" identifier="UserInfoToEditRealname" id="MFR-HG-038"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNo-6z-lYb" userLabel="EditBirthday">
+                                        <rect key="frame" x="10" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="30m-6x-hm2"/>
+                                            <constraint firstAttribute="height" constant="5" id="quw-0T-MfW"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="7yY-2s-i73" kind="show" identifier="UserInfoToEditBirthday" id="7Fa-Lc-xhO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -632,8 +715,10 @@
                             <constraint firstItem="VJV-FI-5SU" firstAttribute="centerX" secondItem="hfM-9s-zQ4" secondAttribute="centerX" id="F5f-BQ-cEk"/>
                             <constraint firstItem="I7N-Dy-6hl" firstAttribute="trailing" secondItem="eQb-He-tDG" secondAttribute="trailing" id="Kxu-Ju-akl"/>
                             <constraint firstItem="eQb-He-tDG" firstAttribute="top" secondItem="I7N-Dy-6hl" secondAttribute="top" id="TEo-7q-w63"/>
+                            <constraint firstItem="mpJ-Xb-Zu9" firstAttribute="top" secondItem="I7N-Dy-6hl" secondAttribute="top" id="arv-Jb-FpO"/>
                             <constraint firstItem="e6e-5T-doC" firstAttribute="leading" secondItem="I7N-Dy-6hl" secondAttribute="leading" constant="5" id="jlL-ar-sqr"/>
                             <constraint firstItem="eQb-He-tDG" firstAttribute="leading" secondItem="I7N-Dy-6hl" secondAttribute="leading" id="lWa-pQ-qgf"/>
+                            <constraint firstItem="mpJ-Xb-Zu9" firstAttribute="leading" secondItem="I7N-Dy-6hl" secondAttribute="leading" id="x1B-qC-Wud"/>
                             <constraint firstItem="e6e-5T-doC" firstAttribute="top" secondItem="eQb-He-tDG" secondAttribute="bottom" constant="30" id="zEl-OF-6Oz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I7N-Dy-6hl"/>
@@ -646,8 +731,68 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2R-li-1r9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="amx-uw-VSE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2801" y="2008"/>
+        </scene>
+        <!--修改用户名-->
+        <scene sceneID="wnH-kR-j5I">
+            <objects>
+                <viewController id="voU-eP-DB1" customClass="EditNicknameViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TZZ-d3-S7l">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名可用于账号登录" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M2m-Yj-fFz">
+                                <rect key="frame" x="10" y="84" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="oF9-Xq-jB8"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKF-pe-udK" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Z0-Mf-6jF" userLabel="ToUserInfo">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="FJ1-zC-TbZ"/>
+                                            <constraint firstAttribute="height" constant="5" id="LE7-cw-VUU"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="amx-uw-VSE" kind="unwind" identifier="EditNicknameToUserInfo" unwindAction="Exit:" id="s7g-HP-OMa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="M2m-Yj-fFz" firstAttribute="centerX" secondItem="TZZ-d3-S7l" secondAttribute="centerX" id="Mh2-yh-CLZ"/>
+                            <constraint firstItem="EKF-pe-udK" firstAttribute="top" secondItem="L2C-Oa-wnD" secondAttribute="top" id="ZBg-Gu-Zpd"/>
+                            <constraint firstItem="M2m-Yj-fFz" firstAttribute="leading" secondItem="L2C-Oa-wnD" secondAttribute="leading" constant="10" id="hEw-rW-JOs"/>
+                            <constraint firstItem="EKF-pe-udK" firstAttribute="leading" secondItem="L2C-Oa-wnD" secondAttribute="leading" id="sTm-Wx-sFD"/>
+                            <constraint firstItem="L2C-Oa-wnD" firstAttribute="trailing" secondItem="M2m-Yj-fFz" secondAttribute="trailing" constant="10" id="wA5-Uc-ptr"/>
+                            <constraint firstItem="M2m-Yj-fFz" firstAttribute="top" secondItem="L2C-Oa-wnD" secondAttribute="top" constant="20" id="ypc-CR-Wqz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="L2C-Oa-wnD"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="修改用户名" id="owp-oR-gAd">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="p9K-5r-1h0">
+                            <connections>
+                                <action selector="ClickSaveButton:" destination="voU-eP-DB1" id="j9S-7n-aRw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="NicknameTextField" destination="M2m-Yj-fFz" id="iQJ-iN-sHq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z5U-YP-oKM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4760.8000000000002" y="2008.2458770614694"/>
         </scene>
         <!--注册NC-->
         <scene sceneID="Qtq-da-g78">
@@ -754,6 +899,65 @@
             </objects>
             <point key="canvasLocation" x="2800.8000000000002" y="2781.8590704647677"/>
         </scene>
+        <!--修改真实姓名-->
+        <scene sceneID="2MQ-6q-GMQ">
+            <objects>
+                <viewController id="E79-2F-Woz" customClass="EditRealnameViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Acq-wI-Ufh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入您的真实姓名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EhN-mp-SZz" userLabel="RealnameTextField">
+                                <rect key="frame" x="10" y="84" width="355" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="awF-Gk-Ans"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1c-dk-czE" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhe-Ja-boY" userLabel="ToUserInfo">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="CiC-th-fZl"/>
+                                            <constraint firstAttribute="width" constant="5" id="xx3-lN-BVs"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="amx-uw-VSE" kind="unwind" identifier="EditRealnameToUserInfo" unwindAction="Exit:" id="l2C-28-Qpg"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="EhN-mp-SZz" firstAttribute="centerX" secondItem="Acq-wI-Ufh" secondAttribute="centerX" id="0RE-Ze-egL"/>
+                            <constraint firstItem="EhN-mp-SZz" firstAttribute="leading" secondItem="IBt-7l-7s1" secondAttribute="leading" constant="10" id="DjN-c3-Vwt"/>
+                            <constraint firstItem="EhN-mp-SZz" firstAttribute="top" secondItem="IBt-7l-7s1" secondAttribute="top" constant="20" id="FEA-bq-TTf"/>
+                            <constraint firstItem="L1c-dk-czE" firstAttribute="top" secondItem="IBt-7l-7s1" secondAttribute="top" id="LMe-Kh-qKe"/>
+                            <constraint firstItem="L1c-dk-czE" firstAttribute="leading" secondItem="IBt-7l-7s1" secondAttribute="leading" id="cuI-ck-ePj"/>
+                            <constraint firstItem="IBt-7l-7s1" firstAttribute="trailing" secondItem="EhN-mp-SZz" secondAttribute="trailing" constant="10" id="imi-f2-c5u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IBt-7l-7s1"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="修改真实姓名" id="Huv-Zv-hk3">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="fuw-DA-s17">
+                            <connections>
+                                <action selector="ClickSaveButton:" destination="E79-2F-Woz" id="6bs-YN-U8X"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="RealnameTextField" destination="EhN-mp-SZz" id="dVo-Ot-X3q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ie9-b1-o6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4760.8000000000002" y="2781.8590704647677"/>
+        </scene>
         <!--关于NC-->
         <scene sceneID="LYe-rn-4Au">
             <objects>
@@ -798,10 +1002,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdY-P2-BNx" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMN-xs-czx" userLabel="ToMine">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="bem-mF-bzx"/>
+                                            <constraint firstAttribute="height" constant="5" id="pob-rp-J13"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="zFF-dr-lck" kind="unwind" identifier="SettingToMine" unwindAction="Exit:" id="qRK-cP-WEh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="tdY-P2-BNx" firstAttribute="top" secondItem="OBS-OW-hB6" secondAttribute="top" id="2sn-ME-PC7"/>
                             <constraint firstItem="MX6-Sp-VfR" firstAttribute="top" secondItem="OBS-OW-hB6" secondAttribute="top" id="Z6c-iX-q8R"/>
+                            <constraint firstItem="tdY-P2-BNx" firstAttribute="leading" secondItem="OBS-OW-hB6" secondAttribute="leading" id="bFa-4t-l7e"/>
                             <constraint firstItem="MX6-Sp-VfR" firstAttribute="centerX" secondItem="UDQ-EK-aie" secondAttribute="centerX" id="e2L-LX-qqW"/>
                             <constraint firstItem="MX6-Sp-VfR" firstAttribute="leading" secondItem="OBS-OW-hB6" secondAttribute="leading" constant="5" id="etG-T7-ZUY"/>
                             <constraint firstItem="OBS-OW-hB6" firstAttribute="trailing" secondItem="MX6-Sp-VfR" secondAttribute="trailing" constant="5" id="pIF-Ep-8t2"/>
@@ -816,6 +1037,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRB-9C-xOf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2800.8000000000002" y="3552.7736131934034"/>
+        </scene>
+        <!--修改出生日期-->
+        <scene sceneID="zuw-8I-4ZN">
+            <objects>
+                <viewController id="7yY-2s-i73" customClass="EditBirthdayViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JYF-Vi-b9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="weM-J1-6fc" userLabel="BirthdayButton">
+                                <rect key="frame" x="10" y="84" width="355" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="f5D-cB-JYe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ClickBirthdayButton:" destination="7yY-2s-i73" eventType="touchUpInside" id="zqN-8u-UbB"/>
+                                </connections>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yg3-oA-ZdW" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rd9-pK-ceV" userLabel="ToUserInfo">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="chW-b4-YNH"/>
+                                            <constraint firstAttribute="height" constant="5" id="nFc-Ub-vkU"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="amx-uw-VSE" kind="unwind" identifier="EditBirthdayToUserInfo" unwindAction="Exit:" id="K01-dy-Jsy"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="weM-J1-6fc" firstAttribute="top" secondItem="qiR-JG-HYi" secondAttribute="top" constant="20" id="FtX-tB-Hsj"/>
+                            <constraint firstItem="yg3-oA-ZdW" firstAttribute="leading" secondItem="qiR-JG-HYi" secondAttribute="leading" id="QNn-94-Fuw"/>
+                            <constraint firstItem="yg3-oA-ZdW" firstAttribute="top" secondItem="qiR-JG-HYi" secondAttribute="top" id="R4z-51-dZk"/>
+                            <constraint firstItem="weM-J1-6fc" firstAttribute="centerX" secondItem="JYF-Vi-b9I" secondAttribute="centerX" id="Rjl-f7-mMb"/>
+                            <constraint firstItem="qiR-JG-HYi" firstAttribute="trailing" secondItem="weM-J1-6fc" secondAttribute="trailing" constant="10" id="T60-GC-RNe"/>
+                            <constraint firstItem="weM-J1-6fc" firstAttribute="leading" secondItem="qiR-JG-HYi" secondAttribute="leading" constant="10" id="bKy-rK-SdF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qiR-JG-HYi"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="修改出生日期" id="gvz-ml-tQd">
+                        <barButtonItem key="rightBarButtonItem" title="保存" id="SbW-jA-Gga">
+                            <connections>
+                                <action selector="ClickSaveButton:" destination="7yY-2s-i73" id="wFT-X7-EiV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="BirthdayButton" destination="weM-J1-6fc" id="FJO-ed-Y7f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C2N-h6-0oq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4760.8000000000002" y="3552.7736131934034"/>
         </scene>
         <!--设置NC-->
         <scene sceneID="c7F-6F-Wg3">
@@ -835,14 +1120,71 @@
             </objects>
             <point key="canvasLocation" x="1861.5999999999999" y="3552.7736131934034"/>
         </scene>
+        <!--修改用户名NC-->
+        <scene sceneID="Zvp-p8-Aa8">
+            <objects>
+                <navigationController title="修改用户名NC" automaticallyAdjustsScrollViewInsets="NO" id="PDx-w4-AJx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kio-f8-JMX">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="voU-eP-DB1" kind="relationship" relationship="rootViewController" id="VRD-Yf-1KS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ybb-JP-mgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3821.5999999999999" y="2007.346326836582"/>
+        </scene>
+        <!--修改真实姓名NC-->
+        <scene sceneID="had-z9-Kg1">
+            <objects>
+                <navigationController title="修改真实姓名NC" automaticallyAdjustsScrollViewInsets="NO" id="Gab-fT-3nZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i6b-Eh-CID">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E79-2F-Woz" kind="relationship" relationship="rootViewController" id="iVq-Rq-1R6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yMn-Uu-VXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3821.5999999999999" y="2781.8590704647677"/>
+        </scene>
+        <!--修改出生日期NC-->
+        <scene sceneID="csy-Rk-A5h">
+            <objects>
+                <navigationController title="修改出生日期NC" automaticallyAdjustsScrollViewInsets="NO" id="V44-1v-bqP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QCQ-oP-vch">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7yY-2s-i73" kind="relationship" relationship="rootViewController" id="4D5-WS-EOc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eq9-g8-6eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3821.5999999999999" y="3552.7736131934034"/>
+        </scene>
     </scenes>
     <resources>
         <image name="click_to_sign_in" width="375" height="375"/>
         <image name="default_avatar" width="375" height="375"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="7Fa-Lc-xhO"/>
         <segue reference="x9G-5b-4k8"/>
+        <segue reference="MFR-HG-038"/>
         <segue reference="PIK-O1-KbK"/>
+        <segue reference="6go-MQ-AM9"/>
         <segue reference="WMG-m9-bKK"/>
         <segue reference="ob7-FJ-ZY1"/>
         <segue reference="2jA-Nv-BwO"/>
