@@ -8,18 +8,38 @@
 
 import UIKit
 
-class Test: UIViewController {
+class Test: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var mTableView: UITableView!
+    
+    @IBOutlet weak var mCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mTableView.frame = CGRect(x: 0, y: 0, width: 30, height: 500)
-        
+        mCollectionView.delegate = self
+        mCollectionView.dataSource = self
         // Do any additional setup after loading the view.
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 16
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        var mCell: GuaXiangCollectionViewCell = GuaXiangCollectionViewCell(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+        mCell = collectionView.dequeueReusableCell(withReuseIdentifier: "mCell", for: indexPath) as! GuaXiangCollectionViewCell
+//        mCell.setImage(image: UIImage(named: "default_avatar")!)
+        mCell.setTitle(title: "hi")
+        return mCell
+    }
+    
+    func select() {
+    
+    }
 
     /*
     // MARK: - Navigation

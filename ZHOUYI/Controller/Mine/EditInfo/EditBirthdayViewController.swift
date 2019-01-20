@@ -29,6 +29,8 @@ class EditBirthdayViewController: UIViewController, UIPickerViewDelegate, UIPick
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        BirthdayButton.layer.masksToBounds = true
+        BirthdayButton.layer.cornerRadius = 5
         BirthdayButton.setTitle(GlobalUser.birthday, for: .normal)
     }
     

@@ -8,12 +8,16 @@
 
 import UIKit
 
-class UserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class UserInfoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // 控件
     @IBOutlet weak var AvatarBackgroundImageView: UIImageView!
     @IBOutlet weak var AvatarButton: UIButton!
     @IBOutlet weak var InfoTableView: UITableView!
+    // 控件功能
+    @IBAction func ClickAvatarButton(_ sender: Any) {
+        EditAvatar()
+    }
     
     @IBAction func Exit(_ segue: UIStoryboardSegue) {
         reloadView()
@@ -88,6 +92,20 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         default:
             break;
         }
+    }
+    
+    func EditAvatar() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.originalImage] as! UIImage
+        AvatarBackgroundImageView.image = image
+        AvatarButton.setImage(image, for: .normal)
+        dismiss(animated: true, completion: nil)
     }
 
     /*
