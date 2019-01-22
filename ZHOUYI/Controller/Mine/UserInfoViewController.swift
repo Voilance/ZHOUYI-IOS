@@ -14,9 +14,16 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var AvatarBackgroundImageView: UIImageView!
     @IBOutlet weak var AvatarButton: UIButton!
     @IBOutlet weak var InfoTableView: UITableView!
+    @IBOutlet weak var SignOutButton: UIButton!
     // 控件功能
     @IBAction func ClickAvatarButton(_ sender: Any) {
         EditAvatar()
+    }
+    @IBAction func ClickSignOutButton(_ sender: Any) {
+        GlobalUser.login = false
+        GlobalUser.online = false
+        GlobalUser.saveUserInfo()
+        self.performSegue(withIdentifier: "UserInfoToMine", sender: nil)
     }
     
     @IBAction func Exit(_ segue: UIStoryboardSegue) {
@@ -34,6 +41,8 @@ class UserInfoViewController: UIViewController, UITableViewDelegate, UITableView
         // 设置圆形头像
         AvatarButton.layer.masksToBounds = true
         AvatarButton.layer.cornerRadius = AvatarButton.frame.width / 2
+        SignOutButton.layer.masksToBounds = true
+        SignOutButton.layer.cornerRadius = 5
         
         // 设置TableView的Delegate和DataSource
         InfoTableView.delegate = self
