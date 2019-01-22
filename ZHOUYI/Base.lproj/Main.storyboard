@@ -799,7 +799,7 @@
                                                             <constraint firstAttribute="width" constant="32" id="eKD-yg-qgL"/>
                                                         </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-Se-WCQ">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Uk4-Se-WCQ">
                                                         <rect key="frame" x="68" y="0.0" width="44" height="454"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本卦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7Q-tA-v0X">
@@ -813,25 +813,31 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="AD0-HS-g31">
-                                                                <rect key="frame" x="0.0" y="20" width="44" height="434"/>
+                                                                <rect key="frame" x="0.0" y="22" width="44" height="432"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="mHT-6Y-5kx">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="G6" translatesAutoresizingMaskIntoConstraints="NO" id="mHT-6Y-5kx">
                                                                         <rect key="frame" x="0.0" y="0.0" width="44" height="70.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="JKE-In-eAH">
-                                                                        <rect key="frame" x="0.0" y="72.5" width="44" height="71"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="G7" translatesAutoresizingMaskIntoConstraints="NO" id="JKE-In-eAH">
+                                                                        <rect key="frame" x="0.0" y="72.5" width="44" height="70"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Nur-Nz-29L">
-                                                                        <rect key="frame" x="0.0" y="145.5" width="44" height="70.5"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="G8" translatesAutoresizingMaskIntoConstraints="NO" id="Nur-Nz-29L">
+                                                                        <rect key="frame" x="0.0" y="144.5" width="44" height="70.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="ZKs-3N-fHY">
-                                                                        <rect key="frame" x="0.0" y="218" width="44" height="70.5"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="G9" translatesAutoresizingMaskIntoConstraints="NO" id="ZKs-3N-fHY">
+                                                                        <rect key="frame" x="0.0" y="217" width="44" height="70.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="kGQ-Jo-aP1">
-                                                                        <rect key="frame" x="0.0" y="290.5" width="44" height="71"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GS9" translatesAutoresizingMaskIntoConstraints="NO" id="kGQ-Jo-aP1">
+                                                                        <rect key="frame" x="0.0" y="289.5" width="44" height="70"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_avatar" translatesAutoresizingMaskIntoConstraints="NO" id="3s4-uS-eWp">
-                                                                        <rect key="frame" x="0.0" y="363.5" width="44" height="70.5"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GY9" translatesAutoresizingMaskIntoConstraints="NO" id="3s4-uS-eWp">
+                                                                        <rect key="frame" x="0.0" y="361.5" width="44" height="70.5"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </imageView>
                                                                 </subviews>
                                                             </stackView>
@@ -3600,7 +3606,13 @@
     <resources>
         <image name="BenGua" width="1080" height="848"/>
         <image name="BianGua" width="1080" height="849"/>
+        <image name="G6" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="G7" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="G8" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="G9" width="381.60000610351562" height="381.60000610351562"/>
         <image name="GA6" width="645" height="180"/>
+        <image name="GS9" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="GY9" width="381.60000610351562" height="381.60000610351562"/>
         <image name="Oper1" width="116.63999938964844" height="116.63999938964844"/>
         <image name="Oper2" width="116.63999938964844" height="116.63999938964844"/>
         <image name="Oper3" width="116.63999938964844" height="116.63999938964844"/>
