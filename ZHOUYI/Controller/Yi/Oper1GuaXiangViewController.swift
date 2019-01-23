@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Oper1GuaXiangViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // 控件
     @IBOutlet weak var GuaXiangButton1: UIButton!
@@ -31,22 +31,28 @@ class Oper1GuaXiangViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var RandomButton6: UIButton!
     // 控件功能
     @IBAction func ClickGuaXiangButton1(_ sender: Any) {
-        selectGuaXiang(index: 1)
+        buttonIndex = 1
+        selectGuaXiang()
     }
     @IBAction func ClickGuaXiangButton2(_ sender: Any) {
-        selectGuaXiang(index: 2)
+        buttonIndex = 2
+        selectGuaXiang()
     }
     @IBAction func ClickGuaXiangButton3(_ sender: Any) {
-        selectGuaXiang(index: 3)
+        buttonIndex = 3
+        selectGuaXiang()
     }
     @IBAction func ClickGuaXiangButton4(_ sender: Any) {
-        selectGuaXiang(index: 4)
+        buttonIndex = 4
+        selectGuaXiang()
     }
     @IBAction func ClickGuaXiangButton5(_ sender: Any) {
-        selectGuaXiang(index: 5)
+        buttonIndex = 5
+        selectGuaXiang()
     }
     @IBAction func ClickGuaXiangButton6(_ sender: Any) {
-        selectGuaXiang(index: 6)
+        buttonIndex = 6
+        selectGuaXiang()
     }
     @IBAction func ClickRandomButton1(_ sender: Any) {
         randomGuaXiang(index: 1)
@@ -70,6 +76,8 @@ class Oper1GuaXiangViewController: UIViewController, UIPickerViewDelegate, UIPic
     let GuaXiangNameList: [String] = ["阴变阳", "阳爻", "阴爻", "阳变阴"]
     let GuaXiangImageAList = [UIImage(named: "GA6"), UIImage(named: "GA7"), UIImage(named: "GA8"), UIImage(named: "GA9")]
     let GuaXiangImageBList = [UIImage(named: "GB6"), UIImage(named: "GB7"), UIImage(named: "GB8"), UIImage(named: "GB9")]
+    var guaXiangButtonList: [UIButton] = []
+    var guaXiangLabelList: [UILabel] = []
     var date: String?
     var yongShen: String?
     var reason: String?
@@ -77,10 +85,24 @@ class Oper1GuaXiangViewController: UIViewController, UIPickerViewDelegate, UIPic
     var note: String?
     var guaXiang: [Int] = [6, 6, 6, 6, 6, 6]
     let PickRowHeight: CGFloat = 50
+    var buttonIndex: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        guaXiangButtonList.append(GuaXiangButton1)
+        guaXiangButtonList.append(GuaXiangButton2)
+        guaXiangButtonList.append(GuaXiangButton3)
+        guaXiangButtonList.append(GuaXiangButton4)
+        guaXiangButtonList.append(GuaXiangButton5)
+        guaXiangButtonList.append(GuaXiangButton6)
+        guaXiangLabelList.append(GuaXiangLabel1)
+        guaXiangLabelList.append(GuaXiangLabel2)
+        guaXiangLabelList.append(GuaXiangLabel3)
+        guaXiangLabelList.append(GuaXiangLabel4)
+        guaXiangLabelList.append(GuaXiangLabel5)
+        guaXiangLabelList.append(GuaXiangLabel6)
         
         RandomButton1.layer.masksToBounds = true
         RandomButton1.layer.cornerRadius = 5
@@ -103,99 +125,51 @@ class Oper1GuaXiangViewController: UIViewController, UIPickerViewDelegate, UIPic
         super.didReceiveMemoryWarning()
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return GuaXiangImageBList.count
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
     }
     
-    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-        return PickRowHeight
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GuaXiangCell", for: indexPath)
+        cell.imageView?.image = GuaXiangImageBList[indexPath.row]
+        return cell
     }
     
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 220, height: 50))
-        imageView.image = GuaXiangImageBList[row]
-        return imageView
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 58
     }
     
-    func selectGuaXiang(index: Int) {
-        let alert = UIAlertController(title: "\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
-        let guaXiangPicker = UIPickerView(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
-        guaXiangPicker.delegate = self
-        guaXiangPicker.dataSource = self
-        let yAction = UIAlertAction(title: "确定", style: .default, handler: { action in
-            let row = guaXiangPicker.selectedRow(inComponent: 0)
-            self.guaXiang[index - 1] = row + 6
-            switch index {
-            case 1:
-                self.GuaXiangButton1.setImage(self.GuaXiangImageAList[row], for: .normal)
-                self.GuaXiangLabel1.text = self.GuaXiangNameList[row]
-                break;
-            case 2:
-                self.GuaXiangButton2.setImage(self.GuaXiangImageAList[row], for: .normal)
-                self.GuaXiangLabel2.text = self.GuaXiangNameList[row]
-                break;
-            case 3:
-                self.GuaXiangButton3.setImage(self.GuaXiangImageAList[row], for: .normal)
-                self.GuaXiangLabel3.text = self.GuaXiangNameList[row]
-                break;
-            case 4:
-                self.GuaXiangButton4.setImage(self.GuaXiangImageAList[row], for: .normal)
-                self.GuaXiangLabel4.text = self.GuaXiangNameList[row]
-                break;
-            case 5:
-                self.GuaXiangButton5.setImage(self.GuaXiangImageAList[row], for: .normal)
-                self.GuaXiangLabel5.text = self.GuaXiangNameList[row]
-                break;
-            case 6:
-                self.GuaXiangButton6.setImage(self.GuaXiangImageAList[row], for: .normal)
-                self.GuaXiangLabel6.text = self.GuaXiangNameList[row]
-                break;
-            default:
-                break;
-            }
-        })
-        let nAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alert.view.addSubview(guaXiangPicker)
-        alert.addAction(yAction)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guaXiangButtonList[buttonIndex - 1].setImage(GuaXiangImageAList[indexPath.row], for: .normal)
+        guaXiangLabelList[buttonIndex - 1].text = GuaXiangNameList[indexPath.row]
+        guaXiang[buttonIndex - 1] = indexPath.row + 6
+        self.dismiss(animated: true, completion: nil)
+        return
+    }
+    
+    func selectGuaXiang() {
+        let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 270, height: 250))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "GuaXiangCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nAction = UIAlertAction(title: "取消", style: .default, handler: nil)
+        alert.view.addSubview(tableView)
         alert.addAction(nAction)
+//        alert.show(self, sender: nil)
         self.present(alert, animated: true, completion: nil)
     }
+    
     
     func randomGuaXiang(index: Int) {
         let num = Int.random(in: 0..<4)
         self.guaXiang[index - 1] = num + 6
-        switch index {
-        case 1:
-            self.GuaXiangButton1.setImage(self.GuaXiangImageAList[num], for: .normal)
-            self.GuaXiangLabel1.text = self.GuaXiangNameList[num]
-            break;
-        case 2:
-            self.GuaXiangButton2.setImage(self.GuaXiangImageAList[num], for: .normal)
-            self.GuaXiangLabel2.text = self.GuaXiangNameList[num]
-            break;
-        case 3:
-            self.GuaXiangButton3.setImage(self.GuaXiangImageAList[num], for: .normal)
-            self.GuaXiangLabel3.text = self.GuaXiangNameList[num]
-            break;
-        case 4:
-            self.GuaXiangButton4.setImage(self.GuaXiangImageAList[num], for: .normal)
-            self.GuaXiangLabel4.text = self.GuaXiangNameList[num]
-            break;
-        case 5:
-            self.GuaXiangButton5.setImage(self.GuaXiangImageAList[num], for: .normal)
-            self.GuaXiangLabel5.text = self.GuaXiangNameList[num]
-            break;
-        case 6:
-            self.GuaXiangButton6.setImage(self.GuaXiangImageAList[num], for: .normal)
-            self.GuaXiangLabel6.text = self.GuaXiangNameList[num]
-            break;
-        default:
-            break;
-        }
+        guaXiangButtonList[index - 1].setImage(self.GuaXiangImageAList[num], for: .normal)
+        guaXiangLabelList[index - 1].text = self.GuaXiangNameList[num]
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {

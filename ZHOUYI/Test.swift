@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Test: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Test: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -60,6 +60,10 @@ class Test: UIViewController, UITableViewDelegate, UITableViewDataSource {
         alert.addAction(yAction)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    
+    
 
     /*
     // MARK: - Navigation
