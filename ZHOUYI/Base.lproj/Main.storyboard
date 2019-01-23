@@ -2114,7 +2114,7 @@
         <!--选卦-->
         <scene sceneID="1di-CU-qOQ">
             <objects>
-                <viewController id="hir-Cp-5eX" sceneMemberID="viewController">
+                <viewController id="hir-Cp-5eX" customClass="Oper4GuaXiangViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="19G-gh-7F8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2127,10 +2127,16 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV2-Xc-TaJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="147.5" height="150"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="cLa-VF-oDK"/>
                                                 </constraints>
-                                                <state key="normal" image="default_avatar"/>
+                                                <state key="normal" title="111111">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="ClickBenGuaButton:" destination="hir-Cp-5eX" eventType="touchUpInside" id="pGx-Hz-zoi"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乾宫 第一卦 乾为天" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdy-T6-0o4">
                                                 <rect key="frame" x="0.0" y="160" width="147.5" height="41"/>
@@ -2145,10 +2151,16 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DSM-1u-Bfd">
                                                 <rect key="frame" x="0.0" y="0.0" width="147.5" height="150"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="YKj-jJ-Y0C"/>
                                                 </constraints>
-                                                <state key="normal" image="default_avatar"/>
+                                                <state key="normal" title="111111">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="ClickBianGuaButton:" destination="hir-Cp-5eX" eventType="touchUpInside" id="YKl-NZ-gGv"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乾宫 第一卦 乾为天" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JS-6V-7cz">
                                                 <rect key="frame" x="0.0" y="160" width="147.5" height="41"/>
@@ -2182,23 +2194,47 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LNG-8N-12v">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="70" id="eX2-yT-OXX"/>
                                                             <constraint firstAttribute="width" constant="70" id="kM7-eT-FbE"/>
                                                         </constraints>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <state key="normal" title="乾111">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS0Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="DbJ-av-1eZ"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wo6-PD-eng">
                                                         <rect key="frame" x="70" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="兑011">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS1Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="7bC-WY-5Tx"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="88X-vM-XV9">
                                                         <rect key="frame" x="140" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="离101">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS2Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="8Am-Je-rsL"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oD-k6-4F8">
                                                         <rect key="frame" x="210" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="震001">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS3Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="CDc-Ak-5kw"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -2207,19 +2243,43 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPR-ff-ONC">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="巽110">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS4Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="Nwv-cZ-DSO"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hj-Uu-BVf">
                                                         <rect key="frame" x="70" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="坎010">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS5Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="KRB-fn-Jar"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jR0-Iq-BHC">
                                                         <rect key="frame" x="140" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="艮100">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS6Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="9Ga-Qz-qxg"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3W-zs-RNS">
                                                         <rect key="frame" x="210" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="坤000">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickS7Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="MdB-J3-tQp"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -2228,19 +2288,43 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ch-qJ-QJC">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="乾111">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX0Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="5Wr-EG-ArR"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tj-cq-cpw">
                                                         <rect key="frame" x="70" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="兑011">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX1Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="DRI-6P-qvr"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bm-RE-ZyT">
                                                         <rect key="frame" x="140" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="离101">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX2Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="pvk-St-Hqx"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJ5-Kh-eh2">
                                                         <rect key="frame" x="210" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="震001">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX3Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="W8j-bC-mAa"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -2249,19 +2333,43 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-Mj-qxZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="巽110">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX4Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="ROR-MU-S70"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9J-HO-Pm9">
                                                         <rect key="frame" x="70" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="坎010">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX5Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="h5Q-RL-Utx"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XV9-Hf-bxg">
                                                         <rect key="frame" x="140" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="艮100">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX6Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="KRc-0t-wbE"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jB5-8Z-7Ax">
                                                         <rect key="frame" x="210" y="0.0" width="70" height="70"/>
-                                                        <state key="normal" image="default_avatar"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="坤000">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ClickX7Button:" destination="hir-Cp-5eX" eventType="touchUpInside" id="9lV-PS-PZ9"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -2284,26 +2392,32 @@
                     <navigationItem key="navigationItem" title="选卦" id="AJW-aa-1Z3">
                         <barButtonItem key="rightBarButtonItem" title="确定" id="IKs-Hl-prk"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="BenGuaButton" destination="jV2-Xc-TaJ" id="EJO-WH-WRL"/>
+                        <outlet property="BenGuaLabel" destination="Fdy-T6-0o4" id="66p-uw-hJn"/>
+                        <outlet property="BianGuaButton" destination="DSM-1u-Bfd" id="Gaj-Mw-WfS"/>
+                        <outlet property="BianGuaLabel" destination="1JS-6V-7cz" id="yn3-A7-Mjv"/>
+                        <outlet property="S0Button" destination="LNG-8N-12v" id="dxC-XM-EKq"/>
+                        <outlet property="S1Button" destination="wo6-PD-eng" id="aDq-XK-zvu"/>
+                        <outlet property="S2Button" destination="88X-vM-XV9" id="UKt-8f-671"/>
+                        <outlet property="S3Button" destination="5oD-k6-4F8" id="2aS-y0-1zb"/>
+                        <outlet property="S4Button" destination="UPR-ff-ONC" id="a4h-Zf-w1N"/>
+                        <outlet property="S5Button" destination="8Hj-Uu-BVf" id="o68-Uf-qCh"/>
+                        <outlet property="S6Button" destination="jR0-Iq-BHC" id="dwW-R7-XjL"/>
+                        <outlet property="S7Button" destination="a3W-zs-RNS" id="htg-7l-vgQ"/>
+                        <outlet property="X0Button" destination="0ch-qJ-QJC" id="iFr-pO-7K2"/>
+                        <outlet property="X1Button" destination="4tj-cq-cpw" id="qAA-Wf-Ps2"/>
+                        <outlet property="X2Button" destination="7Bm-RE-ZyT" id="aBi-l8-sLJ"/>
+                        <outlet property="X3Button" destination="VJ5-Kh-eh2" id="5Rz-bw-BHC"/>
+                        <outlet property="X4Button" destination="mv1-Mj-qxZ" id="M2I-6n-M63"/>
+                        <outlet property="X5Button" destination="y9J-HO-Pm9" id="T3f-2O-YPC"/>
+                        <outlet property="X6Button" destination="XV9-Hf-bxg" id="27o-17-yas"/>
+                        <outlet property="X7Button" destination="jB5-8Z-7Ax" id="QJq-dd-8AT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6I-q2-wpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2828" y="-376"/>
-        </scene>
-        <!--历史-->
-        <scene sceneID="470-zg-lrO">
-            <objects>
-                <viewController id="F9v-XE-Dua" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="hEs-LK-b2p">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <viewLayoutGuide key="safeArea" id="LbM-aG-cOc"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="历史" id="tsJ-cM-O7y"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g6u-cq-2sg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1714.4000000000001" y="443.92803598200902"/>
         </scene>
         <!--我的-->
         <scene sceneID="Bxw-Z5-HrN">
@@ -2761,7 +2875,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="JGJ-do-DmT" kind="relationship" relationship="viewControllers" id="lV9-rz-cby"/>
-                        <segue destination="5q2-fV-cl5" kind="relationship" relationship="viewControllers" id="Lba-n1-Js5"/>
+                        <segue destination="XCr-Kb-cQB" kind="relationship" relationship="viewControllers" id="KMV-TX-NUU"/>
                         <segue destination="rfl-qf-OcG" kind="relationship" relationship="viewControllers" id="LtA-J3-uUo"/>
                     </connections>
                 </tabBarController>
@@ -2787,25 +2901,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OdG-XE-Le2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-164" y="-894"/>
-        </scene>
-        <!--历史NC-->
-        <scene sceneID="xsg-hz-vuT">
-            <objects>
-                <navigationController title="历史NC" automaticallyAdjustsScrollViewInsets="NO" id="5q2-fV-cl5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="历史" id="uhR-J3-jLc"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="eMl-0b-Z3u">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="F9v-XE-Dua" kind="relationship" relationship="rootViewController" id="D9x-6Y-A9T"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jen-Br-hZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="775.20000000000005" y="443.92803598200902"/>
         </scene>
         <!--我的NC-->
         <scene sceneID="ltM-mT-6qz">
@@ -2834,13 +2929,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0V-D9-GBz">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0V-D9-GBz">
                                 <rect key="frame" x="137.5" y="283.5" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="0zi-aa-9C1"/>
                                     <constraint firstAttribute="height" constant="100" id="FsG-Wt-y2e"/>
                                 </constraints>
-                                <state key="normal" title="Button" backgroundImage="GA6"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="乾" backgroundImage="111">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789031982" green="0.92546778917312622" blue="0.92549145221710205" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -3494,6 +3592,52 @@
             </objects>
             <point key="canvasLocation" x="2008.8" y="-376.46176911544228"/>
         </scene>
+        <!--历史-->
+        <scene sceneID="MRK-nR-wdS">
+            <objects>
+                <tableViewController id="uby-f8-mgg" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="e0O-aO-UXA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" textLabel="1ye-BU-r3L" detailTextLabel="Mo6-z7-SfS" style="IBUITableViewCellStyleValue1" id="Z5E-6g-1xe">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z5E-6g-1xe" id="g1w-Wq-co1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1ye-BU-r3L">
+                                            <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mo6-z7-SfS">
+                                            <rect key="frame" x="315" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="uby-f8-mgg" id="zea-im-XTy"/>
+                            <outlet property="delegate" destination="uby-f8-mgg" id="8eX-je-TFG"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="历史" id="r2E-Gp-r2M"/>
+                    <navigationItem key="navigationItem" title="历史" id="tpk-q5-KPM"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jg1-Gc-qet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1686" y="444"/>
+        </scene>
         <!--事由NC-->
         <scene sceneID="8yO-hO-pkJ">
             <objects>
@@ -3602,8 +3746,28 @@
             </objects>
             <point key="canvasLocation" x="5976.8000000000002" y="-1225.6371814092954"/>
         </scene>
+        <!--历史NC-->
+        <scene sceneID="Ov7-EK-G71">
+            <objects>
+                <navigationController title="历史NC" automaticallyAdjustsScrollViewInsets="NO" id="XCr-Kb-cQB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="历史" id="LBn-8S-tlp"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kvx-HG-dQf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uby-f8-mgg" kind="relationship" relationship="rootViewController" id="41b-gf-8wt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dG4-sH-1KM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="774" y="444"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="111" width="200" height="100"/>
         <image name="BenGua" width="1080" height="848"/>
         <image name="BianGua" width="1080" height="849"/>
         <image name="G6" width="381.60000610351562" height="381.60000610351562"/>

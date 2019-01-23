@@ -32,6 +32,8 @@
 		7E6D28AC21BAD7C800B88A6D /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; };
 		7E6D28AD21BAD7C800B88A6D /* SwiftHTTP.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6D28A921BAD7B700B88A6D /* SwiftHTTP.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7E6DC91F21F439C00019205E /* GuaXiangCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6DC91E21F439C00019205E /* GuaXiangCollectionViewCell.swift */; };
+		7E77A51221F816AF00090D6A /* Oper4GuaXiangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */; };
+		7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77A51721F8489000090D6A /* HistoryTableViewController.swift */; };
 		7EAEA62221F2F2D0001D3459 /* EditNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */; };
 		7EAEA62421F2F9DE001D3459 /* EditRealnameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */; };
 		7EAEA62621F2FFF9001D3459 /* EditBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */; };
@@ -98,15 +100,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7E0993E021F45AD700BA3DE6 /* Oper1ReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper1ReasonViewController.swift; path = ZHOUYI/View/Oper1ReasonViewController.swift; sourceTree = SOURCE_ROOT; };
-		7E0993E421F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper1GuaXiangViewController.swift; path = ZHOUYI/View/Oper1GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
+		7E0993E021F45AD700BA3DE6 /* Oper1ReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper1ReasonViewController.swift; path = ZHOUYI/Controller/Yi/Oper1ReasonViewController.swift; sourceTree = SOURCE_ROOT; };
+		7E0993E421F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper1GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper1GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
 		7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Toast-Swift.xcodeproj"; path = "Toast-Swift-master/Toast-Swift.xcodeproj"; sourceTree = "<group>"; };
 		7E15C82921ECB33200E794F9 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		7E15C82F21ECD7D300E794F9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		7E15C83121ECD7FA00E794F9 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		7E38053121F6BDCD00E2D89D /* tViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tViewController.swift; sourceTree = "<group>"; };
 		7E38053521F6D54D00E2D89D /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper2GuaXiangViewController.swift; path = ZHOUYI/Controller/Mine/Oper2GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
+		7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper2GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper2GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
 		7E4224FB21F19DFC003A7240 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7E4224FF21F1A930003A7240 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		7E42250121F1B0D1003A7240 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,8 @@
 		7E5ACE9821F0CB850055A166 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		7E6D28A321BAD7B700B88A6D /* SwiftHTTP.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftHTTP.xcodeproj; path = "SwiftHTTP-master/SwiftHTTP.xcodeproj"; sourceTree = "<group>"; };
 		7E6DC91E21F439C00019205E /* GuaXiangCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuaXiangCollectionViewCell.swift; sourceTree = "<group>"; };
+		7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper4GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper4GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
+		7E77A51721F8489000090D6A /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameViewController.swift; sourceTree = "<group>"; };
 		7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRealnameViewController.swift; sourceTree = "<group>"; };
 		7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBirthdayViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +167,8 @@
 		7E15C82821ECAF9C00E794F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7EAEA61F21F2F2A4001D3459 /* ZhouYi */,
+				7E77A51621F8449C00090D6A /* History */,
+				7E77A51521F8445300090D6A /* Yi */,
 				7EAEA61C21F2F24D001D3459 /* Mine */,
 			);
 			path = Controller;
@@ -214,6 +219,25 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7E77A51521F8445300090D6A /* Yi */ = {
+			isa = PBXGroup;
+			children = (
+				7E0993E021F45AD700BA3DE6 /* Oper1ReasonViewController.swift */,
+				7E0993E421F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift */,
+				7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */,
+				7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */,
+			);
+			path = Yi;
+			sourceTree = "<group>";
+		};
+		7E77A51621F8449C00090D6A /* History */ = {
+			isa = PBXGroup;
+			children = (
+				7E77A51721F8489000090D6A /* HistoryTableViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		7E8F197F21ED9A7400EC84C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,16 +259,6 @@
 				7E38053521F6D54D00E2D89D /* SettingTableViewController.swift */,
 			);
 			path = Mine;
-			sourceTree = "<group>";
-		};
-		7EAEA61F21F2F2A4001D3459 /* ZhouYi */ = {
-			isa = PBXGroup;
-			children = (
-				7E0993E021F45AD700BA3DE6 /* Oper1ReasonViewController.swift */,
-				7E0993E421F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift */,
-				7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */,
-			);
-			path = ZhouYi;
 			sourceTree = "<group>";
 		};
 		7EAEA62021F2F2B9001D3459 /* EditInfo */ = {
@@ -381,6 +395,7 @@
 				7E42250221F1B0D1003A7240 /* AboutViewController.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
+				7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */,
 				7E5ACE9021F04CB70055A166 /* User.swift in Sources */,
 				7E38053821F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift in Sources */,
 				7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */,
@@ -393,6 +408,7 @@
 				7E6DC91F21F439C00019205E /* GuaXiangCollectionViewCell.swift in Sources */,
 				7EAEA62221F2F2D0001D3459 /* EditNicknameViewController.swift in Sources */,
 				7E5ACE9421F052A80055A166 /* GlobalUser.swift in Sources */,
+				7E77A51221F816AF00090D6A /* Oper4GuaXiangViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
