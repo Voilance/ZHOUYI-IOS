@@ -28,32 +28,37 @@ class Test: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return 50
     }
     
-    @IBOutlet weak var mtv: UITableView!
-    @IBAction func test(_ sender: Any) {
-        reloadView()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
     }
+    
+    @IBAction func test(_ sender: Any) {
+        show()
+    }
+    
+    var mCell: UITableViewCell = UITableViewCell()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mtv.delegate = self
-        mtv.dataSource = self
         // Do any additional setup after loading the view.
 //        reloadView()
-        DispatchQueue.main.async {
-            self.mtv.frame.size = CGSize(width: self.mtv.frame.width, height: 1000)
-            self.mtv.reloadData()
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func reloadView() {
-        mtv.frame.size = CGSize(width: mtv.frame.width, height: 300)
-        mtv.reloadData()
+    func show() {
+        let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        let mtv = UITableView(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
+        mtv.delegate = self
+        mtv.dataSource = self
+        mtv.register(UITableViewCell.self, forCellReuseIdentifier: "mCell")
+        let yAction = UIAlertAction(title: "y", style: .default, handler: nil)
+        alert.view.addSubview(mtv)
+        alert.addAction(yAction)
+        self.present(alert, animated: true, completion: nil)
     }
 
     /*

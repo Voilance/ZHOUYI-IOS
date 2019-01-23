@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2bM-gO-GQA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wf9-6R-HyR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -3595,7 +3595,7 @@
         <!--历史-->
         <scene sceneID="MRK-nR-wdS">
             <objects>
-                <tableViewController id="uby-f8-mgg" sceneMemberID="viewController">
+                <tableViewController id="uby-f8-mgg" customClass="HistoryTableViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="e0O-aO-UXA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3791,7 +3791,7 @@
         <segue reference="QSb-Xj-Gdg"/>
         <segue reference="6go-MQ-AM9"/>
         <segue reference="xJI-0e-sRJ"/>
-        <segue reference="4PT-aB-kFC"/>
+        <segue reference="xfU-KM-tft"/>
         <segue reference="ob7-FJ-ZY1"/>
         <segue reference="QuS-my-A6k"/>
         <segue reference="eHt-pA-atS"/>

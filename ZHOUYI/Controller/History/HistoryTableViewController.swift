@@ -9,6 +9,9 @@
 import UIKit
 
 class HistoryTableViewController: UITableViewController {
+    
+    var historyList: [(String, String)] = []
+    let RowHeight: CGFloat = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,29 +21,32 @@ class HistoryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        historyList.append(("事由", "时间"))
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return historyList.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
+        cell.textLabel?.text = historyList[indexPath.row].0
+        cell.detailTextLabel?.text = historyList[indexPath.row].1
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return RowHeight
+    }
 
     /*
     // Override to support conditional editing of the table view.
