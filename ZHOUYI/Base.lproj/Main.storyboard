@@ -672,7 +672,7 @@
         <!--卜卦结果-->
         <scene sceneID="ewg-ia-Nml">
             <objects>
-                <viewController id="s7r-dL-fBd" sceneMemberID="viewController">
+                <viewController id="s7r-dL-fBd" customClass="ResultViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wgg-KO-d92">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3784,22 +3784,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="111" width="400" height="200"/>
+        <image name="111" width="200" height="100"/>
         <image name="BenGua" width="1080" height="848"/>
         <image name="BianGua" width="1080" height="849"/>
-        <image name="G6" width="530" height="530"/>
-        <image name="G7" width="530" height="530"/>
-        <image name="G8" width="530" height="530"/>
-        <image name="G9" width="530" height="530"/>
+        <image name="G6" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="G7" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="G8" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="G9" width="381.60000610351562" height="381.60000610351562"/>
         <image name="GA6" width="645" height="180"/>
-        <image name="GS9" width="530" height="530"/>
-        <image name="GY9" width="530" height="530"/>
-        <image name="Oper1" width="162" height="162"/>
-        <image name="Oper2" width="162" height="162"/>
-        <image name="Oper3" width="162" height="162"/>
-        <image name="Oper4" width="162" height="162"/>
-        <image name="click_to_sign_in" width="500" height="500"/>
-        <image name="default_avatar" width="500" height="500"/>
+        <image name="GS9" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="GY9" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="Oper1" width="116.63999938964844" height="116.63999938964844"/>
+        <image name="Oper2" width="116.63999938964844" height="116.63999938964844"/>
+        <image name="Oper3" width="116.63999938964844" height="116.63999938964844"/>
+        <image name="Oper4" width="116.63999938964844" height="116.63999938964844"/>
+        <image name="click_to_sign_in" width="375" height="375"/>
+        <image name="default_avatar" width="375" height="375"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7Fa-Lc-xhO"/>

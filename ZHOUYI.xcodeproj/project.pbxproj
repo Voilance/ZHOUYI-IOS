@@ -14,6 +14,7 @@
 		7E15C82A21ECB33200E794F9 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82921ECB33200E794F9 /* Test.swift */; };
 		7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82F21ECD7D300E794F9 /* OptionCell.swift */; };
 		7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C83121ECD7FA00E794F9 /* MineViewController.swift */; };
+		7E20E53E222B9F3700ADFD72 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E20E53D222B9F3700ADFD72 /* ResultViewController.swift */; };
 		7E38053221F6BDCD00E2D89D /* tViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38053121F6BDCD00E2D89D /* tViewController.swift */; };
 		7E38053621F6D54D00E2D89D /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38053521F6D54D00E2D89D /* SettingTableViewController.swift */; };
 		7E38053821F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */; };
@@ -106,6 +107,7 @@
 		7E15C82921ECB33200E794F9 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		7E15C82F21ECD7D300E794F9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		7E15C83121ECD7FA00E794F9 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		7E20E53D222B9F3700ADFD72 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		7E38053121F6BDCD00E2D89D /* tViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tViewController.swift; sourceTree = "<group>"; };
 		7E38053521F6D54D00E2D89D /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper2GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper2GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -226,6 +228,7 @@
 				7E0993E421F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift */,
 				7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */,
 				7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */,
+				7E20E53D222B9F3700ADFD72 /* ResultViewController.swift */,
 			);
 			path = Yi;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
 				7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */,
+				7E20E53E222B9F3700ADFD72 /* ResultViewController.swift in Sources */,
 				7E5ACE9021F04CB70055A166 /* User.swift in Sources */,
 				7E38053821F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift in Sources */,
 				7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */,

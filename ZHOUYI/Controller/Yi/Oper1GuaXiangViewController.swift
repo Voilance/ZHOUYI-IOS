@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftHTTP
 
 class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -74,6 +75,19 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     }
     @IBAction func ClickOkButton(_ sender: Any) {
         self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
+//        let reqJson = ["guaxiang": guaXiang, "date": date, "yongsheng": yongShen, "name": name, "reason": reason, "note": note] as [String : Any]
+//        HTTP.POST(Api.SaveResultUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
+//            do {
+////                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+////                let result = respJson.object(forKey: "result") as? String
+//                DispatchQueue.main.async {
+//                    self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
+//                }
+//            } catch {
+//                print("Save Result Error")
+//                print(error)
+//            }
+//        }
     }
     
     let GuaXiangNameList: [String] = ["阴变阳", "阳爻", "阴爻", "阳变阴"]
@@ -181,14 +195,22 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "Oper1GuaXiangToResult" {
+            let destination = segue.destination as! ResultViewController
+            destination.date = date
+            destination.yongShen = yongShen
+            destination.reason = reason
+            destination.name = name
+            destination.note = note
+        }
     }
-    */
+ 
 
 }
