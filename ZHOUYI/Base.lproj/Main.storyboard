@@ -612,18 +612,35 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mwg-zT-EsE" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MyL-3p-JXe" userLabel="ToResult">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="2T4-kq-Hnw"/>
+                                            <constraint firstAttribute="height" constant="5" id="qrl-JW-g4x"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="s7r-dL-fBd" kind="show" identifier="Oper1GuaXiangToResult" id="9CX-h2-Uiz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="EMU-Hq-H5J" firstAttribute="centerX" secondItem="Idk-yf-xjF" secondAttribute="centerX" id="Kok-nI-vJt"/>
                             <constraint firstItem="EMU-Hq-H5J" firstAttribute="centerY" secondItem="Idk-yf-xjF" secondAttribute="centerY" id="qCz-fy-gyB"/>
+                            <constraint firstItem="mwg-zT-EsE" firstAttribute="top" secondItem="cNj-yK-OaT" secondAttribute="top" id="r8J-TC-BGC"/>
+                            <constraint firstItem="mwg-zT-EsE" firstAttribute="leading" secondItem="cNj-yK-OaT" secondAttribute="leading" id="zdf-wf-K7L"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cNj-yK-OaT"/>
                     </view>
                     <navigationItem key="navigationItem" title="六爻卦象" id="WNf-f5-OGM">
                         <barButtonItem key="rightBarButtonItem" title="确定" id="ttj-sq-mPl">
                             <connections>
-                                <segue destination="s7r-dL-fBd" kind="show" id="CHb-T6-DXD"/>
+                                <action selector="ClickOkButton:" destination="MFY-NX-zIM" id="5S0-Bl-RIK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3767,22 +3784,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="111" width="200" height="100"/>
+        <image name="111" width="400" height="200"/>
         <image name="BenGua" width="1080" height="848"/>
         <image name="BianGua" width="1080" height="849"/>
-        <image name="G6" width="381.60000610351562" height="381.60000610351562"/>
-        <image name="G7" width="381.60000610351562" height="381.60000610351562"/>
-        <image name="G8" width="381.60000610351562" height="381.60000610351562"/>
-        <image name="G9" width="381.60000610351562" height="381.60000610351562"/>
+        <image name="G6" width="530" height="530"/>
+        <image name="G7" width="530" height="530"/>
+        <image name="G8" width="530" height="530"/>
+        <image name="G9" width="530" height="530"/>
         <image name="GA6" width="645" height="180"/>
-        <image name="GS9" width="381.60000610351562" height="381.60000610351562"/>
-        <image name="GY9" width="381.60000610351562" height="381.60000610351562"/>
-        <image name="Oper1" width="116.63999938964844" height="116.63999938964844"/>
-        <image name="Oper2" width="116.63999938964844" height="116.63999938964844"/>
-        <image name="Oper3" width="116.63999938964844" height="116.63999938964844"/>
-        <image name="Oper4" width="116.63999938964844" height="116.63999938964844"/>
-        <image name="click_to_sign_in" width="375" height="375"/>
-        <image name="default_avatar" width="375" height="375"/>
+        <image name="GS9" width="530" height="530"/>
+        <image name="GY9" width="530" height="530"/>
+        <image name="Oper1" width="162" height="162"/>
+        <image name="Oper2" width="162" height="162"/>
+        <image name="Oper3" width="162" height="162"/>
+        <image name="Oper4" width="162" height="162"/>
+        <image name="click_to_sign_in" width="500" height="500"/>
+        <image name="default_avatar" width="500" height="500"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7Fa-Lc-xhO"/>
@@ -3796,7 +3813,7 @@
         <segue reference="QuS-my-A6k"/>
         <segue reference="eHt-pA-atS"/>
         <segue reference="1BS-GY-a79"/>
-        <segue reference="CHb-T6-DXD"/>
+        <segue reference="9CX-h2-Uiz"/>
         <segue reference="a4S-tW-MNB"/>
         <segue reference="eHr-1c-YXq"/>
     </inferredMetricsTieBreakers>

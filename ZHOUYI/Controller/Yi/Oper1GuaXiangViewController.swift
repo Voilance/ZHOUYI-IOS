@@ -72,6 +72,9 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     @IBAction func ClickRandomButton6(_ sender: Any) {
         randomGuaXiang(index: 6)
     }
+    @IBAction func ClickOkButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
+    }
     
     let GuaXiangNameList: [String] = ["阴变阳", "阳爻", "阴爻", "阳变阴"]
     let GuaXiangImageAList = [UIImage(named: "GA6"), UIImage(named: "GA7"), UIImage(named: "GA8"), UIImage(named: "GA9")]
