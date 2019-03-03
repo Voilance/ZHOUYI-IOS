@@ -19,5 +19,6 @@ class Api: NSObject {
     static let SignUpUrl: String = PROTOCOL + HOST + PORT + "/web/UserSignUp"
     static let AuthTokenUrl: String = PROTOCOL + HOST + PORT + "/web/CheckLogin"
     static let SaveResultUrl: String = PROTOCOL + HOST + PORT + ""
-    static let ConvertDateUrl: String = PROTOCOL + HOST + PORT + "be/GetTime"
+    static let ConvertDateUrl: String = PROTOCOL + HOST + PORT + "/be/GetTime"
+    static let GetResult: String = PROTOCOL + "120.76.128.110" + ":8081" + "/table/item"
 }

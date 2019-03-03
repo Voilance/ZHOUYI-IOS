@@ -1915,6 +1915,26 @@
                         <viewLayoutGuide key="safeArea" id="A4p-25-uBc"/>
                     </view>
                     <navigationItem key="navigationItem" title="卜卦结果" id="C0f-BM-EHC"/>
+                    <connections>
+                        <outlet property="BenGua0" destination="mHT-6Y-5kx" id="WYg-Q8-FaN"/>
+                        <outlet property="BenGua1" destination="JKE-In-eAH" id="Cxa-Oa-Ti8"/>
+                        <outlet property="BenGua2" destination="Nur-Nz-29L" id="4dh-mn-1cN"/>
+                        <outlet property="BenGua3" destination="ZKs-3N-fHY" id="nym-rd-6Oj"/>
+                        <outlet property="BenGua4" destination="kGQ-Jo-aP1" id="hnW-YN-rOP"/>
+                        <outlet property="BenGua5" destination="3s4-uS-eWp" id="fYL-Jl-N1q"/>
+                        <outlet property="LiuQin0" destination="xTc-9g-q4E" id="bz1-VI-uZw"/>
+                        <outlet property="LiuQin1" destination="oP7-9Y-aV8" id="rFC-l2-5OB"/>
+                        <outlet property="LiuQin2" destination="wdc-Hq-J46" id="MBc-7b-fJu"/>
+                        <outlet property="LiuQin3" destination="bZh-PU-TBJ" id="jkq-4x-ouk"/>
+                        <outlet property="LiuQin4" destination="Vmz-67-gM5" id="qCx-pg-Ukh"/>
+                        <outlet property="LiuQin5" destination="GJQ-e8-pRs" id="bQx-51-vN7"/>
+                        <outlet property="LiuShen0" destination="HMv-ib-9yt" id="8hb-XK-mut"/>
+                        <outlet property="LiuShen1" destination="g83-LK-YKJ" id="HiR-RG-NJh"/>
+                        <outlet property="LiuShen2" destination="Rup-H5-Fx1" id="q7w-L8-hBD"/>
+                        <outlet property="LiuShen3" destination="ia7-RP-bBb" id="2eE-Uj-xm1"/>
+                        <outlet property="LiuShen4" destination="tP7-wO-SP0" id="JcU-sW-qeR"/>
+                        <outlet property="LiuShen5" destination="gZQ-7y-9tU" id="62a-E1-iqB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z53-OP-wGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
