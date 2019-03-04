@@ -1922,6 +1922,16 @@
                         <outlet property="BenGua3" destination="ZKs-3N-fHY" id="nym-rd-6Oj"/>
                         <outlet property="BenGua4" destination="kGQ-Jo-aP1" id="hnW-YN-rOP"/>
                         <outlet property="BenGua5" destination="3s4-uS-eWp" id="fYL-Jl-N1q"/>
+                        <outlet property="Bian0" destination="pMb-1K-GOd" id="mqW-bu-KiB"/>
+                        <outlet property="Bian1" destination="PEk-2g-Ig2" id="dCu-5d-y3I"/>
+                        <outlet property="Bian2" destination="bo7-J6-yjQ" id="d69-ks-LRb"/>
+                        <outlet property="Bian3" destination="9RD-V4-4bu" id="2tH-XA-Vfi"/>
+                        <outlet property="Bian4" destination="9Vb-gS-ehm" id="k5g-qH-2Zm"/>
+                        <outlet property="Day0" destination="ASE-4b-659" id="acC-3x-pvf"/>
+                        <outlet property="Day1" destination="he1-ol-MGh" id="rWO-at-Lw3"/>
+                        <outlet property="Day2" destination="TUp-Jm-Mf7" id="FkO-7F-feu"/>
+                        <outlet property="Day3" destination="qYM-gj-aAa" id="4lY-q3-GLf"/>
+                        <outlet property="Day4" destination="h1f-Vy-Vie" id="3y1-a7-dy0"/>
                         <outlet property="LiuQin0" destination="xTc-9g-q4E" id="bz1-VI-uZw"/>
                         <outlet property="LiuQin1" destination="oP7-9Y-aV8" id="rFC-l2-5OB"/>
                         <outlet property="LiuQin2" destination="wdc-Hq-J46" id="MBc-7b-fJu"/>
@@ -1934,6 +1944,17 @@
                         <outlet property="LiuShen3" destination="ia7-RP-bBb" id="2eE-Uj-xm1"/>
                         <outlet property="LiuShen4" destination="tP7-wO-SP0" id="JcU-sW-qeR"/>
                         <outlet property="LiuShen5" destination="gZQ-7y-9tU" id="62a-E1-iqB"/>
+                        <outlet property="Month0" destination="FBV-Wr-ys1" id="Wyy-8I-thK"/>
+                        <outlet property="Month1" destination="DMN-N9-Whk" id="gN7-g5-2F0"/>
+                        <outlet property="Month2" destination="q1Y-Xx-TdF" id="uLf-53-ypg"/>
+                        <outlet property="Month3" destination="isZ-jV-KX2" id="I3Q-eX-3We"/>
+                        <outlet property="Month4" destination="LJd-do-YT3" id="0EZ-r0-nNw"/>
+                        <outlet property="Qin0" destination="00n-nq-gXP" id="Ssm-lX-Qhe"/>
+                        <outlet property="Qin1" destination="dzt-3E-OB4" id="xiy-ra-p6A"/>
+                        <outlet property="Qin2" destination="Nc2-Q6-a5i" id="nzc-hS-RkZ"/>
+                        <outlet property="Qin3" destination="SOG-ru-8Kd" id="Mne-CH-XhQ"/>
+                        <outlet property="Qin4" destination="0XF-H1-7Np" id="Ceh-0c-fk5"/>
+                        <outlet property="TheMonth" destination="eed-w2-UGt" id="HnU-hE-c7y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z53-OP-wGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
