@@ -84,6 +84,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
+        print(reason)
         getResult()
         // Do any additional setup after loading the view.
     }

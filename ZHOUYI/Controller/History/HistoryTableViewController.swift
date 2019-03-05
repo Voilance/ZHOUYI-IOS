@@ -70,6 +70,8 @@ class HistoryTableViewController: UITableViewController {
         if reason?.count ?? 0 > 15 {
             let r = reason?.prefix(15)
             cell.textLabel?.text = String(r!) + "..."
+        } else {
+            cell.textLabel?.text = reason
         }
         cell.detailTextLabel?.text = resultList[indexPath.row].name! + "(" + resultList[indexPath.row].date! + ")"
         return cell
@@ -116,14 +118,27 @@ class HistoryTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "HistoryToResult" {
+            let destination = segue.destination as! ResultViewController
+            if let cell = sender as? UITableViewCell {
+                let indexPath = tableView.indexPath(for: cell)
+                let result = resultList[(indexPath)!.row]
+                destination.date = result.date
+                destination.yongShen = result.yongShen
+                destination.name = result.name
+                destination.reason = result.reason
+                destination.note = result.note
+                destination.guaXiang = result.guaXiang!
+            }
+        }
     }
-    */
+ 
 
 }
