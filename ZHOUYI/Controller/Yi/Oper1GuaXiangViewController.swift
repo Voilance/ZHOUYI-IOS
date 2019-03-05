@@ -75,11 +75,13 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     }
     @IBAction func ClickOkButton(_ sender: Any) {
         self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
-//        let reqJson = ["guaxiang": guaXiang, "date": date, "yongsheng": yongShen, "name": name, "reason": reason, "note": note] as [String : Any]
-//        HTTP.POST(Api.SaveResultUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
+//        let reqJson = ["guaxiang": guaXiang, "date": date, "yongshen": yongShen, "name": name, "reason": reason, "note": note] as [String : Any]
+//        let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
+//        HTTP.POST(Api.SaveResultUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
 //            do {
-////                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+//                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
 ////                let result = respJson.object(forKey: "result") as? String
+////                let reason = respJson.object(forKey: "reason") as? String
 //                DispatchQueue.main.async {
 //                    self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
 //                }

@@ -229,7 +229,6 @@ class ResultViewController: UIViewController {
         guaXiang[SIndex ?? 0] += 4
         guaXiang[YIndex ?? 0] += 8
         for i in 0..<6 {
-            print(guaXiang[i])
             BenGuaList[i].image = GList[guaXiang[i] - 6]
         }
     }
