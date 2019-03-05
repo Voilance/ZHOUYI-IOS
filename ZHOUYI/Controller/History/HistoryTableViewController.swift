@@ -18,6 +18,8 @@ class HistoryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        GlobalUser.loadUserInfo()
+        
         self.loadHistory()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,7 +37,13 @@ class HistoryTableViewController: UITableViewController {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
                 let result = respJson.object(forKey: "result")
                 let reason = respJson.object(forKey: "reason")
-                print(result)
+                let record = respJson.object(forKey: "record") as! [AnyObject]
+                DispatchQueue.main.async {
+                    for s in record {
+                        self.resultList.append(Result(initJson: s))
+                    }
+                    self.tableView.reloadData()
+                }
             } catch {
                 print("Load History Error")
                 print(error)
@@ -52,14 +60,14 @@ class HistoryTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return historyList.count
+        return resultList.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
-        cell.textLabel?.text = historyList[indexPath.row].0
-        cell.detailTextLabel?.text = historyList[indexPath.row].1
+        cell.textLabel?.text = resultList[indexPath.row].reason
+        cell.detailTextLabel?.text = resultList[indexPath.row].name! + resultList[indexPath.row].date!
         return cell
     }
     
@@ -80,7 +88,9 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            resultList.remove(at: indexPath.row)
+//            tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
