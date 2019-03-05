@@ -75,21 +75,7 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     }
     @IBAction func ClickOkButton(_ sender: Any) {
         self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
-//        let reqJson = ["guaxiang": guaXiang, "date": date, "yongshen": yongShen, "name": name, "reason": reason, "note": note] as [String : Any]
-//        let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
-//        HTTP.POST(Api.SaveResultUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
-//            do {
-//                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
-////                let result = respJson.object(forKey: "result") as? String
-////                let reason = respJson.object(forKey: "reason") as? String
-//                DispatchQueue.main.async {
-//                    self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
-//                }
-//            } catch {
-//                print("Save Result Error")
-//                print(error)
-//            }
-//        }
+//        self.saveHistory()
     }
     
     let GuaXiangNameList: [String] = ["阴变阳", "阳爻", "阴爻", "阳变阴"]
@@ -138,6 +124,24 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
         
         UIApplication.shared.applicationSupportsShakeToEdit = true
         self.becomeFirstResponder()
+    }
+    
+    func saveHistory() {
+        let reqJson = ["guaxiang": guaXiang, "date": date, "yongshen": yongShen, "name": name, "reason": reason, "note": note] as [String : Any]
+        let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
+        HTTP.POST(Api.SaveResultUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+//                let result = respJson.object(forKey: "result") as? String
+//                let reason = respJson.object(forKey: "reason") as? String
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
+                }
+            } catch {
+                print("Save Result Error")
+                print(error)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {

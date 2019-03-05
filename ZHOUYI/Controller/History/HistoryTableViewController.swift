@@ -7,21 +7,40 @@
 //
 
 import UIKit
+import SwiftHTTP
 
 class HistoryTableViewController: UITableViewController {
     
+    var resultList: [Result] = []
     var historyList: [(String, String)] = []
     let RowHeight: CGFloat = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.loadHistory()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         historyList.append(("事由", "时间"))
+    }
+    
+    func loadHistory() {
+        let reqJson = ["method": "time", "keyword": nil, "page": "1"]
+        let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
+        HTTP.POST(Api.LoadResultUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                let result = respJson.object(forKey: "result")
+                let reason = respJson.object(forKey: "reason")
+                print(result)
+            } catch {
+                print("Load History Error")
+                print(error)
+            }
+        }
     }
 
     // MARK: - Table view data source

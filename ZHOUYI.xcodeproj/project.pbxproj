@@ -35,6 +35,7 @@
 		7E6DC91F21F439C00019205E /* GuaXiangCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6DC91E21F439C00019205E /* GuaXiangCollectionViewCell.swift */; };
 		7E77A51221F816AF00090D6A /* Oper4GuaXiangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */; };
 		7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77A51721F8489000090D6A /* HistoryTableViewController.swift */; };
+		7EAE07AB222E21170019B71A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAE07AA222E21170019B71A /* Result.swift */; };
 		7EAEA62221F2F2D0001D3459 /* EditNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */; };
 		7EAEA62421F2F9DE001D3459 /* EditRealnameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */; };
 		7EAEA62621F2FFF9001D3459 /* EditBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */; };
@@ -129,6 +130,7 @@
 		7E6DC91E21F439C00019205E /* GuaXiangCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuaXiangCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper4GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper4GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
 		7E77A51721F8489000090D6A /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		7EAE07AA222E21170019B71A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameViewController.swift; sourceTree = "<group>"; };
 		7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRealnameViewController.swift; sourceTree = "<group>"; };
 		7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBirthdayViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				7E5ACE8F21F04CB70055A166 /* User.swift */,
 				7E5ACE9321F052A80055A166 /* GlobalUser.swift */,
 				7E5ACE9821F0CB850055A166 /* Api.swift */,
+				7EAE07AA222E21170019B71A /* Result.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				7EAEA62621F2FFF9001D3459 /* EditBirthdayViewController.swift in Sources */,
 				7E38053221F6BDCD00E2D89D /* tViewController.swift in Sources */,
 				7E42250221F1B0D1003A7240 /* AboutViewController.swift in Sources */,
+				7EAE07AB222E21170019B71A /* Result.swift in Sources */,
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
 				7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */,
