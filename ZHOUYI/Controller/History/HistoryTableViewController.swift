@@ -66,8 +66,12 @@ class HistoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
-        cell.textLabel?.text = resultList[indexPath.row].reason
-        cell.detailTextLabel?.text = resultList[indexPath.row].name! + resultList[indexPath.row].date!
+        let reason = resultList[indexPath.row].reason
+        if reason?.count ?? 0 > 15 {
+            let r = reason?.prefix(15)
+            cell.textLabel?.text = String(r!) + "..."
+        }
+        cell.detailTextLabel?.text = resultList[indexPath.row].name! + "(" + resultList[indexPath.row].date! + ")"
         return cell
     }
     
@@ -89,8 +93,8 @@ class HistoryTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
 //            tableView.deleteRows(at: [indexPath], with: .fade)
-//            resultList.remove(at: indexPath.row)
-//            tableView.reloadData()
+            resultList.remove(at: indexPath.row)
+            tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    

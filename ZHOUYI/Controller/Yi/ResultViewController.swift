@@ -157,7 +157,7 @@ class ResultViewController: UIViewController {
         HTTP.POST(Api.GetResult, parameters: guaXiang, requestSerializer: JSONParameterSerializer()) { resp in
             do {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
-                let code = respJson.object(forKey: "code") as! Int
+                let code = respJson.object(forKey: "code") as? Int
                 if code == 0 {
                     self.convertDate()
                     let data = respJson.object(forKey: "data") as AnyObject

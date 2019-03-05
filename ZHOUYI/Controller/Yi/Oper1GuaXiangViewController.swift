@@ -74,8 +74,8 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
         randomGuaXiang(index: 6)
     }
     @IBAction func ClickOkButton(_ sender: Any) {
-        self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
-//        self.saveHistory()
+//        self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
+        self.saveHistory()
     }
     
     let GuaXiangNameList: [String] = ["阴变阳", "阳爻", "阴爻", "阳变阴"]
