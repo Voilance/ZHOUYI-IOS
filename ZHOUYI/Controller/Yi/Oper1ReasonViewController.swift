@@ -26,16 +26,22 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
     }
     @IBAction func ClickOkButton(_ sender: Any) {
         if isInfoOk() {
-            self.performSegue(withIdentifier: "Oper1ReasonToOper1GuaXiang", sender: nil)
+            switch gua?.method {
+            case "LiuYao":
+                self.performSegue(withIdentifier: "Oper1ReasonToOper1GuaXiang", sender: nil)
+            case "ShuZi":
+                self.performSegue(withIdentifier: "Oper1ReasonToOper2GuaXiang", sender: nil)
+            case "ZiDing":
+                self.performSegue(withIdentifier: "Oper1ReasonToOper4GuaXiang", sender: nil)
+            default:
+                break;
+            }
+            
         }
     }
     
     let YongShenList: [String] = ["父母", "兄弟", "官鬼", "子孙", "妻财", "世", "应"]
-    var date: String?
-    var yongShen: String?
-    var reason: String?
-    var name: String?
-    var note: String?
+    var gua: Gua?
     let PickerRowHeight: CGFloat = 50
     
     override func viewDidLoad() {
@@ -54,16 +60,16 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd"
-        date = dateFormat.string(from: .init())
-        DateButton.setTitle(date, for: .normal)
-        yongShen = "父母"
-        YongShenButton.setTitle(yongShen, for: .normal)
-        reason = "无"
-        ReasonTextField.text = reason
-        name = GlobalUser.realname
-        NameTextField.text = name
-        note = "无"
-        NoteTextField.text = note
+        gua?.date = dateFormat.string(from: .init())
+        DateButton.setTitle(gua?.date, for: .normal)
+        gua?.yongShen = "父母"
+        YongShenButton.setTitle(gua?.yongShen, for: .normal)
+        gua?.reason = "无"
+        ReasonTextField.text = gua?.reason
+        gua?.name = GlobalUser.realname
+        NameTextField.text = gua?.name
+        gua?.note = "无"
+        NoteTextField.text = gua?.note
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,8 +105,8 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         let yAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "yyyy-MM-dd"
-            self.date = dateFormat.string(from: datePicker.date)
-            self.DateButton.setTitle(self.date, for: .normal)
+            self.gua?.date = dateFormat.string(from: datePicker.date)
+            self.DateButton.setTitle(self.gua?.date, for: .normal)
         })
         let nAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.view.addSubview(datePicker)
@@ -115,8 +121,8 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         yongShenPicker.delegate = self
         yongShenPicker.dataSource = self
         let yAction = UIAlertAction(title: "确定", style: .default, handler: { action in
-            self.yongShen = self.YongShenList[yongShenPicker.selectedRow(inComponent: 0)]
-            self.YongShenButton.setTitle(self.yongShen, for: .normal)
+            self.gua?.yongShen = self.YongShenList[yongShenPicker.selectedRow(inComponent: 0)]
+            self.YongShenButton.setTitle(self.gua?.yongShen, for: .normal)
         })
         let nAction = UIAlertAction(title: "取消", style: .default, handler: nil)
         alert.view.addSubview(yongShenPicker)
@@ -126,17 +132,17 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
     }
     
     func isInfoOk() -> Bool {
-        reason = ReasonTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        name = NameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        note = NoteTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        gua?.reason = ReasonTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        gua?.name = NameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        gua?.note = NoteTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
-        if reason == nil || reason?.count == 0 {
-            reason = "无"
+        if gua?.reason == nil || gua?.reason?.count == 0 {
+            gua?.reason = "无"
         }
-        if note == nil || note?.count == 0 {
-            note = "无"
+        if gua?.note == nil || gua?.note?.count == 0 {
+            gua?.note = "无"
         }
-        if name == nil || name?.count == 0 {
+        if gua?.name == nil || gua?.name?.count == 0 {
             self.view.makeToast("请填写卜卦者姓名！")
             return false
         } else {
@@ -151,13 +157,18 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "Oper1ReasonToOper1GuaXiang" {
+        switch segue.identifier {
+        case "Oper1ReasonToOper1GuaXiang":
             let destination = segue.destination as! Oper1GuaXiangViewController
-            destination.date = date
-            destination.yongShen = yongShen
-            destination.name = name
-            destination.reason = reason
-            destination.note = note
+            destination.gua = gua
+        case "Oper1ReasonToOper2GuaXiang":
+            let destination = segue.destination as! Oper2GuaXiangViewController
+            destination.gua = gua
+        case "Oper1ReasonToOper4GuaXiang":
+            let destination = segue.destination as! Oper4GuaXiangViewController
+            destination.gua = gua
+        default:
+            break;
         }
     }
     

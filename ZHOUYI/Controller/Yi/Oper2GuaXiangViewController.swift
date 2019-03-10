@@ -18,13 +18,13 @@ class Oper2GuaXiangViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var GuaXiangTextField5: UITextField!
     @IBOutlet weak var GuaXiangTextField6: UITextField!
     @IBAction func ClickOkButton(_ sender: Any) {
-//        if isInfoOk() {
-//            self.performSegue(withIdentifier: "Oper2GuaXiangToResult", sender: nil)
-//        }
-        self.performSegue(withIdentifier: "Oper2GuaXiangToResult", sender: nil)
+        if isInfoOk() {
+            self.performSegue(withIdentifier: "Oper2GuaXiangToResult", sender: nil)
+        }
+//        self.performSegue(withIdentifier: "Oper2GuaXiangToResult", sender: nil)
     }
     
-    var guaXiang: [Int] = [6, 6, 6, 6, 6, 6]
+    var gua: Gua?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class Oper2GuaXiangViewController: UIViewController, UITextFieldDelegate {
         gx.append(GuaXiangTextField6.text?.trimmingCharacters(in: .whitespacesAndNewlines))
         for i in 0..<6 {
             if gx[i] == "6" || gx[i] == "7" || gx[i] == "8" || gx[i] == "9" {
-                guaXiang[i] = Int(gx[i]!)!
+                gua?.guaXiang?[i] = Int(gx[i]!)!
             } else {
                 self.view.makeToast("没有填写好数字卦")
                 return false
@@ -62,14 +62,16 @@ class Oper2GuaXiangViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "Oper2GuaXiangToResult" {
+            let destination = segue.destination as! ResultViewController
+            destination.gua = gua
+        }
     }
-    */
 
 }

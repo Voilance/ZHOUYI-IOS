@@ -15,6 +15,8 @@
 		7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C82F21ECD7D300E794F9 /* OptionCell.swift */; };
 		7E15C83221ECD7FA00E794F9 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15C83121ECD7FA00E794F9 /* MineViewController.swift */; };
 		7E20E53E222B9F3700ADFD72 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E20E53D222B9F3700ADFD72 /* ResultViewController.swift */; };
+		7E34CF3F22353FCA008BBF00 /* Gua.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E34CF3E22353FCA008BBF00 /* Gua.swift */; };
+		7E34CF432235415F008BBF00 /* YiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E34CF422235415F008BBF00 /* YiViewController.swift */; };
 		7E38053221F6BDCD00E2D89D /* tViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38053121F6BDCD00E2D89D /* tViewController.swift */; };
 		7E38053621F6D54D00E2D89D /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38053521F6D54D00E2D89D /* SettingTableViewController.swift */; };
 		7E38053821F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */; };
@@ -109,6 +111,8 @@
 		7E15C82F21ECD7D300E794F9 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
 		7E15C83121ECD7FA00E794F9 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		7E20E53D222B9F3700ADFD72 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		7E34CF3E22353FCA008BBF00 /* Gua.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gua.swift; sourceTree = "<group>"; };
+		7E34CF422235415F008BBF00 /* YiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YiViewController.swift; sourceTree = "<group>"; };
 		7E38053121F6BDCD00E2D89D /* tViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tViewController.swift; sourceTree = "<group>"; };
 		7E38053521F6D54D00E2D89D /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper2GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper2GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -165,6 +169,7 @@
 				7E5ACE9321F052A80055A166 /* GlobalUser.swift */,
 				7E5ACE9821F0CB850055A166 /* Api.swift */,
 				7EAE07AA222E21170019B71A /* Result.swift */,
+				7E34CF3E22353FCA008BBF00 /* Gua.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				7E38053721F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift */,
 				7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */,
 				7E20E53D222B9F3700ADFD72 /* ResultViewController.swift */,
+				7E34CF422235415F008BBF00 /* YiViewController.swift */,
 			);
 			path = Yi;
 			sourceTree = "<group>";
@@ -395,6 +401,7 @@
 			files = (
 				7E0993E521F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift in Sources */,
 				7E5ACE9621F0C0520055A166 /* SignInViewController.swift in Sources */,
+				7E34CF432235415F008BBF00 /* YiViewController.swift in Sources */,
 				7E15C83021ECD7D300E794F9 /* OptionCell.swift in Sources */,
 				7EAEA62621F2FFF9001D3459 /* EditBirthdayViewController.swift in Sources */,
 				7E38053221F6BDCD00E2D89D /* tViewController.swift in Sources */,
@@ -416,6 +423,7 @@
 				7E6DC91F21F439C00019205E /* GuaXiangCollectionViewCell.swift in Sources */,
 				7EAEA62221F2F2D0001D3459 /* EditNicknameViewController.swift in Sources */,
 				7E5ACE9421F052A80055A166 /* GlobalUser.swift in Sources */,
+				7E34CF3F22353FCA008BBF00 /* Gua.swift in Sources */,
 				7E77A51221F816AF00090D6A /* Oper4GuaXiangViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

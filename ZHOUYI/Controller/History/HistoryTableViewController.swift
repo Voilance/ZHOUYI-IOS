@@ -32,7 +32,7 @@ class HistoryTableViewController: UITableViewController {
     func loadHistory() {
         let reqJson = ["method": "time", "keyword": nil, "page": "1"]
         let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
-        HTTP.POST(Api.LoadResultUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
+        HTTP.POST(Api.LoadRecordUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
             do {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
                 let result = respJson.object(forKey: "result")
@@ -130,12 +130,13 @@ class HistoryTableViewController: UITableViewController {
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPath(for: cell)
                 let result = resultList[(indexPath)!.row]
-                destination.date = result.date
-                destination.yongShen = result.yongShen
-                destination.name = result.name
-                destination.reason = result.reason
-                destination.note = result.note
-                destination.guaXiang = result.guaXiang!
+                
+//                destination.date = result.date
+//                destination.yongShen = result.yongShen
+//                destination.name = result.name
+//                destination.reason = result.reason
+//                destination.note = result.note
+//                destination.guaXiang = result.guaXiang!
             }
         }
     }

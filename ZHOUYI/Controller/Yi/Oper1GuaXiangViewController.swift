@@ -83,12 +83,7 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     let GuaXiangImageBList = [UIImage(named: "GB6"), UIImage(named: "GB7"), UIImage(named: "GB8"), UIImage(named: "GB9")]
     var guaXiangButtonList: [UIButton] = []
     var guaXiangLabelList: [UILabel] = []
-    var date: String?
-    var yongShen: String?
-    var reason: String?
-    var name: String?
-    var note: String?
-    var guaXiang: [Int] = [6, 6, 6, 6, 6, 6]
+    var gua: Gua?
     let PickRowHeight: CGFloat = 50
     var buttonIndex: Int = 0
 
@@ -127,9 +122,9 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func saveHistory() {
-        let reqJson = ["guaxiang": guaXiang, "date": date, "yongshen": yongShen, "name": name, "reason": reason, "note": note] as [String : Any]
+        let reqJson = ["guaxiang": gua?.guaXiang, "date": gua?.date, "yongshen": gua?.yongShen, "name": gua?.name, "reason": gua?.reason, "note": gua?.note, "way": gua?.method] as [String : Any]
         let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
-        HTTP.POST(Api.SaveResultUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
+        HTTP.POST(Api.SaveRecordUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
             do {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
 //                let result = respJson.object(forKey: "result") as? String
@@ -169,7 +164,7 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guaXiangButtonList[buttonIndex - 1].setImage(GuaXiangImageAList[indexPath.row], for: .normal)
         guaXiangLabelList[buttonIndex - 1].text = GuaXiangNameList[indexPath.row]
-        guaXiang[buttonIndex - 1] = indexPath.row + 6
+        gua?.guaXiang?[buttonIndex - 1] = indexPath.row + 6
         self.dismiss(animated: true, completion: nil)
         return
     }
@@ -190,7 +185,7 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     
     func randomGuaXiang(index: Int) {
         let num = Int.random(in: 0..<4)
-        self.guaXiang[index - 1] = num + 6
+        self.gua?.guaXiang?[index - 1] = num + 6
         guaXiangButtonList[index - 1].setImage(self.GuaXiangImageAList[num], for: .normal)
         guaXiangLabelList[index - 1].text = self.GuaXiangNameList[num]
     }
@@ -210,11 +205,7 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
         // Pass the selected object to the new view controller.
         if segue.identifier == "Oper1GuaXiangToResult" {
             let destination = segue.destination as! ResultViewController
-            destination.date = date
-            destination.yongShen = yongShen
-            destination.reason = reason
-            destination.name = name
-            destination.note = note
+            destination.gua = gua
         }
     }
  

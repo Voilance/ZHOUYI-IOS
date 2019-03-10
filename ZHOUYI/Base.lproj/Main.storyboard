@@ -13,7 +13,7 @@
         <!--周易-->
         <scene sceneID="1eT-rl-8EW">
             <objects>
-                <viewController id="H7h-ch-y8N" sceneMemberID="viewController">
+                <viewController id="H7h-ch-y8N" customClass="YiViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k8C-3h-2cu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -32,14 +32,14 @@
                                                 </constraints>
                                                 <state key="normal" image="Oper1"/>
                                                 <connections>
-                                                    <segue destination="gA1-8B-ysx" kind="show" id="t6c-HD-x4H"/>
+                                                    <action selector="ClickOper1Button:" destination="H7h-ch-y8N" eventType="touchUpInside" id="OOp-oX-msG"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJ1-dW-s3o">
                                                 <rect key="frame" x="150" y="0.0" width="120" height="120"/>
                                                 <state key="normal" image="Oper2"/>
                                                 <connections>
-                                                    <segue destination="9Lo-P1-dR2" kind="show" id="LMS-HU-0VQ"/>
+                                                    <action selector="ClickOper2Button:" destination="H7h-ch-y8N" eventType="touchUpInside" id="fHl-cC-EPJ"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -55,17 +55,34 @@
                                                 <rect key="frame" x="150" y="0.0" width="120" height="120"/>
                                                 <state key="normal" image="Oper4"/>
                                                 <connections>
-                                                    <segue destination="hir-Cp-5eX" kind="show" id="eHt-pA-atS"/>
+                                                    <action selector="ClickOper4Button:" destination="H7h-ch-y8N" eventType="touchUpInside" id="kmC-3j-CPN"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqh-9N-JZ7" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pB9-Kn-LiJ" userLabel="ToReason">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="9nI-Q6-pxB"/>
+                                            <constraint firstAttribute="height" constant="5" id="KM8-2K-3Ix"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="gA1-8B-ysx" kind="show" identifier="YiToOper1Reason" id="riS-bd-D2d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="ZDK-qX-eM9" firstAttribute="centerY" secondItem="k8C-3h-2cu" secondAttribute="centerY" id="MD0-ao-fdG"/>
+                            <constraint firstItem="rqh-9N-JZ7" firstAttribute="top" secondItem="R1Z-qm-ulc" secondAttribute="top" id="PMX-le-wsx"/>
+                            <constraint firstItem="rqh-9N-JZ7" firstAttribute="leading" secondItem="R1Z-qm-ulc" secondAttribute="leading" id="h1f-Ez-t8H"/>
                             <constraint firstItem="ZDK-qX-eM9" firstAttribute="centerX" secondItem="k8C-3h-2cu" secondAttribute="centerX" id="rXI-d2-s2H"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="R1Z-qm-ulc"/>
@@ -264,7 +281,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oga-2e-2mM" userLabel="SegueStackView">
-                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <rect key="frame" x="0.0" y="64" width="15" height="5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svV-u6-7Qz" userLabel="ToOper1GuaXiang">
                                         <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
@@ -274,6 +291,26 @@
                                         </constraints>
                                         <connections>
                                             <segue destination="MFY-NX-zIM" kind="show" identifier="Oper1ReasonToOper1GuaXiang" id="a4S-tW-MNB"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g7z-T0-qbe" userLabel="ToOper2GuaXiang">
+                                        <rect key="frame" x="5" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="BJf-uv-8Va"/>
+                                            <constraint firstAttribute="width" constant="5" id="Oam-9g-4yj"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="9Lo-P1-dR2" kind="show" identifier="Oper1ReasonToOper2GuaXiang" id="giX-ph-xmb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVp-FS-WXH" userLabel="ToOper4GuaXiang">
+                                        <rect key="frame" x="10" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="5" id="oYN-rk-8XB"/>
+                                            <constraint firstAttribute="width" constant="5" id="zW2-Ds-cXb"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="hir-Cp-5eX" kind="show" identifier="Oper1ReasonToOper4GuaXiang" id="XEj-a1-oh4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -309,7 +346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Jz-BC-UKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="-2108"/>
+            <point key="canvasLocation" x="2718" y="-1226"/>
         </scene>
         <!--六爻卦象-->
         <scene sceneID="RZB-8A-STb">
@@ -2167,7 +2204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XR5-JS-3O8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="-1224"/>
+            <point key="canvasLocation" x="4700" y="-1225"/>
         </scene>
         <!--选卦-->
         <scene sceneID="1di-CU-qOQ">
@@ -2475,7 +2512,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6I-q2-wpR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2828" y="-376"/>
+            <point key="canvasLocation" x="4700" y="-376"/>
         </scene>
         <!--我的-->
         <scene sceneID="Bxw-Z5-HrN">
@@ -3648,7 +3685,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hZB-sB-lSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.8" y="-376.46176911544228"/>
+            <point key="canvasLocation" x="3841" y="-376"/>
         </scene>
         <!--历史-->
         <scene sceneID="MRK-nR-wdS">
@@ -3715,7 +3752,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCi-ZP-DB3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2009" y="-2108"/>
+            <point key="canvasLocation" x="1937" y="-1226"/>
         </scene>
         <!--六爻卦象NC-->
         <scene sceneID="z5b-tf-wQ7">
@@ -3787,7 +3824,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WtO-S9-drI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2009" y="-1224"/>
+            <point key="canvasLocation" x="3841" y="-1226"/>
         </scene>
         <!--卜卦结果NC-->
         <scene sceneID="Hop-ix-WzD">
@@ -3855,10 +3892,10 @@
         <segue reference="xfU-KM-tft"/>
         <segue reference="ob7-FJ-ZY1"/>
         <segue reference="QuS-my-A6k"/>
-        <segue reference="eHt-pA-atS"/>
-        <segue reference="1BS-GY-a79"/>
-        <segue reference="DVh-2N-sDc"/>
+        <segue reference="XEj-a1-oh4"/>
+        <segue reference="giX-ph-xmb"/>
+        <segue reference="oxB-nl-A26"/>
         <segue reference="a4S-tW-MNB"/>
-        <segue reference="eHr-1c-YXq"/>
+        <segue reference="riS-bd-D2d"/>
     </inferredMetricsTieBreakers>
 </document>

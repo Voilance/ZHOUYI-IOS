@@ -110,7 +110,8 @@ class Oper4GuaXiangViewController: UIViewController {
     
     let GuaXiangList: [Int] = [7, 3, 5, 1, 6, 2, 4, 0]
     var guaXiangSelect: [Int] = [0, 0, 0, 0] // 分别对应本卦上卦、本卦下卦、变卦上卦、变卦下卦的卦象
-    var guaXiang: [Int] = [0, 0, 0, 0] // 分别对应本卦上卦、本卦下卦、变卦上卦、变卦下卦的值
+    var gua: Gua?
+//    var guaXiang: [Int] = [0, 0, 0, 0] // 分别对应本卦上卦、本卦下卦、变卦上卦、变卦下卦的值
     var isBenGua: Bool = true
     
 
@@ -145,31 +146,30 @@ class Oper4GuaXiangViewController: UIViewController {
                 SButtonList[guaXiangSelect[0]].backgroundColor = WhiteColor
                 SButtonList[s].backgroundColor = BlueColor
                 guaXiangSelect[0] = s
-                guaXiang[0] = GuaXiangList[guaXiangSelect[0]]
+                gua?.guaXiang?[0] = GuaXiangList[guaXiangSelect[0]]
             }
             if x != guaXiangSelect[1] {
                 XButtonList[guaXiangSelect[1]].backgroundColor = WhiteColor
                 XButtonList[x].backgroundColor = BlueColor
                 guaXiangSelect[1] = x
-                guaXiang[1] = GuaXiangList[guaXiangSelect[1]]
+                gua?.guaXiang?[1] = GuaXiangList[guaXiangSelect[1]]
             }
         } else {
             if s != guaXiangSelect[2] {
                 SButtonList[guaXiangSelect[2]].backgroundColor = WhiteColor
                 SButtonList[s].backgroundColor = BlueColor
                 guaXiangSelect[2] = s
-                guaXiang[2] = GuaXiangList[guaXiangSelect[2]]
+                gua?.guaXiang?[2] = GuaXiangList[guaXiangSelect[2]]
             }
             if x != guaXiangSelect[3] {
                 XButtonList[guaXiangSelect[3]].backgroundColor = WhiteColor
                 XButtonList[x].backgroundColor = BlueColor
                 guaXiangSelect[3] = x
-                guaXiang[3] = GuaXiangList[guaXiangSelect[3]]
+                gua?.guaXiang?[3] = GuaXiangList[guaXiangSelect[3]]
             }
         }
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -177,6 +177,5 @@ class Oper4GuaXiangViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

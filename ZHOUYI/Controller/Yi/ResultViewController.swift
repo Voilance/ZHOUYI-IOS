@@ -72,19 +72,18 @@ class ResultViewController: UIViewController {
     
     // 控件功能
     
-    
-    var date: String?
-    var yongShen: String?
-    var reason: String?
-    var name: String?
-    var note: String?
-    var guaXiang: [Int] = [6, 6, 6, 6, 6, 6]
+    var gua: Gua?
+//    var date: String?
+//    var yongShen: String?
+//    var reason: String?
+//    var name: String?
+//    var note: String?
+//    var guaXiang: [Int] = [6, 6, 6, 6, 6, 6]
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
-        print(reason)
         getResult()
         // Do any additional setup after loading the view.
     }
@@ -137,7 +136,7 @@ class ResultViewController: UIViewController {
     }
     
     func convertDate() {
-        let reqJson = ["time": date]
+        let reqJson = ["time": gua?.date]
         HTTP.POST(Api.ConvertDateUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
             do {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
@@ -155,7 +154,7 @@ class ResultViewController: UIViewController {
     }
     
     func getResult() {
-        HTTP.POST(Api.GetResult, parameters: guaXiang, requestSerializer: JSONParameterSerializer()) { resp in
+        HTTP.POST(Api.GetResult, parameters: gua?.guaXiang, requestSerializer: JSONParameterSerializer()) { resp in
             do {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
                 let code = respJson.object(forKey: "code") as? Int
@@ -227,10 +226,10 @@ class ResultViewController: UIViewController {
         let SIndex = SYList.firstIndex(of: "世")
         let YIndex = SYList.firstIndex(of: "应")
         let GList: [UIImage] = [UIImage(named: "G6")!, UIImage(named: "G7")!, UIImage(named: "G8")!, UIImage(named: "G9")!, UIImage(named: "GS6")!, UIImage(named: "GS7")!, UIImage(named: "GS8")!, UIImage(named: "GS9")!, UIImage(named: "GY6")!, UIImage(named: "GY7")!, UIImage(named: "GY8")!, UIImage(named: "GY9")!]
-        guaXiang[SIndex ?? 0] += 4
-        guaXiang[YIndex ?? 0] += 8
+        gua?.guaXiang?[SIndex ?? 0] += 4
+        gua?.guaXiang?[YIndex ?? 0] += 8
         for i in 0..<6 {
-            BenGuaList[i].image = GList[guaXiang[i] - 6]
+            BenGuaList[i].image = GList[(gua?.guaXiang?[i])! - 6]
         }
     }
     
