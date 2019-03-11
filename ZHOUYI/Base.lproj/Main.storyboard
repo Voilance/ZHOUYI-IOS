@@ -913,7 +913,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="eGw-J2-8FV">
                                                         <rect key="frame" x="114" y="0.0" width="50" height="405"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="六冲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hp-Yj-3XF">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装卦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hp-Yj-3XF">
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -949,6 +949,9 @@
                                                                                         <state key="normal" title="戌 土">
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="ClickZgButton0:" destination="s7r-dL-fBd" eventType="touchUpInside" id="uEm-8Q-WLT"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="eC4-en-k8M">
                                                                                         <rect key="frame" x="0.0" y="64" width="32" height="62.5"/>
@@ -960,6 +963,9 @@
                                                                                         <state key="normal" title="申 金">
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="ClickZgButton1:" destination="s7r-dL-fBd" eventType="touchUpInside" id="90H-58-G54"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="rVu-L6-l4m">
                                                                                         <rect key="frame" x="0.0" y="128.5" width="32" height="62"/>
@@ -973,6 +979,9 @@
 火</string>
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="ClickZgButton2:" destination="s7r-dL-fBd" eventType="touchUpInside" id="BLk-zE-wI3"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -1001,6 +1010,9 @@
                                                                                         <state key="normal" title="辰 土">
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="ClickZgButton3:" destination="s7r-dL-fBd" eventType="touchUpInside" id="XYC-ke-uVZ"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="hZA-Ww-vUk">
                                                                                         <rect key="frame" x="0.0" y="64" width="32" height="62.5"/>
@@ -1012,6 +1024,9 @@
                                                                                         <state key="normal" title="寅 木">
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="ClickZgButton4:" destination="s7r-dL-fBd" eventType="touchUpInside" id="O5x-QB-Zan"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="KtL-PM-ZmJ">
                                                                                         <rect key="frame" x="0.0" y="128.5" width="32" height="62"/>
@@ -1025,6 +1040,9 @@
 水</string>
                                                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         </state>
+                                                                                        <connections>
+                                                                                            <action selector="ClickZgButton5:" destination="s7r-dL-fBd" eventType="touchUpInside" id="y5i-x5-Cku"/>
+                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>
@@ -1040,7 +1058,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="7Aj-Gb-rYR">
                                                         <rect key="frame" x="166" y="0.0" width="100" height="405"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="六冲" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9w-3M-fwk">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="变卦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9w-3M-fwk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -2005,6 +2023,15 @@
                         <outlet property="Qin3" destination="SOG-ru-8Kd" id="Mne-CH-XhQ"/>
                         <outlet property="Qin4" destination="0XF-H1-7Np" id="Ceh-0c-fk5"/>
                         <outlet property="TheMonth" destination="eed-w2-UGt" id="HnU-hE-c7y"/>
+                        <outlet property="ZgDiZhi0" destination="3EX-Bx-8Q8" id="MKG-Hi-36e"/>
+                        <outlet property="ZgDiZhi1" destination="eC4-en-k8M" id="tYP-bE-cGR"/>
+                        <outlet property="ZgDiZhi2" destination="rVu-L6-l4m" id="QOi-sl-SCb"/>
+                        <outlet property="ZgDiZhi3" destination="ShE-Bp-fbd" id="jPZ-fQ-Rgq"/>
+                        <outlet property="ZgDiZhi4" destination="hZA-Ww-vUk" id="09f-n4-b5K"/>
+                        <outlet property="ZgDiZhi5" destination="KtL-PM-ZmJ" id="HvN-BJ-1ao"/>
+                        <outlet property="ZgHeader" destination="7Hp-Yj-3XF" id="DvQ-67-iS8"/>
+                        <outlet property="ZgTianGan0" destination="0bm-NQ-cTi" id="hQQ-kH-hgK"/>
+                        <outlet property="ZgTianGan1" destination="knF-ot-sDJ" id="4pU-Kl-WlJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z53-OP-wGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3907,7 +3934,7 @@
         <segue reference="QuS-my-A6k"/>
         <segue reference="XEj-a1-oh4"/>
         <segue reference="giX-ph-xmb"/>
-        <segue reference="oxB-nl-A26"/>
+        <segue reference="DVh-2N-sDc"/>
         <segue reference="a4S-tW-MNB"/>
         <segue reference="riS-bd-D2d"/>
     </inferredMetricsTieBreakers>
