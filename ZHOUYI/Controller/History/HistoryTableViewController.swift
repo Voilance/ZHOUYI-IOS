@@ -12,20 +12,66 @@ import SwiftHTTP
 class HistoryTableViewController: UITableViewController {
     
     var resultList: [Gua] = []
+    var resultPage: Int = 1
     let RowHeight: CGFloat = 50
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         GlobalUser.loadUserInfo()
-        
-        self.loadHistory(page: 1)
+        if !(GlobalUser.online ?? false) && (GlobalUser.login ?? false) {
+            authenticateToken()
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    // 验证token，如果token有效则尝试自动登录
+    func authenticateToken () {
+        let reqJson = ["id": GlobalUser.id, "token": GlobalUser.token] as [String : Any]
+        HTTP.POST(Api.AuthTokenUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                let result = respJson.object(forKey: "result") as? String
+                if result == "success" {
+                    self.autoSignIn()
+                }
+            } catch {
+                print("Authenticate Token Error:")
+                print(error)
+            }
+        }
+    }
+    
+    // 验证token成功之后，尝试自动登录
+    func autoSignIn() {
+        let reqJson = ["name": GlobalUser.nickname, "password": GlobalUser.password]
+        HTTP.POST(Api.SignInUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) {resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                let result = respJson.object(forKey: "result") as? String
+                if result == "success" {
+                    GlobalUser.id = respJson.object(forKey: "userId") as? Int
+                    GlobalUser.realname = respJson.object(forKey: "realname") as? String
+                    GlobalUser.tel = respJson.object(forKey: "phone") as? String
+                    GlobalUser.birthday = respJson.object(forKey: "birthYM") as? String
+                    GlobalUser.token = respJson.object(forKey: "token") as? String
+                    GlobalUser.login = true
+                    GlobalUser.online = true
+                    GlobalUser.saveUserInfo()
+                    
+                    self.loadHistory(page: self.resultPage)
+                }
+            } catch {
+                print("Sign In Error:")
+                print(error)
+            }
+        }
+    }
+    
     
     func loadHistory(page: Int) {
         let reqJson = ["method": "time", "keyword": nil, "page": page] as [String : Any?]
@@ -35,12 +81,14 @@ class HistoryTableViewController: UITableViewController {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
                 let result = respJson.object(forKey: "result") as? String
                 let reason = respJson.object(forKey: "reason") as? String
-                let record = respJson.object(forKey: "record") as! [AnyObject]
-                DispatchQueue.main.async {
-                    for s in record {
-                        self.resultList.append(Gua(initJson: s))
+                if (result == "success") {
+                    let record = respJson.object(forKey: "record") as! [AnyObject]
+                    DispatchQueue.main.async {
+                        for s in record {
+                            self.resultList.append(Gua(initJson: s))
+                        }
+                        self.tableView.reloadData()
                     }
-                    self.tableView.reloadData()
                 }
             } catch {
                 print("Load History Error")

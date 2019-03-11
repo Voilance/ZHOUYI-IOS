@@ -34,8 +34,6 @@ class MineViewController: UIViewController, UITableViewDelegate, UITableViewData
     let OptionList: [String] = ["待定", "关于", "设置"] // 登录后选项列表
     let CellHeight: CGFloat = 50                // 每一项高度
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -48,11 +46,12 @@ class MineViewController: UIViewController, UITableViewDelegate, UITableViewData
         OptionTableView.delegate = self
         OptionTableView.dataSource = self
         
-        // 获取本地用户信息
-        GlobalUser.loadUserInfo()
-        if !(GlobalUser.online ?? false) && (GlobalUser.login ?? false) {
-            authenticateToken()
-        }
+        self.reloadView()
+//        // 获取本地用户信息
+//        GlobalUser.loadUserInfo()
+//        if !(GlobalUser.online ?? false) && (GlobalUser.login ?? false) {
+//            authenticateToken()
+//        }
     }
     
     func reloadView() {
@@ -116,50 +115,50 @@ class MineViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
-    // 验证token，如果token有效则尝试自动登录
-    func authenticateToken() {
-        let reqJson = ["id": GlobalUser.id, "token": GlobalUser.token] as [String : Any]
-        HTTP.POST(Api.AuthTokenUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
-            do {
-                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
-                let result = respJson.object(forKey: "result") as? String
-                if result == "success" {
-                    self.autoSignIn()
-                }
-            } catch {
-                print("Authenticate Token Error:")
-                print(error)
-            }
-        }
-    }
-    
-    // 验证token成功之后，尝试自动登录
-    func autoSignIn() {
-        let reqJson = ["name": GlobalUser.nickname, "password": GlobalUser.password]
-        HTTP.POST(Api.SignInUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) {resp in
-            do {
-                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
-                let result = respJson.object(forKey: "result") as? String
-                if result == "success" {
-                    GlobalUser.id = respJson.object(forKey: "userId") as? Int
-                    GlobalUser.realname = respJson.object(forKey: "realname") as? String
-                    GlobalUser.tel = respJson.object(forKey: "phone") as? String
-                    GlobalUser.birthday = respJson.object(forKey: "birthYM") as? String
-                    GlobalUser.token = respJson.object(forKey: "token") as? String
-                    GlobalUser.login = true
-                    GlobalUser.online = true
-                    GlobalUser.saveUserInfo()
-                    
-                    DispatchQueue.main.async {
-                        self.reloadView()
-                    }
-                }
-            } catch {
-                print("Sign In Error:")
-                print(error)
-            }
-        }
-    }
+//    // 验证token，如果token有效则尝试自动登录
+//    func authenticateToken() {
+//        let reqJson = ["id": GlobalUser.id, "token": GlobalUser.token] as [String : Any]
+//        HTTP.POST(Api.AuthTokenUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
+//            do {
+//                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+//                let result = respJson.object(forKey: "result") as? String
+//                if result == "success" {
+//                    self.autoSignIn()
+//                }
+//            } catch {
+//                print("Authenticate Token Error:")
+//                print(error)
+//            }
+//        }
+//    }
+//
+//    // 验证token成功之后，尝试自动登录
+//    func autoSignIn() {
+//        let reqJson = ["name": GlobalUser.nickname, "password": GlobalUser.password]
+//        HTTP.POST(Api.SignInUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) {resp in
+//            do {
+//                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+//                let result = respJson.object(forKey: "result") as? String
+//                if result == "success" {
+//                    GlobalUser.id = respJson.object(forKey: "userId") as? Int
+//                    GlobalUser.realname = respJson.object(forKey: "realname") as? String
+//                    GlobalUser.tel = respJson.object(forKey: "phone") as? String
+//                    GlobalUser.birthday = respJson.object(forKey: "birthYM") as? String
+//                    GlobalUser.token = respJson.object(forKey: "token") as? String
+//                    GlobalUser.login = true
+//                    GlobalUser.online = true
+//                    GlobalUser.saveUserInfo()
+//
+//                    DispatchQueue.main.async {
+//                        self.reloadView()
+//                    }
+//                }
+//            } catch {
+//                print("Sign In Error:")
+//                print(error)
+//            }
+//        }
+//    }
 
     /*
     // MARK: - Navigation

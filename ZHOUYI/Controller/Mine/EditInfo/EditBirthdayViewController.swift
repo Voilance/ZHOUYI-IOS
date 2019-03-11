@@ -7,19 +7,50 @@
 //
 
 import UIKit
+import SwiftHTTP
 
 class EditBirthdayViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet weak var BirthdayButton: UIButton!
     @IBAction func ClickBirthdayButton(_ sender: Any) {
-        editBirthday()
+        selectBirthday()
     }
     @IBAction func ClickSaveButton(_ sender: Any) {
+        if isInfoOk() {
+            editBirthday()
+        }
+    }
+    
+    func isInfoOk() -> Bool {
         if birthday == GlobalUser.birthday {
             self.view.makeToast("和旧日期相同")
-        } else {
-            GlobalUser.birthday = birthday
-            self.performSegue(withIdentifier: "EditBirthdayToUserInfo", sender: nil)
+            return false
+        }
+        return true
+    }
+    
+    func editBirthday() {
+        let reqJson = ["id": GlobalUser.id, "from": "phone", "name": GlobalUser.nickname, "name_change": false, "avatar": nil, "realname": GlobalUser.realname, "birthday": birthday] as [String : Any?]
+        let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
+        HTTP.POST(Api.EditInfoUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                let result = respJson.object(forKey: "result") as? String
+                let reason = respJson.object(forKey: "reason") as? String
+                if result == "success" {
+                    DispatchQueue.main.async {
+                        GlobalUser.birthday = self.birthday
+                        self.performSegue(withIdentifier: "EditBirthdayToUserInfo", sender: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.view.makeToast("修改失败")
+                    }
+                }
+            } catch {
+                print("Edit Birthday Error")
+                print(error)
+            }
         }
     }
     
@@ -42,7 +73,7 @@ class EditBirthdayViewController: UIViewController, UIPickerViewDelegate, UIPick
         return 0
     }
     
-    func editBirthday() {
+    func selectBirthday() {
         let alert = UIAlertController(title: "\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
         datePicker.locale = Locale(identifier: "zh_CN")

@@ -18,6 +18,7 @@ class Api: NSObject {
     static let SignInUrl: String = PROTOCOL + HOST + PORT + "/web/UserLogin"
     static let SignUpUrl: String = PROTOCOL + HOST + PORT + "/web/UserSignUp"
     static let AuthTokenUrl: String = PROTOCOL + HOST + PORT + "/web/CheckLogin"
+    static let EditInfoUrl: String = PROTOCOL + HOST + PORT + "/web/SetUserInfo"
     static let SaveRecordUrl: String = PROTOCOL + HOST + PORT + "/app/newRecord"
     static let LoadRecordUrl: String = PROTOCOL + HOST + PORT + "/app/getRecord"
     static let deleteRecordUrl: String = PROTOCOL + HOST + PORT + "/app/deleteRecord"
