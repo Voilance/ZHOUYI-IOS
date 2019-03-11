@@ -11,8 +11,7 @@ import SwiftHTTP
 
 class HistoryTableViewController: UITableViewController {
     
-    var resultList: [Result] = []
-    var historyList: [(String, String)] = []
+    var resultList: [Gua] = []
     let RowHeight: CGFloat = 50
 
     override func viewDidLoad() {
@@ -20,27 +19,26 @@ class HistoryTableViewController: UITableViewController {
 
         GlobalUser.loadUserInfo()
         
-        self.loadHistory()
+        self.loadHistory(page: 1)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        historyList.append(("事由", "时间"))
     }
     
-    func loadHistory() {
-        let reqJson = ["method": "time", "keyword": nil, "page": "1"]
+    func loadHistory(page: Int) {
+        let reqJson = ["method": "time", "keyword": nil, "page": page] as [String : Any?]
         let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
         HTTP.POST(Api.LoadRecordUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
             do {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
-                let result = respJson.object(forKey: "result")
-                let reason = respJson.object(forKey: "reason")
+                let result = respJson.object(forKey: "result") as? String
+                let reason = respJson.object(forKey: "reason") as? String
                 let record = respJson.object(forKey: "record") as! [AnyObject]
                 DispatchQueue.main.async {
                     for s in record {
-                        self.resultList.append(Result(initJson: s))
+                        self.resultList.append(Gua(initJson: s))
                     }
                     self.tableView.reloadData()
                 }
@@ -48,6 +46,52 @@ class HistoryTableViewController: UITableViewController {
                 print("Load History Error")
                 print(error)
             }
+        }
+    }
+    
+    func deleteRecord(id: String, row: Int) {
+        let reqJson = ["id": id]
+        let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
+        HTTP.POST(Api.deleteRecordUrl, parameters: reqJson, headers: reqHeader, requestSerializer: JSONParameterSerializer()) { resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                let result = respJson.object(forKey: "result") as? String
+                if result == "success" {
+                    DispatchQueue.main.async {
+                        self.resultList.remove(at: row)
+                        self.tableView.reloadData()
+                    }
+                }
+            } catch {
+                print("Delete Record Error")
+                print(error)
+            }
+        }
+    }
+    
+    func getWeek(date: String) -> String {
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        let weekdayFormat = DateFormatter()
+        weekdayFormat.dateFormat = "EEEE"
+        let weekday = weekdayFormat.string(from: dateFormat.date(from: date)!)
+        switch weekday {
+        case "Sunday":
+            return dateFormat.string(from: dateFormat.date(from: date)!) + " 日"
+        case "Monday":
+            return dateFormat.string(from: dateFormat.date(from: date)!) + " 一"
+        case "Tuesday":
+            return dateFormat.string(from: dateFormat.date(from: date)!) + " 二"
+        case "Wednesday":
+            return dateFormat.string(from: dateFormat.date(from: date)!) + " 三"
+        case "Thursday":
+            return dateFormat.string(from: dateFormat.date(from: date)!) + " 四"
+        case "Friday":
+            return dateFormat.string(from: dateFormat.date(from: date)!) + " 五"
+        case "Saturday":
+            return dateFormat.string(from: dateFormat.date(from: date)!) + " 六"
+        default:
+            return dateFormat.string(from: dateFormat.date(from: date)!)
         }
     }
 
@@ -73,7 +117,7 @@ class HistoryTableViewController: UITableViewController {
         } else {
             cell.textLabel?.text = reason
         }
-        cell.detailTextLabel?.text = resultList[indexPath.row].name! + "(" + resultList[indexPath.row].date! + ")"
+        cell.detailTextLabel?.text = resultList[indexPath.row].name! + "(" + self.getWeek(date: resultList[indexPath.row].date!) + ")"
         return cell
     }
     
@@ -95,8 +139,9 @@ class HistoryTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
 //            tableView.deleteRows(at: [indexPath], with: .fade)
-            resultList.remove(at: indexPath.row)
-            tableView.reloadData()
+//            resultList.remove(at: indexPath.row)
+//            tableView.reloadData()
+            deleteRecord(id: (resultList[indexPath.row].id)!, row: indexPath.row)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -130,13 +175,7 @@ class HistoryTableViewController: UITableViewController {
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPath(for: cell)
                 let result = resultList[(indexPath)!.row]
-                
-//                destination.date = result.date
-//                destination.yongShen = result.yongShen
-//                destination.name = result.name
-//                destination.reason = result.reason
-//                destination.note = result.note
-//                destination.guaXiang = result.guaXiang!
+                destination.gua = result
             }
         }
     }

@@ -9,6 +9,7 @@
 import Foundation
 
 class Gua: NSObject {
+    var id: String?
     var method: String?
     var date: String?
     var yongShen: String?
@@ -28,6 +29,8 @@ class Gua: NSObject {
     }
     
     init(initJson: AnyObject) {
+        self.id = initJson.object(forKey: "_id") as? String
+        self.method = initJson.object(forKey: "way") as? String
         self.date = initJson.object(forKey: "date") as? String
         self.yongShen = initJson.object(forKey: "yongshen") as? String
         self.name = initJson.object(forKey: "name") as? String

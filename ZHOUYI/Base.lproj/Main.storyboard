@@ -315,6 +315,16 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ON7-vA-Nvb">
+                                <rect key="frame" x="137.5" y="304.5" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="ATI-TQ-nQB"/>
+                                    <constraint firstAttribute="height" constant="30" id="Aqb-wM-FSx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -322,7 +332,9 @@
                             <constraint firstItem="5RJ-ju-dab" firstAttribute="top" secondItem="nUa-3G-q5X" secondAttribute="top" constant="100" id="ARc-mf-cHw"/>
                             <constraint firstItem="oga-2e-2mM" firstAttribute="top" secondItem="nUa-3G-q5X" secondAttribute="top" id="EFT-m7-gKH"/>
                             <constraint firstItem="bAp-5Z-xyK" firstAttribute="leading" secondItem="nUa-3G-q5X" secondAttribute="leading" constant="20" id="O9P-v8-dCx"/>
+                            <constraint firstItem="ON7-vA-Nvb" firstAttribute="centerX" secondItem="AuL-Nb-svp" secondAttribute="centerX" id="SLk-Ov-KOt"/>
                             <constraint firstItem="bAp-5Z-xyK" firstAttribute="top" secondItem="5RJ-ju-dab" secondAttribute="bottom" constant="50" id="Wz2-pj-EnH"/>
+                            <constraint firstItem="ON7-vA-Nvb" firstAttribute="top" secondItem="5RJ-ju-dab" secondAttribute="bottom" constant="10" id="esQ-nb-z2g"/>
                             <constraint firstItem="5RJ-ju-dab" firstAttribute="centerX" secondItem="AuL-Nb-svp" secondAttribute="centerX" id="r3Y-br-xCk"/>
                             <constraint firstItem="oga-2e-2mM" firstAttribute="leading" secondItem="nUa-3G-q5X" secondAttribute="leading" id="y2R-v0-kMy"/>
                             <constraint firstItem="nUa-3G-q5X" firstAttribute="trailing" secondItem="bAp-5Z-xyK" secondAttribute="trailing" constant="20" id="zSk-ps-yfw"/>
@@ -338,6 +350,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DateButton" destination="YoF-sf-Cdk" id="pxL-Cw-PXw"/>
+                        <outlet property="MethodLabel" destination="ON7-vA-Nvb" id="Xnl-wb-aFu"/>
                         <outlet property="NameTextField" destination="HOa-es-6nJ" id="5yj-n1-E5y"/>
                         <outlet property="NoteTextField" destination="LcZ-6k-p9w" id="riX-GU-1HA"/>
                         <outlet property="ReasonTextField" destination="9me-BO-Ipj" id="GtX-6m-ft5"/>

@@ -12,6 +12,7 @@ import ToastSwiftFramework
 class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     // 控件
+    @IBOutlet weak var MethodLabel: UILabel!
     @IBOutlet weak var DateButton: UIButton!
     @IBOutlet weak var YongShenButton: UIButton!
     @IBOutlet weak var ReasonTextField: UITextField!
@@ -40,7 +41,7 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         }
     }
     
-    let YongShenList: [String] = ["父母", "兄弟", "官鬼", "子孙", "妻财", "世", "应"]
+    let YongShenList: [String] = ["用爻", "父母", "兄弟", "官鬼", "子孙", "妻财", "世", "应"]
     var gua: Gua?
     let PickerRowHeight: CGFloat = 50
     
@@ -58,11 +59,21 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         NameTextField.delegate = self
         NoteTextField.delegate = self
         
+        switch gua?.method {
+        case "LiuYao":
+            MethodLabel.text = "六爻"
+        case "ShuZi":
+            MethodLabel.text = "数字"
+        case "ZiDing":
+            MethodLabel.text = "自定"
+        default:
+            break
+        }
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd"
         gua?.date = dateFormat.string(from: .init())
         DateButton.setTitle(gua?.date, for: .normal)
-        gua?.yongShen = "父母"
+        gua?.yongShen = YongShenList[0]
         YongShenButton.setTitle(gua?.yongShen, for: .normal)
         gua?.reason = "无"
         ReasonTextField.text = gua?.reason
