@@ -51,6 +51,50 @@ class ResultViewController: UIViewController {
     var ZgDiZhiList: [UIButton] = []
     var ZgList: [[String]] = [] // 0:地支, 1:五行, 2:轮转1列, 3:轮转2列
     var ZgTurn: Int = 1 // 显示轮转
+    // 变卦
+    @IBOutlet weak var BgHeader: UILabel!
+    @IBOutlet weak var BgTianGan0: UILabel!
+    @IBOutlet weak var BgTianGan1: UILabel!
+    var BgTianGanList: [UILabel] = []
+    @IBOutlet weak var BgDiZhi0: UIButton!
+    @IBOutlet weak var BgDiZhi1: UIButton!
+    @IBOutlet weak var BgDiZhi2: UIButton!
+    @IBOutlet weak var BgDiZhi3: UIButton!
+    @IBOutlet weak var BgDiZhi4: UIButton!
+    @IBOutlet weak var BgDiZhi5: UIButton!
+    var BgDiZhiList: [UIButton] = []
+    var BgList: [[String]] = [] // 0:地支, 1:五行, 2:六亲
+    @IBOutlet weak var BgLiuQin0: UIButton!
+    @IBOutlet weak var BgLiuQin1: UIButton!
+    @IBOutlet weak var BgLiuQin2: UIButton!
+    @IBOutlet weak var BgLiuQin3: UIButton!
+    @IBOutlet weak var BgLiuQin4: UIButton!
+    @IBOutlet weak var BgLiuQin5: UIButton!
+    var BgLiuQinList: [UIButton] = []
+    var BgTurn: Bool = true
+    var BgShow: [Int] = []
+    // 伏神
+    @IBOutlet weak var FsHeader: UILabel!
+    @IBOutlet weak var FsTianGan0: UILabel!
+    @IBOutlet weak var FsTianGan1: UILabel!
+    var FsTianGanList: [UILabel] = []
+    @IBOutlet weak var FsDiZhi0: UIButton!
+    @IBOutlet weak var FsDiZhi1: UIButton!
+    @IBOutlet weak var FsDiZhi2: UIButton!
+    @IBOutlet weak var FsDiZhi3: UIButton!
+    @IBOutlet weak var FsDiZhi4: UIButton!
+    @IBOutlet weak var FsDiZhi5: UIButton!
+    var FsDiZhiList: [UIButton] = []
+    var FsList: [[String]] = [] // 0:地支, 1:五行, 2:六亲
+    @IBOutlet weak var FsLiuQin0: UIButton!
+    @IBOutlet weak var FsLiuQin1: UIButton!
+    @IBOutlet weak var FsLiuQin2: UIButton!
+    @IBOutlet weak var FsLiuQin3: UIButton!
+    @IBOutlet weak var FsLiuQin4: UIButton!
+    @IBOutlet weak var FsLiuQin5: UIButton!
+    var FsLiuQinList: [UIButton] = []
+    var FsTurn: Bool = true
+    var FsShow: [Int] = []
     
     // 下部分表
     // 月表
@@ -103,6 +147,80 @@ class ResultViewController: UIViewController {
     @IBAction func ClickZgButton5(_ sender: Any) {
         turnZhuangGua()
     }
+    // 变卦轮转
+    @IBAction func ClickBgButton00(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton01(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton02(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton03(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton04(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton05(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton10(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton11(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton12(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton13(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton14(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton15(_ sender: Any) {
+        turnBianGua()
+    }
+    // 伏神轮转
+    @IBAction func ClickFsButton00(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton01(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton02(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton03(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton04(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton05(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton10(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton11(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton12(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton13(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton14(_ sender: Any) {
+        turnFuShen()
+    }
+    @IBAction func ClickFsButton15(_ sender: Any) {
+        turnFuShen()
+    }
     
     var gua: Gua?
     var resultCode: Int? = -1
@@ -146,6 +264,36 @@ class ResultViewController: UIViewController {
         ZgDiZhiList.append(ZgDiZhi4)
         ZgDiZhiList.append(ZgDiZhi5)
         
+        BgTianGanList.append(BgTianGan0)
+        BgTianGanList.append(BgTianGan1)
+        BgDiZhiList.append(BgDiZhi0)
+        BgDiZhiList.append(BgDiZhi1)
+        BgDiZhiList.append(BgDiZhi2)
+        BgDiZhiList.append(BgDiZhi3)
+        BgDiZhiList.append(BgDiZhi4)
+        BgDiZhiList.append(BgDiZhi5)
+        BgLiuQinList.append(BgLiuQin0)
+        BgLiuQinList.append(BgLiuQin1)
+        BgLiuQinList.append(BgLiuQin2)
+        BgLiuQinList.append(BgLiuQin3)
+        BgLiuQinList.append(BgLiuQin4)
+        BgLiuQinList.append(BgLiuQin5)
+        
+        FsTianGanList.append(FsTianGan0)
+        FsTianGanList.append(FsTianGan1)
+        FsDiZhiList.append(FsDiZhi0)
+        FsDiZhiList.append(FsDiZhi1)
+        FsDiZhiList.append(FsDiZhi2)
+        FsDiZhiList.append(FsDiZhi3)
+        FsDiZhiList.append(FsDiZhi4)
+        FsDiZhiList.append(FsDiZhi5)
+        FsLiuQinList.append(FsLiuQin0)
+        FsLiuQinList.append(FsLiuQin1)
+        FsLiuQinList.append(FsLiuQin2)
+        FsLiuQinList.append(FsLiuQin3)
+        FsLiuQinList.append(FsLiuQin4)
+        FsLiuQinList.append(FsLiuQin5)
+        
         MonthList.append(Month0)
         MonthList.append(Month1)
         MonthList.append(Month2)
@@ -180,6 +328,7 @@ class ResultViewController: UIViewController {
                 let month = respJson.object(forKey: "month") as? String
                 let day = respJson.object(forKey: "day") as? String
                 DispatchQueue.main.async {
+                    self.TheMonth.text = String((month?.first)!) + "月"
                     self.setLiuShen(d: day?.first)
                 }
             } catch {
@@ -261,7 +410,12 @@ class ResultViewController: UIViewController {
     // 填充装卦内容，包括六亲、本卦
     func setZhuangGua(json: AnyObject) {
         let basicData = json.object(forKey: "basicData") as AnyObject
-        self.setLiuQin(lq: basicData.object(forKey: "six_relatives") as! String)
+        // 填充六亲表
+        let lqList = fu_kString(str: basicData.object(forKey: "six_relatives") as! String)
+        for i in 0..<6 {
+            LiuQinList[i].attributedText = getNSAttributedString(inputString: [lqList[i]], inputColor: [.blue])
+        }
+        // 填充本卦图
         self.setBenGua(sy: basicData.object(forKey:"shi_ying") as! String)
         // 装卦头
         if let header = getGuaHeader(guaMing: basicData.object(forKey: "content") as! String, guaCi: basicData.object(forKey: "times") as! String) {
@@ -280,33 +434,120 @@ class ResultViewController: UIViewController {
         ZgList.append(List1)
         ZgList.append(List2)
         ZgList.append(List3)
+        // 空
+        if let kList = json.object(forKey: "kongIndex") as? [Int] {
+            for i in kList {
+                ZgDiZhiList[i].setBackgroundImage(UIImage(named: "kong"), for: .normal)
+            }
+        }
         turnZhuangGua()
     }
     
     func turnZhuangGua() {
-        if (self.resultCode != 0) {
+        if self.resultCode != 0 {
             return
         }
         for i in 0..<6 {
-            ZgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [ZgList[0][i] + ZgList[ZgTurn][i]], inputColor: [.blue]), for: .normal)
+            ZgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [ZgList[0][i], ZgList[ZgTurn][i]], inputColor: [.blue, .green]), for: .normal)
         }
         self.ZgTurn = self.ZgTurn == 3 ? 1 : self.ZgTurn + 1
     }
     
+    // 填充变卦内容
     func setBianGua(json: AnyObject) { // 包括六冲2
-        
+        let basicData = json.object(forKey: "basicData") as AnyObject
+        // 变卦头
+        if let header = getGuaHeader(guaMing: basicData.object(forKey: "content") as! String, guaCi: basicData.object(forKey: "times") as! String) {
+            BgHeader.text = header
+        }
+        // 天干
+        let tgList = fu_kString(str: basicData.object(forKey: "heavenly_stems") as! String)
+        BgTianGanList[0].text = tgList[0]
+        BgTianGanList[1].text = tgList[1]
+        // 地支、五行、六亲
+        let List0 = fu_kString(str: basicData.object(forKey: "earthly_branches") as! String)
+        let List1 = fu_kString(str: basicData.object(forKey: "five_elements") as! String)
+        let lqList = fu_kString(str: basicData.object(forKey: "six_relatives") as! String)
+        BgList.append(List0)
+        BgList.append(List1)
+        BgList.append(lqList)
+        // 空
+        if let kList = json.object(forKey: "kongIndex") as? [Int] {
+            for i in kList {
+                BgLiuQinList[i].setBackgroundImage(UIImage(named: "kong"), for: .normal)
+            }
+        }
+        // 轮转显示
+        if let sList = json.object(forKey: "showIndex") as? [Int] {
+            self.BgShow = sList
+        }
+        turnBianGua()
+    }
+    
+    func turnBianGua() {
+        if self.resultCode != 0 {
+            return;
+        }
+        if BgTurn {
+            for i in 0..<6 {
+                BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [.blue, .green]), for: .normal)
+                BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [.blue]), for: .normal)
+            }
+        } else {
+            for i in BgShow {
+                BgDiZhiList[i].setAttributedTitle(nil, for: .normal)
+                BgLiuQinList[i].setAttributedTitle(nil, for: .normal)
+            }
+        }
+        BgTurn = !BgTurn
     }
     
     func setFuShen(json: AnyObject) { // 包括伏神
-        
+        let basicData = json.object(forKey: "basicData") as AnyObject
+        // 变卦头
+        if let header = getGuaHeader(guaMing: basicData.object(forKey: "content") as! String, guaCi: basicData.object(forKey: "times") as! String) {
+            FsHeader.text = header
+        }
+        // 天干
+        let tgList = fu_kString(str: basicData.object(forKey: "heavenly_stems") as! String)
+        FsTianGanList[0].text = tgList[0]
+        FsTianGanList[1].text = tgList[1]
+        // 地支、五行、六亲
+        let List0 = fu_kString(str: basicData.object(forKey: "earthly_branches") as! String)
+        let List1 = fu_kString(str: basicData.object(forKey: "five_elements") as! String)
+        let lqList = fu_kString(str: basicData.object(forKey: "six_relatives") as! String)
+        FsList.append(List0)
+        FsList.append(List1)
+        FsList.append(lqList)
+        // 空
+        if let kList = json.object(forKey: "kongIndex") as? [Int] {
+            for i in kList {
+                FsLiuQinList[i].setBackgroundImage(UIImage(named: "kong"), for: .normal)
+            }
+        }
+        // 轮转显示
+        if let sList = json.object(forKey: "showIndex") as? [Int] {
+            self.FsShow = sList
+        }
+        turnFuShen()
     }
     
-    // 填充六亲内容
-    func setLiuQin(lq: String) {
-        let list = fu_kString(str: lq)
-        for i in 0..<6 {
-            LiuQinList[i].attributedText = getNSAttributedString(inputString: [list[i]], inputColor: [.blue])
+    func turnFuShen() {
+        if self.resultCode != 0 {
+            return;
         }
+        if FsTurn {
+            for i in 0..<6 {
+                FsDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[0][i], FsList[1][i]], inputColor: [.blue, .green]), for: .normal)
+                FsLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[2][i]], inputColor: [.blue]), for: .normal)
+            }
+        } else {
+            for i in FsShow {
+                FsDiZhiList[i].setAttributedTitle(nil, for: .normal)
+                FsLiuQinList[i].setAttributedTitle(nil, for: .normal)
+            }
+        }
+        FsTurn = !FsTurn
     }
     
     // 设置本卦图片
