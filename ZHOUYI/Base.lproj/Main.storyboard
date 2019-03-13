@@ -2353,7 +2353,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="u1E-zw-KKE">
-                                <rect key="frame" x="30" y="87" width="315" height="201"/>
+                                <rect key="frame" x="30" y="136" width="315" height="201"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="t73-24-Q8a">
                                         <rect key="frame" x="0.0" y="0.0" width="147.5" height="201"/>
@@ -2406,7 +2406,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xhj-2s-3aL">
-                                <rect key="frame" x="0.0" y="338" width="375" height="280"/>
+                                <rect key="frame" x="0.0" y="387" width="375" height="280"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="xJQ-Kh-oEH">
                                         <rect key="frame" x="0.0" y="0.0" width="95" height="280"/>
@@ -3114,7 +3114,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6R5-tq-IAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-424.80000000000001" y="443.92803598200902"/>
+            <point key="canvasLocation" x="-1364" y="444"/>
         </scene>
         <!--周易NC-->
         <scene sceneID="z9f-hk-UEa">
@@ -3825,6 +3825,230 @@
             </objects>
             <point key="canvasLocation" x="3841" y="-376"/>
         </scene>
+        <!--历史事由-->
+        <scene sceneID="5Yw-NA-cmw">
+            <objects>
+                <viewController id="eNR-kW-qL4" customClass="HistoryReasonViewController" customModule="ZHOUYI" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CEs-dw-Ppb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UhD-fU-CBd">
+                                <rect key="frame" x="22.5" y="164" width="330" height="130.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="本卦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zod-mA-yeu">
+                                        <rect key="frame" x="0.0" y="0.0" width="35" height="130.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="g2K-CM-6nX">
+                                        <rect key="frame" x="55" y="0.0" width="100" height="130.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BenGua" translatesAutoresizingMaskIntoConstraints="NO" id="QZo-lg-9FL">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="40n-DG-pwm"/>
+                                                    <constraint firstAttribute="height" constant="100" id="RkV-Uj-b9v"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乾为天" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNQ-bC-uEi">
+                                                <rect key="frame" x="0.0" y="110" width="100" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fPw-V1-2yq">
+                                        <rect key="frame" x="175" y="0.0" width="100" height="130.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BianGua" translatesAutoresizingMaskIntoConstraints="NO" id="Q0W-6z-ssf">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="JcO-v3-RFS"/>
+                                                    <constraint firstAttribute="height" constant="100" id="NK5-lt-gN9"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="坤为地" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zcl-ci-oh3">
+                                                <rect key="frame" x="0.0" y="110" width="100" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="变卦" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpR-5D-BWr">
+                                        <rect key="frame" x="295" y="0.0" width="35" height="130.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Tdm-e9-stf">
+                                <rect key="frame" x="20" y="344.5" width="335" height="220"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nnt-g0-L3d">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卜卦日期" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIq-kA-ejr">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="058-VE-diM"/>
+                                                    <constraint firstAttribute="width" constant="80" id="NVE-3q-Al1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEV-3a-IrA">
+                                                <rect key="frame" x="80" y="0.0" width="255" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Uw-M6-7Zo">
+                                        <rect key="frame" x="0.0" y="45" width="335" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卜卦用神" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1F-T3-x6h">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="cZK-o1-Xzo"/>
+                                                    <constraint firstAttribute="width" constant="80" id="fPa-Qf-ZmC"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkh-4N-7ag">
+                                                <rect key="frame" x="80" y="0.0" width="255" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X6i-Qb-Isr">
+                                        <rect key="frame" x="0.0" y="90" width="335" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卜卦事由" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeo-1j-b4Z">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="FLz-fs-iHl"/>
+                                                    <constraint firstAttribute="height" constant="40" id="omS-Ge-fpj"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="44K-K0-WLU">
+                                                <rect key="frame" x="80" y="0.0" width="255" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2K-K5-XhF">
+                                        <rect key="frame" x="0.0" y="135" width="335" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卜卦姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlb-Ls-qJV">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="gAv-Yr-je8"/>
+                                                    <constraint firstAttribute="width" constant="80" id="zHN-tt-SMJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDa-Ho-pfe">
+                                                <rect key="frame" x="80" y="0.0" width="255" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VOG-ej-piA">
+                                        <rect key="frame" x="0.0" y="180" width="335" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="卜卦备注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z95-Mo-gzy">
+                                                <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="g7r-8W-T9b"/>
+                                                    <constraint firstAttribute="width" constant="80" id="hlS-cz-pOs"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uK2-w0-Bnf">
+                                                <rect key="frame" x="80" y="0.0" width="255" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="六爻" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yY5-75-pW3">
+                                <rect key="frame" x="137.5" y="304.5" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="OYk-2E-utm"/>
+                                    <constraint firstAttribute="height" constant="30" id="h9j-Gr-rbl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="yY5-75-pW3" firstAttribute="centerX" secondItem="CEs-dw-Ppb" secondAttribute="centerX" id="2ui-aq-QLX"/>
+                            <constraint firstItem="Tdm-e9-stf" firstAttribute="centerX" secondItem="CEs-dw-Ppb" secondAttribute="centerX" id="B3X-Xw-tEm"/>
+                            <constraint firstItem="UhD-fU-CBd" firstAttribute="top" secondItem="raK-I6-Ts5" secondAttribute="top" constant="100" id="Mgx-ya-mHP"/>
+                            <constraint firstItem="UhD-fU-CBd" firstAttribute="centerX" secondItem="CEs-dw-Ppb" secondAttribute="centerX" id="O1v-C0-EAK"/>
+                            <constraint firstItem="yY5-75-pW3" firstAttribute="top" secondItem="UhD-fU-CBd" secondAttribute="bottom" constant="10" id="TBt-1D-Wvb"/>
+                            <constraint firstItem="raK-I6-Ts5" firstAttribute="trailing" secondItem="Tdm-e9-stf" secondAttribute="trailing" constant="20" id="ZMf-Kd-GvK"/>
+                            <constraint firstItem="Tdm-e9-stf" firstAttribute="top" secondItem="UhD-fU-CBd" secondAttribute="bottom" constant="50" id="bSj-tG-mPp"/>
+                            <constraint firstItem="Tdm-e9-stf" firstAttribute="leading" secondItem="raK-I6-Ts5" secondAttribute="leading" constant="20" id="gFi-9I-a8J"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="raK-I6-Ts5"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="历史事由" id="JE4-fA-wi5">
+                        <barButtonItem key="rightBarButtonItem" title="确定" id="T29-t8-6nv">
+                            <connections>
+                                <segue destination="s7r-dL-fBd" kind="show" identifier="HistoryReasonToResult" id="CWa-xX-RCI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="BenGuaImageView" destination="QZo-lg-9FL" id="meK-vT-eCL"/>
+                        <outlet property="BenGuaLabel" destination="CNQ-bC-uEi" id="sno-vV-7Oq"/>
+                        <outlet property="BianGuaImageView" destination="Q0W-6z-ssf" id="6QM-N9-kwc"/>
+                        <outlet property="BianGuaLabel" destination="Zcl-ci-oh3" id="ikx-WE-bOl"/>
+                        <outlet property="DateLabel" destination="xEV-3a-IrA" id="EmS-Fe-vYz"/>
+                        <outlet property="MethodLabel" destination="yY5-75-pW3" id="Wd6-8Y-Qqb"/>
+                        <outlet property="NameLabel" destination="nDa-Ho-pfe" id="6vb-Nt-ieD"/>
+                        <outlet property="NoteLabel" destination="uK2-w0-Bnf" id="ed9-MX-XfO"/>
+                        <outlet property="ReasonLabel" destination="44K-K0-WLU" id="ltq-6O-qRc"/>
+                        <outlet property="YongShenLabel" destination="dkh-4N-7ag" id="dzd-mO-qED"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j9D-hV-Ued" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2718" y="444"/>
+        </scene>
         <!--历史-->
         <scene sceneID="MRK-nR-wdS">
             <objects>
@@ -3858,7 +4082,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="s7r-dL-fBd" kind="show" identifier="HistoryToResult" id="DVh-2N-sDc"/>
+                                    <segue destination="eNR-kW-qL4" kind="show" identifier="HistoryToHistoryReason" id="CPr-j1-mSp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -3872,7 +4096,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jg1-Gc-qet" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1686" y="444"/>
+            <point key="canvasLocation" x="774" y="444"/>
         </scene>
         <!--事由NC-->
         <scene sceneID="8yO-hO-pkJ">
@@ -3999,7 +4223,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dG4-sH-1KM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="774" y="444"/>
+            <point key="canvasLocation" x="-164" y="444"/>
+        </scene>
+        <!--历史事由NC-->
+        <scene sceneID="NXa-PT-Gte">
+            <objects>
+                <navigationController title="历史事由NC" automaticallyAdjustsScrollViewInsets="NO" id="lfm-A5-e6N" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ihZ-Zf-8rW">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eNR-kW-qL4" kind="relationship" relationship="rootViewController" id="Y2M-59-WlC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r1L-Wv-WIY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1936.8" y="443.92803598200902"/>
         </scene>
     </scenes>
     <resources>
@@ -4021,6 +4263,7 @@
         <image name="default_avatar" width="375" height="375"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="CPr-j1-mSp"/>
         <segue reference="7Fa-Lc-xhO"/>
         <segue reference="Xoh-Yg-Uwu"/>
         <segue reference="MFR-HG-038"/>
@@ -4032,8 +4275,8 @@
         <segue reference="QuS-my-A6k"/>
         <segue reference="XEj-a1-oh4"/>
         <segue reference="giX-ph-xmb"/>
-        <segue reference="DVh-2N-sDc"/>
+        <segue reference="CWa-xX-RCI"/>
         <segue reference="a4S-tW-MNB"/>
-        <segue reference="riS-bd-D2d"/>
+        <segue reference="eHr-1c-YXq"/>
     </inferredMetricsTieBreakers>
 </document>

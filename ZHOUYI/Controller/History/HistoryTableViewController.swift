@@ -218,8 +218,8 @@ class HistoryTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "HistoryToResult" {
-            let destination = segue.destination as! ResultViewController
+        if segue.identifier == "HistoryToHistoryReason" {
+            let destination = segue.destination as! HistoryReasonViewController
             if let cell = sender as? UITableViewCell {
                 let indexPath = tableView.indexPath(for: cell)
                 let result = resultList[(indexPath)!.row]
