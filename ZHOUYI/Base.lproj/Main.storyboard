@@ -4011,6 +4011,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXZ-WX-Rf5">
+                                <rect key="frame" x="87.5" y="568" width="200" height="40"/>
+                                <color key="backgroundColor" red="0.73121761659999995" green="0.2498490032" blue="0.28579305059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8Xd-4F-ana"/>
+                                    <constraint firstAttribute="width" constant="200" id="LlH-ot-sKG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="删除该记录">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="ClickDeleteButton:" destination="eNR-kW-qL4" eventType="touchUpInside" id="gwe-Jj-Vg5"/>
+                                    <segue destination="Wb1-rq-jwK" kind="unwind" unwindAction="Exit:" id="Gmb-3R-Y2s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -4018,10 +4034,12 @@
                             <constraint firstItem="Tdm-e9-stf" firstAttribute="centerX" secondItem="CEs-dw-Ppb" secondAttribute="centerX" id="B3X-Xw-tEm"/>
                             <constraint firstItem="UhD-fU-CBd" firstAttribute="top" secondItem="raK-I6-Ts5" secondAttribute="top" constant="100" id="Mgx-ya-mHP"/>
                             <constraint firstItem="UhD-fU-CBd" firstAttribute="centerX" secondItem="CEs-dw-Ppb" secondAttribute="centerX" id="O1v-C0-EAK"/>
+                            <constraint firstItem="raK-I6-Ts5" firstAttribute="bottom" secondItem="rXZ-WX-Rf5" secondAttribute="bottom" constant="10" id="On6-Sr-hDP"/>
                             <constraint firstItem="yY5-75-pW3" firstAttribute="top" secondItem="UhD-fU-CBd" secondAttribute="bottom" constant="10" id="TBt-1D-Wvb"/>
                             <constraint firstItem="raK-I6-Ts5" firstAttribute="trailing" secondItem="Tdm-e9-stf" secondAttribute="trailing" constant="20" id="ZMf-Kd-GvK"/>
                             <constraint firstItem="Tdm-e9-stf" firstAttribute="top" secondItem="UhD-fU-CBd" secondAttribute="bottom" constant="50" id="bSj-tG-mPp"/>
                             <constraint firstItem="Tdm-e9-stf" firstAttribute="leading" secondItem="raK-I6-Ts5" secondAttribute="leading" constant="20" id="gFi-9I-a8J"/>
+                            <constraint firstItem="rXZ-WX-Rf5" firstAttribute="centerX" secondItem="CEs-dw-Ppb" secondAttribute="centerX" id="hHU-Ux-UnO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="raK-I6-Ts5"/>
                     </view>
@@ -4038,6 +4056,7 @@
                         <outlet property="BianGuaImageView" destination="Q0W-6z-ssf" id="6QM-N9-kwc"/>
                         <outlet property="BianGuaLabel" destination="Zcl-ci-oh3" id="ikx-WE-bOl"/>
                         <outlet property="DateLabel" destination="xEV-3a-IrA" id="EmS-Fe-vYz"/>
+                        <outlet property="DeleteButton" destination="rXZ-WX-Rf5" id="mur-BS-ccC"/>
                         <outlet property="MethodLabel" destination="yY5-75-pW3" id="Wd6-8Y-Qqb"/>
                         <outlet property="NameLabel" destination="nDa-Ho-pfe" id="6vb-Nt-ieD"/>
                         <outlet property="NoteLabel" destination="uK2-w0-Bnf" id="ed9-MX-XfO"/>
@@ -4095,6 +4114,7 @@
                     <navigationItem key="navigationItem" title="历史" id="tpk-q5-KPM"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jg1-Gc-qet" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wb1-rq-jwK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="774" y="444"/>
         </scene>

@@ -21,6 +21,11 @@ class HistoryReasonViewController: UIViewController {
     @IBOutlet weak var ReasonLabel: UILabel!
     @IBOutlet weak var NameLabel: UILabel!
     @IBOutlet weak var NoteLabel: UILabel!
+    @IBOutlet weak var DeleteButton: UIButton!
+    
+    // 控件功能
+    @IBAction func ClickDeleteButton(_ sender: Any) {
+    }
     
     var gua: Gua?
 
@@ -37,6 +42,8 @@ class HistoryReasonViewController: UIViewController {
         NameLabel.layer.cornerRadius = 5
         NoteLabel.layer.masksToBounds = true
         NoteLabel.layer.cornerRadius = 5
+        DeleteButton.layer.masksToBounds = true
+        DeleteButton.layer.cornerRadius = 5
         
         switch gua?.method {
         case "LiuYao":

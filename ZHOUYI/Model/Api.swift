@@ -23,5 +23,5 @@ class Api: NSObject {
     static let LoadRecordUrl: String = PROTOCOL + HOST + PORT + "/app/getRecord"
     static let deleteRecordUrl: String = PROTOCOL + HOST + PORT + "/app/deleteRecord"
     static let ConvertDateUrl: String = PROTOCOL + HOST + PORT + "/be/GetTime"
-    static let GetResult: String = PROTOCOL + "120.76.128.110" + ":8081" + "/table/item"
+    static let GetResult: String = PROTOCOL + HOST + ":8081" + "/table/item"
 }

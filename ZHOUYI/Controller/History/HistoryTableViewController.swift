@@ -14,6 +14,12 @@ class HistoryTableViewController: UITableViewController {
     var resultList: [Gua] = []
     var resultPage: Int = 1
     let RowHeight: CGFloat = 50
+    
+    @IBAction func Exit (_ segue: UIStoryboardSegue) {
+        if let selectIndexPath = tableView.indexPathForSelectedRow {
+            deleteRecord(id: (resultList[selectIndexPath.row].id)!, row: selectIndexPath.row)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
