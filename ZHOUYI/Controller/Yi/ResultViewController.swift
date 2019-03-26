@@ -9,7 +9,7 @@
 import UIKit
 import SwiftHTTP
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, UIScrollViewDelegate {
     
     // 控件
     // 上部分表
@@ -126,6 +126,11 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var Bian3: UILabel!
     @IBOutlet weak var Bian4: UILabel!
     var BianList: [UILabel] = []
+    // 右下角Scroll
+    @IBOutlet weak var Page: UIPageControl!
+    @IBOutlet weak var Scroll: UIScrollView!
+    @IBOutlet weak var Stack: UIStackView!
+    
     
     // 控件功能
     // 装卦轮转
@@ -317,6 +322,16 @@ class ResultViewController: UIViewController {
         BianList.append(Bian2)
         BianList.append(Bian3)
         BianList.append(Bian4)
+        
+        Scroll.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let width = Scroll.frame.size.width
+        let height = Scroll.frame.size.height
+        Scroll.contentSize = CGSize(width: width * 3, height: height)
+        Stack.frame = CGRect(x: 0, y: 0, width: width * 3, height: height)
+        Scroll.contentOffset.x +=  Scroll.frame.width
     }
     
     func convertDate() {
@@ -595,8 +610,16 @@ class ResultViewController: UIViewController {
         let list = json.object(forKey: "bianYao") as! [String]
         for i in 0..<5 {
             BianList[i].attributedText = getNSAttributedString(inputString: [list[i]], inputColor: [.blue])
-            
         }
+    }
+    
+    // 填充右下角Scroll内容
+    func setScrollView() {
+        
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        Page.currentPage = Int(Scroll.contentOffset.x / scrollView.frame.width)
     }
     
     // 获取富文本
