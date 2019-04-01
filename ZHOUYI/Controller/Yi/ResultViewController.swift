@@ -95,6 +95,11 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     var FsLiuQinList: [UIButton] = []
     var FsTurn: Bool = true
     var FsShow: [Int] = []
+    // 时间
+    @IBOutlet weak var Year: UILabel!
+    @IBOutlet weak var Month: UILabel!
+    @IBOutlet weak var Day: UILabel!
+    @IBOutlet weak var Hour: UILabel!
     
     // 下部分表
     // 月表

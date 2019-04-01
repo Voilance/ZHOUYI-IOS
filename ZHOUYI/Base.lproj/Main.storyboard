@@ -2315,6 +2315,7 @@
                         <outlet property="Bian2" destination="bo7-J6-yjQ" id="d69-ks-LRb"/>
                         <outlet property="Bian3" destination="9RD-V4-4bu" id="2tH-XA-Vfi"/>
                         <outlet property="Bian4" destination="9Vb-gS-ehm" id="k5g-qH-2Zm"/>
+                        <outlet property="Day" destination="ekh-BS-1kK" id="7aD-6A-bhK"/>
                         <outlet property="Day0" destination="ASE-4b-659" id="acC-3x-pvf"/>
                         <outlet property="Day1" destination="he1-ol-MGh" id="rWO-at-Lw3"/>
                         <outlet property="Day2" destination="TUp-Jm-Mf7" id="FkO-7F-feu"/>
@@ -2335,6 +2336,7 @@
                         <outlet property="FsLiuQin5" destination="vhv-6Y-peQ" id="QPc-SR-8JM"/>
                         <outlet property="FsTianGan0" destination="rVf-zk-ucA" id="ILT-sB-xCb"/>
                         <outlet property="FsTianGan1" destination="0u8-Ih-Yqy" id="UWj-ep-fjg"/>
+                        <outlet property="Hour" destination="4Ue-y4-TNO" id="SE4-VG-JwL"/>
                         <outlet property="LiuQin0" destination="xTc-9g-q4E" id="bz1-VI-uZw"/>
                         <outlet property="LiuQin1" destination="oP7-9Y-aV8" id="rFC-l2-5OB"/>
                         <outlet property="LiuQin2" destination="wdc-Hq-J46" id="MBc-7b-fJu"/>
@@ -2347,6 +2349,7 @@
                         <outlet property="LiuShen3" destination="ia7-RP-bBb" id="2eE-Uj-xm1"/>
                         <outlet property="LiuShen4" destination="tP7-wO-SP0" id="JcU-sW-qeR"/>
                         <outlet property="LiuShen5" destination="gZQ-7y-9tU" id="62a-E1-iqB"/>
+                        <outlet property="Month" destination="g4G-yZ-k1H" id="9eH-DL-uSy"/>
                         <outlet property="Month0" destination="FBV-Wr-ys1" id="Wyy-8I-thK"/>
                         <outlet property="Month1" destination="DMN-N9-Whk" id="gN7-g5-2F0"/>
                         <outlet property="Month2" destination="q1Y-Xx-TdF" id="uLf-53-ypg"/>
@@ -2361,6 +2364,7 @@
                         <outlet property="Scroll" destination="uOP-Za-NqI" id="rgV-fp-7Ps"/>
                         <outlet property="Stack" destination="maE-BR-hhp" id="t40-Gh-9yw"/>
                         <outlet property="TheMonth" destination="eed-w2-UGt" id="HnU-hE-c7y"/>
+                        <outlet property="Year" destination="eNa-33-49o" id="Tha-bN-ZAN"/>
                         <outlet property="ZgDiZhi0" destination="3EX-Bx-8Q8" id="MKG-Hi-36e"/>
                         <outlet property="ZgDiZhi1" destination="eC4-en-k8M" id="tYP-bE-cGR"/>
                         <outlet property="ZgDiZhi2" destination="rVu-L6-l4m" id="QOi-sl-SCb"/>
