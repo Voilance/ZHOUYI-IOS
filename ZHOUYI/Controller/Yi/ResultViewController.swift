@@ -13,7 +13,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     
     // 控件
     // 上部分表
-    // 六神
+    // 六神LiuShen
     @IBOutlet weak var LiuShen0: UILabel!
     @IBOutlet weak var LiuShen1: UILabel!
     @IBOutlet weak var LiuShen2: UILabel!
@@ -21,7 +21,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var LiuShen4: UILabel!
     @IBOutlet weak var LiuShen5: UILabel!
     var LiuShenList: [UILabel] = []
-    // 六亲
+    // 六亲LiuQin
     @IBOutlet weak var LiuQin0: UILabel!
     @IBOutlet weak var LiuQin1: UILabel!
     @IBOutlet weak var LiuQin2: UILabel!
@@ -29,7 +29,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var LiuQin4: UILabel!
     @IBOutlet weak var LiuQin5: UILabel!
     var LiuQinList: [UILabel] = []
-    // 本卦
+    // 本卦BenGua
     @IBOutlet weak var BenGua0: UIImageView!
     @IBOutlet weak var BenGua1: UIImageView!
     @IBOutlet weak var BenGua2: UIImageView!
@@ -37,7 +37,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var BenGua4: UIImageView!
     @IBOutlet weak var BenGua5: UIImageView!
     var BenGuaList: [UIImageView] = []
-    // 装卦
+    // 装卦Zg
     @IBOutlet weak var ZgHeader: UILabel!
     @IBOutlet weak var ZgTianGan0: UILabel!
     @IBOutlet weak var ZgTianGan1: UILabel!
@@ -51,7 +51,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     var ZgDiZhiList: [UIButton] = []
     var ZgList: [[String]] = [] // 0:地支, 1:五行, 2:轮转1列, 3:轮转2列
     var ZgTurn: Int = 1 // 显示轮转
-    // 变卦
+    // 变卦Bg
     @IBOutlet weak var BgHeader: UILabel!
     @IBOutlet weak var BgTianGan0: UILabel!
     @IBOutlet weak var BgTianGan1: UILabel!
@@ -73,7 +73,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     var BgLiuQinList: [UIButton] = []
     var BgTurn: Bool = false
     var BgShow: [Int] = []
-    // 伏神
+    // 伏神Fs
     @IBOutlet weak var FsHeader: UILabel!
     @IBOutlet weak var FsTianGan0: UILabel!
     @IBOutlet weak var FsTianGan1: UILabel!
@@ -102,7 +102,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var Hour: UILabel!
     
     // 下部分表
-    // 月表
+    // 月表Month
     @IBOutlet weak var TheMonth: UILabel!
     @IBOutlet weak var Month0: UILabel!
     @IBOutlet weak var Month1: UILabel!
@@ -110,21 +110,21 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var Month3: UILabel!
     @IBOutlet weak var Month4: UILabel!
     var MonthList: [UILabel] = []
-    // 亲表
+    // 亲表Qin
     @IBOutlet weak var Qin0: UILabel!
     @IBOutlet weak var Qin1: UILabel!
     @IBOutlet weak var Qin2: UILabel!
     @IBOutlet weak var Qin3: UILabel!
     @IBOutlet weak var Qin4: UILabel!
     var QinList: [UILabel] = []
-    // 日表
+    // 日表Day
     @IBOutlet weak var Day0: UILabel!
     @IBOutlet weak var Day1: UILabel!
     @IBOutlet weak var Day2: UILabel!
     @IBOutlet weak var Day3: UILabel!
     @IBOutlet weak var Day4: UILabel!
     var DayList: [UILabel] = []
-    // 变表
+    // 变表Bian
     @IBOutlet weak var Bian0: UILabel!
     @IBOutlet weak var Bian1: UILabel!
     @IBOutlet weak var Bian2: UILabel!
@@ -135,7 +135,59 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var Page: UIPageControl!
     @IBOutlet weak var Scroll: UIScrollView!
     @IBOutlet weak var Stack: UIStackView!
-    
+    @IBOutlet weak var TheReason: UILabel!
+    @IBOutlet weak var TheNote: UILabel!
+    // 卜卦事由
+    @IBOutlet weak var TheDate: UILabel!
+    @IBOutlet weak var TheYongShen: UILabel!
+    @IBOutlet weak var TheName: UILabel!
+    // 日冲月破RY
+    @IBOutlet weak var RYKong: UILabel!  // 空
+    @IBOutlet weak var RYShen: UILabel!  // 身
+    @IBOutlet weak var RiChong: UILabel! // 日冲
+    @IBOutlet weak var YuePo: UILabel!   // 月破
+    @IBOutlet weak var RYShou: UILabel!  // 首
+    @IBOutlet weak var RYBian: UILabel!  // 变
+    @IBOutlet weak var RYHu: UILabel!    // 互
+    @IBOutlet weak var RYBen: UILabel!   // 本
+    // 占
+    // 标题Title
+    @IBOutlet weak var ZhanTitle0: UILabel!
+    @IBOutlet weak var ZhanTitle1: UILabel!
+    @IBOutlet weak var ZhanTitle2: UILabel!
+    @IBOutlet weak var ZhanTitle3: UILabel!
+    @IBOutlet weak var ZhanTitle4: UILabel!
+    @IBOutlet weak var ZhanTitle5: UILabel!
+    @IBOutlet weak var ZhanTitle6: UILabel!
+    @IBOutlet weak var ZhanTitle7: UILabel!
+    @IBOutlet weak var ZhanTitle8: UILabel!
+    @IBOutlet weak var ZhanTitle9: UILabel!
+    @IBOutlet weak var ZhanTitle10: UILabel!
+    @IBOutlet weak var ZhanTitle11: UILabel!
+    @IBOutlet weak var ZhanTitle12: UILabel!
+    @IBOutlet weak var ZhanTitle13: UILabel!
+    @IBOutlet weak var ZhanTitle14: UILabel!
+    @IBOutlet weak var ZhanTitle15: UILabel!
+    var ZhanTitleList: [UILabel] = []
+    // 干支GZ
+    @IBOutlet weak var ZhanGZ0: UILabel!
+    @IBOutlet weak var ZhanGZ1: UILabel!
+    @IBOutlet weak var ZhanGZ2: UILabel!
+    @IBOutlet weak var ZhanGZ3: UILabel!
+    @IBOutlet weak var ZhanGZ4: UILabel!
+    @IBOutlet weak var ZhanGZ5: UILabel!
+    @IBOutlet weak var ZhanGZ6: UILabel!
+    @IBOutlet weak var ZhanGZ7: UILabel!
+    @IBOutlet weak var ZhanGZ8: UILabel!
+    @IBOutlet weak var ZhanGZ9: UILabel!
+    @IBOutlet weak var ZhanGZ10: UILabel!
+    @IBOutlet weak var ZhanGZ11: UILabel!
+    @IBOutlet weak var ZhanGZ12: UILabel!
+    @IBOutlet weak var ZhanGZ13: UILabel!
+    @IBOutlet weak var ZhanGZ14: UILabel!
+    @IBOutlet weak var ZhanGZ15: UILabel!
+    var ZhanGZList: [UILabel] = []
+    @IBOutlet weak var ZhanButton: UIButton!
     
     // 控件功能
     // 装卦轮转
@@ -329,6 +381,42 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         BianList.append(Bian4)
 
         Scroll.delegate = self
+        ZhanTitleList.append(ZhanTitle0)
+        ZhanTitleList.append(ZhanTitle1)
+        ZhanTitleList.append(ZhanTitle2)
+        ZhanTitleList.append(ZhanTitle3)
+        ZhanTitleList.append(ZhanTitle4)
+        ZhanTitleList.append(ZhanTitle5)
+        ZhanTitleList.append(ZhanTitle6)
+        ZhanTitleList.append(ZhanTitle7)
+        ZhanTitleList.append(ZhanTitle8)
+        ZhanTitleList.append(ZhanTitle9)
+        ZhanTitleList.append(ZhanTitle10)
+        ZhanTitleList.append(ZhanTitle11)
+        ZhanTitleList.append(ZhanTitle12)
+        ZhanTitleList.append(ZhanTitle13)
+        ZhanTitleList.append(ZhanTitle14)
+        ZhanTitleList.append(ZhanTitle15)
+        
+        ZhanGZList.append(ZhanGZ0)
+        ZhanGZList.append(ZhanGZ1)
+        ZhanGZList.append(ZhanGZ2)
+        ZhanGZList.append(ZhanGZ3)
+        ZhanGZList.append(ZhanGZ4)
+        ZhanGZList.append(ZhanGZ5)
+        ZhanGZList.append(ZhanGZ6)
+        ZhanGZList.append(ZhanGZ7)
+        ZhanGZList.append(ZhanGZ8)
+        ZhanGZList.append(ZhanGZ9)
+        ZhanGZList.append(ZhanGZ10)
+        ZhanGZList.append(ZhanGZ11)
+        ZhanGZList.append(ZhanGZ12)
+        ZhanGZList.append(ZhanGZ13)
+        ZhanGZList.append(ZhanGZ14)
+        ZhanGZList.append(ZhanGZ15)
+        
+        ZhanButton.layer.masksToBounds = true
+        ZhanButton.layer.cornerRadius = 5
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -374,6 +462,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
                         self.setQinTable(json: data.object(forKey: "qingTable") as AnyObject)
                         self.setDayTable(json: data.object(forKey: "dayTable") as AnyObject)
                         self.setBianTable(json: data.object(forKey: "bianYaoTable") as AnyObject)
+                        self.setScrollView()
                     }
                 }
             } catch {
@@ -584,8 +673,6 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         let SIndex = SYList.firstIndex(of: "世")
         let YIndex = SYList.firstIndex(of: "应")
         let GList: [UIImage] = [UIImage(named: "G6")!, UIImage(named: "G7")!, UIImage(named: "G8")!, UIImage(named: "G9")!, UIImage(named: "GS6")!, UIImage(named: "GS7")!, UIImage(named: "GS8")!, UIImage(named: "GS9")!, UIImage(named: "GY6")!, UIImage(named: "GY7")!, UIImage(named: "GY8")!, UIImage(named: "GY9")!]
-//        gua?.guaXiang?[SIndex ?? 0] += 4
-//        gua?.guaXiang?[YIndex ?? 0] += 8
         for i in 0..<6 {
             BenGuaList[i].image = GList[(gua?.guaXiang?[i])! - 6]
         }
@@ -628,11 +715,20 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     
     // 填充右下角Scroll内容
     func setScrollView() {
-        
+        setReason()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         Page.currentPage = Int(Scroll.contentOffset.x / scrollView.frame.width)
+    }
+    
+    // 填充卜卦事由等（时间，用神，名字，事由，备注）
+    func setReason() {
+        TheDate.text = "卜卦时间: " + (gua?.date ?? "")
+        TheYongShen.text = "卜卦用神: " + (gua?.yongShen ?? "")
+        TheName.text = "卜卦姓名: " + (gua?.name ?? "")
+        TheReason.text = "卜卦事由: " + (gua?.reason ?? "")
+        TheNote.text = "卜卦备注: " + (gua?.note ?? "")
     }
     
     // 获取富文本
