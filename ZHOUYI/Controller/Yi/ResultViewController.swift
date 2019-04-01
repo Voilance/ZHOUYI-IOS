@@ -71,7 +71,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var BgLiuQin4: UIButton!
     @IBOutlet weak var BgLiuQin5: UIButton!
     var BgLiuQinList: [UIButton] = []
-    var BgTurn: Bool = true
+    var BgTurn: Bool = false
     var BgShow: [Int] = []
     // 伏神
     @IBOutlet weak var FsHeader: UILabel!
@@ -93,7 +93,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var FsLiuQin4: UIButton!
     @IBOutlet weak var FsLiuQin5: UIButton!
     var FsLiuQinList: [UIButton] = []
-    var FsTurn: Bool = true
+    var FsTurn: Bool = false
     var FsShow: [Int] = []
     // 时间
     @IBOutlet weak var Year: UILabel!
@@ -309,25 +309,25 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         MonthList.append(Month2)
         MonthList.append(Month3)
         MonthList.append(Month4)
-        
+
         QinList.append(Qin0)
         QinList.append(Qin1)
         QinList.append(Qin2)
         QinList.append(Qin3)
         QinList.append(Qin4)
-        
+
         DayList.append(Day0)
         DayList.append(Day1)
         DayList.append(Day2)
         DayList.append(Day3)
         DayList.append(Day4)
-        
+
         BianList.append(Bian0)
         BianList.append(Bian1)
         BianList.append(Bian2)
         BianList.append(Bian3)
         BianList.append(Bian4)
-        
+
         Scroll.delegate = self
     }
     
@@ -348,7 +348,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
                 let month = respJson.object(forKey: "month") as? String
                 let day = respJson.object(forKey: "day") as? String
                 DispatchQueue.main.async {
-                    self.TheMonth.text = String((month?.first)!) + "月"
+                    self.TheMonth.text = String((month?.last)!)
                     self.setLiuShen(d: day?.first)
                 }
             } catch {
@@ -514,9 +514,13 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
                 BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [.blue]), for: .normal)
             }
         } else {
-            for i in BgShow {
+            for i in 0..<6 {
                 BgDiZhiList[i].setAttributedTitle(nil, for: .normal)
                 BgLiuQinList[i].setAttributedTitle(nil, for: .normal)
+            }
+            for i in BgShow {
+                BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [.blue, .green]), for: .normal)
+                BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [.blue]), for: .normal)
             }
         }
         BgTurn = !BgTurn
@@ -562,9 +566,13 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
                 FsLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[2][i]], inputColor: [.blue]), for: .normal)
             }
         } else {
-            for i in FsShow {
+            for i in 0..<6 {
                 FsDiZhiList[i].setAttributedTitle(nil, for: .normal)
                 FsLiuQinList[i].setAttributedTitle(nil, for: .normal)
+            }
+            for i in FsShow {
+                FsDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[0][i], FsList[1][i]], inputColor: [.blue, .green]), for: .normal)
+                FsLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[2][i]], inputColor: [.blue]), for: .normal)
             }
         }
         FsTurn = !FsTurn
