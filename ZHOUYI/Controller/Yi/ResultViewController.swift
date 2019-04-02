@@ -467,6 +467,10 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
                 let month = respJson.object(forKey: "month") as? String
                 let day = respJson.object(forKey: "day") as? String
                 DispatchQueue.main.async {
+                    self.Year.text = year
+                    self.Month.text = month
+                    self.Day.text = day
+                    self.setTime()
                     self.TheMonth.text = String((month?.last)!)
                     self.setLiuShen(d: day?.first)
                 }
@@ -587,6 +591,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
             }
         }
         turnZhuangGua()
+        // Scroll本
+        RYBen.text = getVerticalString(inputString: basicData.object(forKey: "content") as! String);
     }
     
     func turnZhuangGua() {
@@ -635,6 +641,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
             self.BgShow = sList
         }
         turnBianGua()
+        RYBian.text = getVerticalString(inputString: basicData.object(forKey: "content") as! String);
     }
     
     func turnBianGua() {
@@ -690,6 +697,9 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
             self.FsShow = sList
         }
         turnFuShen()
+        // 设置年月日时
+        setTime()
+        RYShou.text = getVerticalString(inputString: basicData.object(forKey: "content") as! String);
     }
     
     func turnFuShen() {
@@ -725,6 +735,31 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         }
         BenGuaList[SIndex ?? 0].image = GList[((gua?.guaXiang?[SIndex ?? 0])! - 2)]
         BenGuaList[YIndex ?? 0].image = GList[((gua?.guaXiang?[YIndex ?? 0])! + 2)]
+    }
+    
+    // 填充年月日时
+    // 分别在convertTime()和setFuShen()调用了一次
+    // 目的是为了线程同步
+    func setTime() {
+        let year = Year.text
+        let month = Month.text
+        let day = Day.text
+//        let hour = Hour.text
+        // 等价类编号List
+        var equalNumList: [Int] = []
+        for dz in FsList[0] {
+            equalNumList.append(DiZhiTable.getEqualNum(str: dz))
+        }
+        var index: Int = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((year?.last ?? "戌"))))!
+        Year.text = year! + String(FsList[2][index].first!)
+        index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((month?.last ?? "戌"))))!
+        Month.text = month! + String(FsList[2][index].first!)
+        index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((day?.last ?? "戌"))))!
+        Day.text = day! + String(FsList[2][index].first!)
+//        index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((hour?.last ?? "戌"))))!
+//        Hour.text = day! + String(FsList[2][index].first!)
+        
+        setRiChongYuePo()
     }
     
     // 填充月表内容
@@ -763,6 +798,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     // 填充右下角Scroll内容
     func setScrollView() {
         setReason()
+//        setRiChongYuePo()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -778,6 +814,18 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         TheNote.text = "卜卦备注: " + (gua?.note ?? "")
     }
     
+    // 计算日冲月破
+    func setRiChongYuePo() {
+        if var r = Day.text {
+            r.remove(at: r.startIndex)
+            RiChong.text = DiZhiTable.DiZhi[(DiZhiTable.DiZhiNum[String(r.first ?? "戌")]! + 6) % 12]
+        }
+        if var y = Month.text {
+            y.remove(at: y.startIndex)
+            YuePo.text = DiZhiTable.DiZhi[(DiZhiTable.DiZhiNum[String(y.first ?? "戌")]! + 6) % 12]
+        }
+    }
+    
     // 获取富文本
     func getNSAttributedString(inputString: [String], inputColor: [UIColor]) -> NSMutableAttributedString {
         let count = inputString.count
@@ -786,6 +834,17 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
             str.append(.init(string: inputString[i], attributes: [NSMutableAttributedString.Key.foregroundColor: inputColor[i]]))
         }
         return str
+    }
+    
+    // 把字符串变成竖式字符串
+    func getVerticalString(inputString: String) -> String {
+        var verStr: String = ""
+        for char in inputString {
+            verStr.append(char)
+            verStr.append("\n")
+        }
+        verStr.remove(at: verStr.index(before: verStr.endIndex))
+        return verStr
     }
     
     func fu_kString(str: String) -> [String] {

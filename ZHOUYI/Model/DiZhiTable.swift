@@ -10,19 +10,33 @@ import Foundation
 
 class DiZhiTable : NSObject {
     
-    static let DiZhi: [String: Int] = [
-        "子" : 1,
-        "丑" : 2,
-        "寅" : 3,
-        "卯" : 4,
-        "辰" : 5,
-        "巳" : 6,
-        "午" : 7,
-        "未" : 8,
-        "申" : 9,
-        "酉" : 10,
-        "戌" : 11,
-        "亥" : 12
+    static let DiZhiNum: [String: Int] = [
+        "子" : 0,
+        "丑" : 1,
+        "寅" : 2,
+        "卯" : 3,
+        "辰" : 4,
+        "巳" : 5,
+        "午" : 6,
+        "未" : 7,
+        "申" : 8,
+        "酉" : 9,
+        "戌" : 10,
+        "亥" : 11
+    ]
+    static let DiZhi: [Int: String] = [
+        0 : "子",
+        1 : "丑",
+        2 : "寅",
+        3 : "卯",
+        4 : "辰",
+        5 : "巳",
+        6 : "午",
+        7 : "未",
+        8 : "申",
+        9 : "酉",
+        10 : "戌",
+        11 : "亥"
     ]
     static let WuXing: [String: String] = [
         "子" : "水",
@@ -248,9 +262,9 @@ class DiZhiTable : NSObject {
             for i in ke {
                 if i == ZgDiZhi {
                     if status == "回合" {
-                        return "合克"
+                        status = "合克"
                     } else { // huiKe == nil
-                        return "回克"
+                        status = "回克"
                     }
                 }
             }
@@ -259,7 +273,7 @@ class DiZhiTable : NSObject {
         if let sheng = Sheng[BgDiZhi] {
             for i in sheng {
                 if i == ZgDiZhi {
-                    return "回生"
+                    status =  "回生"
                 }
             }
         }
@@ -269,37 +283,45 @@ class DiZhiTable : NSObject {
         // 是，返回“化进”
         // 否，返回“化退”
         if isEqualDiZhi(a: ZgDiZhi, b: BgDiZhi) {
-            if let zgdz = DiZhi[ZgDiZhi] {
-                if let bgdz = DiZhi[BgDiZhi] {
+            if let zgdz = DiZhiNum[ZgDiZhi] {
+                if let bgdz = DiZhiNum[BgDiZhi] {
                     if bgdz > zgdz {
-                        return "化进"
+                        status = "化进"
                     } else {
-                        return "化退"
+                        status = "化退"
                     }
                 }
             }
         }
-        return ""
+        return status
     }
     // 判断两个地支是否等价
     static func isEqualDiZhi(a: String, b: String) -> Bool {
+        if getEqualNum(str: a) == getEqualNum(str: b) {
+            return true
+        } else {
+            return false
+        }
+    }
+    // 获取等价类的编号
+    static func getEqualNum(str: String) -> Int {
         let list1: [String] = ["丑", "辰", "未", "戌"]
         let list2: [String] = ["亥", "子"]
         let list3: [String] = ["寅", "卯"]
         let list4: [String] = ["巳", "午"]
         let list5: [String] = ["申", "酉"]
-        if list1.contains(a) && list1.contains(b) {
-            return true
-        } else if list2.contains(a) && list2.contains(b) {
-            return true
-        } else if list3.contains(a) && list3.contains(b) {
-            return true
-        } else if list4.contains(a) && list4.contains(b) {
-            return true
-        } else if list5.contains(a) && list5.contains(b) {
-            return true
+        if list1.contains(str) {
+            return 1
+        } else if list2.contains(str) {
+            return 2
+        } else if list3.contains(str) {
+            return 3
+        } else if list4.contains(str) {
+            return 4
+        } else if list5.contains(str) {
+            return 5
         } else {
-            return false
+            return 0
         }
     }
 }
