@@ -56,6 +56,13 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var BgTianGan0: UILabel!
     @IBOutlet weak var BgTianGan1: UILabel!
     var BgTianGanList: [UILabel] = []
+    @IBOutlet weak var BgHuiKe0: UIButton!
+    @IBOutlet weak var BgHuiKe1: UIButton!
+    @IBOutlet weak var BgHuiKe2: UIButton!
+    @IBOutlet weak var BgHuiKe3: UIButton!
+    @IBOutlet weak var BgHuiKe4: UIButton!
+    @IBOutlet weak var BgHuiKe5: UIButton!
+    var BgHuiKeList: [UIButton] = []
     @IBOutlet weak var BgDiZhi0: UIButton!
     @IBOutlet weak var BgDiZhi1: UIButton!
     @IBOutlet weak var BgDiZhi2: UIButton!
@@ -246,6 +253,24 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func ClickBgButton15(_ sender: Any) {
         turnBianGua()
     }
+    @IBAction func ClickBgButton20(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton21(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton22(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton23(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton24(_ sender: Any) {
+        turnBianGua()
+    }
+    @IBAction func ClickBgButton25(_ sender: Any) {
+        turnBianGua()
+    }
     // 伏神轮转
     @IBAction func ClickFsButton00(_ sender: Any) {
         turnFuShen()
@@ -328,6 +353,12 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         
         BgTianGanList.append(BgTianGan0)
         BgTianGanList.append(BgTianGan1)
+        BgHuiKeList.append(BgHuiKe0)
+        BgHuiKeList.append(BgHuiKe1)
+        BgHuiKeList.append(BgHuiKe2)
+        BgHuiKeList.append(BgHuiKe3)
+        BgHuiKeList.append(BgHuiKe4)
+        BgHuiKeList.append(BgHuiKe5)
         BgDiZhiList.append(BgDiZhi0)
         BgDiZhiList.append(BgDiZhi1)
         BgDiZhiList.append(BgDiZhi2)
@@ -539,10 +570,16 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         let List1 = fu_kString(str: basicData.object(forKey: "five_elements") as! String)
         let List2 = json.object(forKey: "column2") as! [String]
         let List3 = json.object(forKey: "column3") as! [String]
+//        let List4 = json.object(forKey: "column4") as! [String]
+//        let List5 = json.object(forKey: "column5") as! [String]
+//        let List6 = json.object(forKey: "column6") as! [String]
         ZgList.append(List0)
         ZgList.append(List1)
         ZgList.append(List2)
         ZgList.append(List3)
+//        ZgList.append(List4)
+//        ZgList.append(List5)
+//        ZgList.append(List6)
         // 空
         if let kList = json.object(forKey: "kongIndex") as? [Int] {
             for i in kList {
@@ -560,6 +597,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
             ZgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [ZgList[0][i], ZgList[ZgTurn][i]], inputColor: [.blue, .green]), for: .normal)
         }
         self.ZgTurn = self.ZgTurn == 3 ? 1 : self.ZgTurn + 1
+//        self.ZgTurn = self.ZgTurn == 6 ? 1 : self.ZgTurn + 1
     }
     
     // 填充变卦内容
@@ -573,13 +611,19 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
         let tgList = fu_kString(str: basicData.object(forKey: "heavenly_stems") as! String)
         BgTianGanList[0].text = tgList[0]
         BgTianGanList[1].text = tgList[1]
-        // 地支、五行、六亲
+        // 地支、五行、六亲、回克
         let List0 = fu_kString(str: basicData.object(forKey: "earthly_branches") as! String)
         let List1 = fu_kString(str: basicData.object(forKey: "five_elements") as! String)
         let lqList = fu_kString(str: basicData.object(forKey: "six_relatives") as! String)
         BgList.append(List0)
         BgList.append(List1)
         BgList.append(lqList)
+        // 回克
+        var hkList: [String] = []
+        for i in 0..<6 {
+            hkList.append(DiZhiTable.getHuiKe(ZgDiZhi: ZgList[0][i], BgDiZhi: BgList[0][i]))
+        }
+        BgList.append(hkList)
         // 空
         if let kList = json.object(forKey: "kongIndex") as? [Int] {
             for i in kList {
@@ -601,15 +645,18 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
             for i in 0..<6 {
                 BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [.blue, .green]), for: .normal)
                 BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [.blue]), for: .normal)
+                BgHuiKeList[i].setTitle(BgList[3][i], for: .normal)
             }
         } else {
             for i in 0..<6 {
                 BgDiZhiList[i].setAttributedTitle(nil, for: .normal)
                 BgLiuQinList[i].setAttributedTitle(nil, for: .normal)
+                BgHuiKeList[i].setTitle(nil, for: .normal)
             }
             for i in BgShow {
                 BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [.blue, .green]), for: .normal)
                 BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [.blue]), for: .normal)
+                BgHuiKeList[i].setTitle(BgList[3][i], for: .normal)
             }
         }
         BgTurn = !BgTurn
