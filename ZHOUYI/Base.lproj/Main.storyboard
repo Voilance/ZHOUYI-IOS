@@ -2559,9 +2559,12 @@
                                                                         <rect key="frame" x="240" y="0.0" width="30" height="1246"/>
                                                                         <color key="backgroundColor" red="0.17242399359999999" green="0.2008913853" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                                        <state key="normal" title="占 官 禄">
+                                                                        <state key="normal" title="常 用 神 煞">
                                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="ClickZhanButton:" destination="s7r-dL-fBd" eventType="touchUpInside" id="u2f-ho-c2h"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>

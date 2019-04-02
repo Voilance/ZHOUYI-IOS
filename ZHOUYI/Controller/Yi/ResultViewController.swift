@@ -9,7 +9,7 @@
 import UIKit
 import SwiftHTTP
 
-class ResultViewController: UIViewController, UIScrollViewDelegate {
+class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // 控件
     // 上部分表
@@ -195,6 +195,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var ZhanGZ15: UILabel!
     var ZhanGZList: [UILabel] = []
     @IBOutlet weak var ZhanButton: UIButton!
+    let ZhanList: [String] = ["常用神煞", "占感情", "占疾病", "占官禄", "占求财", "占胎孕", "占官非"]
     
     // 控件功能
     // 装卦轮转
@@ -307,6 +308,11 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
     }
     @IBAction func ClickFsButton15(_ sender: Any) {
         turnFuShen()
+    }
+    
+    // 选择占卜内容
+    @IBAction func ClickZhanButton(_ sender: Any) {
+        selectZhan()
     }
     
     var gua: Gua?
@@ -824,6 +830,41 @@ class ResultViewController: UIViewController, UIScrollViewDelegate {
             y.remove(at: y.startIndex)
             YuePo.text = DiZhiTable.DiZhi[(DiZhiTable.DiZhiNum[String(y.first ?? "戌")]! + 6) % 12]
         }
+    }
+    
+    // 以下为“占”的tableview所需函数
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return ZhanList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ZhanCell", for: indexPath)
+        cell.textLabel?.text = ZhanList[indexPath.row]
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 42
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        ZhanButton.setTitle(getVerticalString(inputString: ZhanList[indexPath.row]), for: .normal)
+        self.dismiss(animated: true, completion: nil)
+        return
+    }
+    func selectZhan() {
+        let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 270, height: 294))
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ZhanCell")
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nAction = UIAlertAction(title: "取消", style: .default, handler: nil)
+        alert.view.addSubview(tableView)
+        alert.addAction(nAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     // 获取富文本

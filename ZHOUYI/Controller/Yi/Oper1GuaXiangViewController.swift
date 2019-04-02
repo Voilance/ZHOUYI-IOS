@@ -84,7 +84,7 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
     var guaXiangButtonList: [UIButton] = []
     var guaXiangLabelList: [UILabel] = []
     var gua: Gua?
-    let PickRowHeight: CGFloat = 50
+//    let PickRowHeight: CGFloat = 50
     var buttonIndex: Int = 0
 
     override func viewDidLoad() {
