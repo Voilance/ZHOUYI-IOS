@@ -533,7 +533,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
             offset = 5
         }
         for i in 0..<6 {
-            LiuShenList[i].attributedText = getNSAttributedString(inputString: [list[(i + offset) % 6]], inputColor: [.blue])
+            LiuShenList[i].attributedText = getNSAttributedString(inputString: [list[(i + offset) % 6]], inputColor: [UIColor(red: 112/255, green: 112/255, blue: 116/255, alpha: 1)])
         }
     }
     
@@ -564,7 +564,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         // 填充六亲表
         let lqList = fu_kString(str: basicData.object(forKey: "six_relatives") as! String)
         for i in 0..<6 {
-            LiuQinList[i].attributedText = getNSAttributedString(inputString: [lqList[i]], inputColor: [.blue])
+            LiuQinList[i].attributedText = getNSAttributedString(inputString: [lqList[i]], inputColor: [UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         }
         // 填充本卦图
         self.setBenGua(sy: basicData.object(forKey:"shi_ying") as! String)
@@ -607,7 +607,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
             return
         }
         for i in 0..<6 {
-            ZgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [ZgList[0][i], ZgList[ZgTurn][i]], inputColor: [.blue, .green]), for: .normal)
+            ZgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [ZgList[0][i], ZgList[ZgTurn][i]], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 55/255, green: 123/255, blue: 58/255, alpha: 1)]), for: .normal)
         }
         self.ZgTurn = self.ZgTurn == 3 ? 1 : self.ZgTurn + 1
 //        self.ZgTurn = self.ZgTurn == 6 ? 1 : self.ZgTurn + 1
@@ -657,8 +657,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         }
         if BgTurn {
             for i in 0..<6 {
-                BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [.blue, .green]), for: .normal)
-                BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [.blue]), for: .normal)
+                BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 55/255, green: 123/255, blue: 58/255, alpha: 1)]), for: .normal)
+                BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)]), for: .normal)
                 BgHuiKeList[i].setTitle(BgList[3][i], for: .normal)
             }
         } else {
@@ -668,8 +668,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
                 BgHuiKeList[i].setTitle(nil, for: .normal)
             }
             for i in BgShow {
-                BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [.blue, .green]), for: .normal)
-                BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [.blue]), for: .normal)
+                BgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[0][i], BgList[1][i]], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 55/255, green: 123/255, blue: 58/255, alpha: 1)]), for: .normal)
+                BgLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [BgList[2][i]], inputColor: [UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)]), for: .normal)
                 BgHuiKeList[i].setTitle(BgList[3][i], for: .normal)
             }
         }
@@ -715,8 +715,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         }
         if FsTurn {
             for i in 0..<6 {
-                FsDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[0][i], FsList[1][i]], inputColor: [.blue, .green]), for: .normal)
-                FsLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[2][i]], inputColor: [.blue]), for: .normal)
+                FsDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[0][i], FsList[1][i]], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 55/255, green: 123/255, blue: 58/255, alpha: 1)]), for: .normal)
+                FsLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[2][i]], inputColor: [UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)]), for: .normal)
             }
         } else {
             for i in 0..<6 {
@@ -724,8 +724,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
                 FsLiuQinList[i].setAttributedTitle(nil, for: .normal)
             }
             for i in FsShow {
-                FsDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[0][i], FsList[1][i]], inputColor: [.blue, .green]), for: .normal)
-                FsLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[2][i]], inputColor: [.blue]), for: .normal)
+                FsDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[0][i], FsList[1][i]], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 55/255, green: 123/255, blue: 58/255, alpha: 1)]), for: .normal)
+                FsLiuQinList[i].setAttributedTitle(getNSAttributedString(inputString: [FsList[2][i]], inputColor: [UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)]), for: .normal)
             }
         }
         FsTurn = !FsTurn
@@ -758,13 +758,13 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
             equalNumList.append(DiZhiTable.getEqualNum(str: dz))
         }
         var index: Int = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((year?.last ?? "戌"))))!
-        Year.text = year! + String(FsList[2][index].first!)
+        Year.attributedText = getNSAttributedString(inputString: [String(year?.first ?? "甲"), String(year?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((month?.last ?? "戌"))))!
-        Month.text = month! + String(FsList[2][index].first!)
+        Month.attributedText = getNSAttributedString(inputString: [String(month?.first ?? "甲"), String(month?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((day?.last ?? "戌"))))!
-        Day.text = day! + String(FsList[2][index].first!)
+        Day.attributedText = getNSAttributedString(inputString: [String(day?.first ?? "甲"), String(day?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((hour.last ?? "戌"))))!
-        Hour.text = hour + String(FsList[2][index].first!)
+        Hour.attributedText = getNSAttributedString(inputString: [String(day?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         
         setRiChongYuePo()
     }
@@ -782,7 +782,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         let attr: [String] = json.object(forKey: "attr") as! [String]
         let wx: [String] = json.object(forKey: "wuxing") as! [String]
         for i in 0..<5 {
-            MonthList[i].attributedText = getNSAttributedString(inputString: [attr[i], wx[i]], inputColor: [.blue, .blue])
+            MonthList[i].attributedText = getNSAttributedString(inputString: [wx[i], attr[i]], inputColor: [UIColor(red: 115/255, green: 165/255, blue: 124/255, alpha: 1), UIColor(red: 67/255, green: 139/255, blue: 229/255, alpha: 1)])
         }
     }
     
@@ -790,7 +790,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     func setQinTable(json: AnyObject) {
         let list = json as! [String]
         for i in 0..<5 {
-            QinList[i].attributedText = getNSAttributedString(inputString: [list[i]], inputColor: [.blue])
+            QinList[i].text = list[i]
         }
     }
     
@@ -798,7 +798,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     func setDayTable(json: AnyObject) {
         let list = json as! [String]
         for i in 0..<5 {
-            DayList[i].attributedText = getNSAttributedString(inputString: [list[i]], inputColor: [.blue])
+            DayList[i].text = list[i]
         }
     }
     
@@ -806,7 +806,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     func setBianTable(json: AnyObject) {
         let list = json.object(forKey: "bianYao") as! [String]
         for i in 0..<5 {
-            BianList[i].attributedText = getNSAttributedString(inputString: [list[i]], inputColor: [.blue])
+            BianList[i].text = list[i]
         }
     }
     
