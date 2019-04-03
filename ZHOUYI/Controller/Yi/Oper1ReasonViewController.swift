@@ -70,9 +70,11 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
             break
         }
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy-MM-dd"
+        dateFormat.dateFormat = "yyyy-MM-dd-HH"
         gua?.date = dateFormat.string(from: .init())
-        DateButton.setTitle(gua?.date, for: .normal)
+        let yyyyMMddFormat = DateFormatter()
+        yyyyMMddFormat.dateFormat = "yyyy-MM-dd"
+        DateButton.setTitle(yyyyMMddFormat.string(from: .init()), for: .normal)
         gua?.yongShen = YongShenList[0]
         YongShenButton.setTitle(gua?.yongShen, for: .normal)
         gua?.reason = "无"
@@ -115,9 +117,11 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         datePicker.datePickerMode = UIDatePicker.Mode.date
         let yAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let dateFormat = DateFormatter()
-            dateFormat.dateFormat = "yyyy-MM-dd"
+            dateFormat.dateFormat = "yyyy-MM-dd-HH"
             self.gua?.date = dateFormat.string(from: datePicker.date)
-            self.DateButton.setTitle(self.gua?.date, for: .normal)
+            let yyyyMMddFormat = DateFormatter()
+            yyyyMMddFormat.dateFormat = "yyyy-MM-dd"
+            self.DateButton.setTitle(yyyyMMddFormat.string(from: datePicker.date), for: .normal)
         })
         let nAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.view.addSubview(datePicker)

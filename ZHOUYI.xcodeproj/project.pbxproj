@@ -40,6 +40,7 @@
 		7E6DC91F21F439C00019205E /* GuaXiangCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6DC91E21F439C00019205E /* GuaXiangCollectionViewCell.swift */; };
 		7E77A51221F816AF00090D6A /* Oper4GuaXiangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */; };
 		7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E77A51721F8489000090D6A /* HistoryTableViewController.swift */; };
+		7E7FF1F122544920003491AE /* ZhanTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7FF1F022544920003491AE /* ZhanTable.swift */; };
 		7EAEA62221F2F2D0001D3459 /* EditNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */; };
 		7EAEA62421F2F9DE001D3459 /* EditRealnameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */; };
 		7EAEA62621F2FFF9001D3459 /* EditBirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */; };
@@ -139,6 +140,7 @@
 		7E6DC91E21F439C00019205E /* GuaXiangCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuaXiangCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E77A51121F816AF00090D6A /* Oper4GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper4GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper4GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
 		7E77A51721F8489000090D6A /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		7E7FF1F022544920003491AE /* ZhanTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZhanTable.swift; sourceTree = "<group>"; };
 		7EAEA62121F2F2D0001D3459 /* EditNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNicknameViewController.swift; sourceTree = "<group>"; };
 		7EAEA62321F2F9DE001D3459 /* EditRealnameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRealnameViewController.swift; sourceTree = "<group>"; };
 		7EAEA62521F2FFF9001D3459 /* EditBirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBirthdayViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				7E34CF3E22353FCA008BBF00 /* Gua.swift */,
 				18088B522252075B00DD6632 /* TianGanTable.swift */,
 				18088B5422520A1200DD6632 /* DiZhiTable.swift */,
+				7E7FF1F022544920003491AE /* ZhanTable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
 				7E2FCC262238B77700E2F944 /* HistoryReasonViewController.swift in Sources */,
 				7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */,
+				7E7FF1F122544920003491AE /* ZhanTable.swift in Sources */,
 				7E20E53E222B9F3700ADFD72 /* ResultViewController.swift in Sources */,
 				7E5ACE9021F04CB70055A166 /* User.swift in Sources */,
 				7E38053821F6E8CE00E2D89D /* Oper2GuaXiangViewController.swift in Sources */,

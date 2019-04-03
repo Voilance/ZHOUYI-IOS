@@ -125,7 +125,7 @@ class HistoryTableViewController: UITableViewController {
     
     func getWeek(date: String) -> String {
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy-MM-dd"
+        dateFormat.dateFormat = "yyyy-MM-dd-HH"
         let weekdayFormat = DateFormatter()
         weekdayFormat.dateFormat = "EEEE"
         let weekday = weekdayFormat.string(from: dateFormat.date(from: date)!)

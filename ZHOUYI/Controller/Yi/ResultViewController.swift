@@ -477,6 +477,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
                     self.Month.text = month
                     self.Day.text = day
                     self.setTime()
+                    self.setZhanView(title: "常用神煞")
                     self.TheMonth.text = String((month?.last)!)
                     self.setLiuShen(d: day?.first)
                 }
@@ -750,7 +751,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         let year = Year.text
         let month = Month.text
         let day = Day.text
-//        let hour = Hour.text
+        let hour = getHour()
         // 等价类编号List
         var equalNumList: [Int] = []
         for dz in FsList[0] {
@@ -762,10 +763,18 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         Month.text = month! + String(FsList[2][index].first!)
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((day?.last ?? "戌"))))!
         Day.text = day! + String(FsList[2][index].first!)
-//        index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((hour?.last ?? "戌"))))!
-//        Hour.text = day! + String(FsList[2][index].first!)
+        index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((hour.last ?? "戌"))))!
+        Hour.text = hour + String(FsList[2][index].first!)
         
         setRiChongYuePo()
+    }
+    // 分离“时”,计算“时”的天干
+    func getHour() -> String {
+        let date = self.gua?.date!.components(separatedBy: "-")
+        if let hour = date?[3] {
+            return DiZhiTable.DiZhi[Int(hour) ?? 0 / 2] ?? "戌"
+        }
+        return "戌"
     }
     
     // 填充月表内容
@@ -852,6 +861,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         ZhanButton.setTitle(getVerticalString(inputString: ZhanList[indexPath.row]), for: .normal)
+        self.setZhanView(title: ZhanList[indexPath.row])
         self.dismiss(animated: true, completion: nil)
         return
     }
@@ -865,6 +875,26 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         alert.view.addSubview(tableView)
         alert.addAction(nAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    func setZhanView(title: String) {
+        let day = Day.text
+        if day?.count ?? 0 < 2 {
+            return
+        }
+        var tg: String = "戊"
+        var dz: String = "戌"
+        if var ri = day {
+            tg = String(ri.first!)
+            ri.remove(at: ri.startIndex)
+            dz = String(ri.first!)
+        }
+        
+        if let list = ZhanTable.ZhanTitleMap[title] {
+            for i in 0..<list.count {
+                ZhanTitleList[i].text = getVerticalString(inputString: list[i])
+                ZhanGZList[i].text = getVerticalString(inputString: ZhanTable.getZhanGZ(title: list[i], tg: tg, dz: dz))
+            }
+        }
     }
     
     // 获取富文本
@@ -884,7 +914,9 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
             verStr.append(char)
             verStr.append("\n")
         }
-        verStr.remove(at: verStr.index(before: verStr.endIndex))
+        if verStr.count > 0 {
+            verStr.remove(at: verStr.index(before: verStr.endIndex))
+        }
         return verStr
     }
     
