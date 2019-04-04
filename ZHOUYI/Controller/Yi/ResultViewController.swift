@@ -495,6 +495,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
                 self.resultCode = respJson.object(forKey: "code") as? Int
                 if self.resultCode == 0 {
                     self.convertDate()
+                    self.setHuGua()
                     let data = respJson.object(forKey: "data") as AnyObject
                     DispatchQueue.main.async {
                         self.setZhuangGua(json: data.object(forKey: "zhuangGuaTable") as AnyObject)
@@ -581,25 +582,64 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         let List1 = fu_kString(str: basicData.object(forKey: "five_elements") as! String)
         let List2 = json.object(forKey: "column2") as! [String]
         let List3 = json.object(forKey: "column3") as! [String]
-//        let List4 = json.object(forKey: "column4") as! [String]
-//        let List5 = json.object(forKey: "column5") as! [String]
-//        let List6 = json.object(forKey: "column6") as! [String]
+        var List4: [String] = ["", "", "", "", "", ""]
+        if var l = json.object(forKey: "column4") as? [Any] {
+            for i in 0..<l.count {
+                if let j = l[i] as? Int {
+                    if j == 1 {
+                        List4[i] = "刑"
+                    }
+                }
+            }
+        }
+        var List5: [String] = ["", "", "", "", "", ""]
+        if var l = json.object(forKey: "column5") as? [Any] {
+            for i in 0..<l.count {
+                if let j = l[i] as? Int {
+                    if j == 1 {
+                        List5[i] = "冲"
+                    }
+//                    print(List5)
+                }
+            }
+        }
+        var List6: [String] = ["", "", "", "", "", ""]
+        if var l = json.object(forKey: "column6") as? [Any] {
+            for i in 0..<l.count {
+                if let j = l[i] as? Int {
+                    if j == 1 {
+                        List6[i] = "害"
+                    }
+//                    print(List6)
+                }
+            }
+        }
+//        let List4 = json.object(forKey: "column4") as! [String?]
+//        let List5 = json.object(forKey: "column5") as! [String?]
+//        let List6 = json.object(forKey: "column6") as! [String?]
         ZgList.append(List0)
         ZgList.append(List1)
         ZgList.append(List2)
         ZgList.append(List3)
+        ZgList.append(List4)
 //        ZgList.append(List4)
-//        ZgList.append(List5)
-//        ZgList.append(List6)
+        ZgList.append(List5)
+        ZgList.append(List6)
         // 空
         if let kList = json.object(forKey: "kongIndex") as? [Int] {
+            // Scroll空
+            var k: String = ""
             for i in kList {
                 ZgDiZhiList[i].setBackgroundImage(UIImage(named: "kong"), for: .normal)
+                k.append(List0[i])
             }
+            RYKong.text = k
         }
         turnZhuangGua()
         // Scroll本
-        RYBen.text = getVerticalString(inputString: basicData.object(forKey: "content") as! String);
+        RYBen.text = getVerticalString(inputString: basicData.object(forKey: "content") as! String)
+        // Scroll身
+        RYShen.text = basicData.object(forKey: "gua_shen") as! String
     }
     
     func turnZhuangGua() {
@@ -609,8 +649,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         for i in 0..<6 {
             ZgDiZhiList[i].setAttributedTitle(getNSAttributedString(inputString: [ZgList[0][i], ZgList[ZgTurn][i]], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 55/255, green: 123/255, blue: 58/255, alpha: 1)]), for: .normal)
         }
-        self.ZgTurn = self.ZgTurn == 3 ? 1 : self.ZgTurn + 1
-//        self.ZgTurn = self.ZgTurn == 6 ? 1 : self.ZgTurn + 1
+//        self.ZgTurn = self.ZgTurn == 3 ? 1 : self.ZgTurn + 1
+        self.ZgTurn = self.ZgTurn == 6 ? 1 : self.ZgTurn + 1
     }
     
     // 填充变卦内容
@@ -729,6 +769,25 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
             }
         }
         FsTurn = !FsTurn
+    }
+    
+    // 设置互卦
+    func setHuGua() {
+        HTTP.POST(Api.GetHuGua, parameters: gua?.guaXiang, requestSerializer: JSONParameterSerializer()) { resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                self.resultCode = respJson.object(forKey: "code") as? Int
+                if self.resultCode == 0 {
+                    let data = respJson.object(forKey: "data") as AnyObject
+                    DispatchQueue.main.async {
+                        self.RYHu.text = self.getVerticalString(inputString: data.object(forKey: "content") as! String)
+                    }
+                }
+            } catch {
+                print("Get HuGua Error")
+                print(error)
+            }
+        }
     }
     
     // 设置本卦图片
