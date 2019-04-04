@@ -633,7 +633,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
                 ZgDiZhiList[i].setBackgroundImage(UIImage(named: "kong"), for: .normal)
                 k.append(List0[i])
             }
-            RYKong.text = k
+            RYKong.text = getVerticalString(inputString: k)
         }
         turnZhuangGua()
         // Scroll本

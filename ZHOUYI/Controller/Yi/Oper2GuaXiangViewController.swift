@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftHTTP
 import ToastSwiftFramework
 
 class Oper2GuaXiangViewController: UIViewController, UITextFieldDelegate {
@@ -19,7 +20,7 @@ class Oper2GuaXiangViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var GuaXiangTextField6: UITextField!
     @IBAction func ClickOkButton(_ sender: Any) {
         if isInfoOk() {
-            self.performSegue(withIdentifier: "Oper2GuaXiangToResult", sender: nil)
+            saveHistory()
         }
 //        self.performSegue(withIdentifier: "Oper2GuaXiangToResult", sender: nil)
     }
@@ -55,6 +56,24 @@ class Oper2GuaXiangViewController: UIViewController, UITextFieldDelegate {
             }
         }
         return true
+    }
+    
+    func saveHistory() {
+        let reqJson = ["guaxiang": gua?.guaXiang, "date": gua?.date, "yongshen": gua?.yongShen, "name": gua?.name, "reason": gua?.reason, "note": gua?.note, "way": gua?.method] as [String : Any]
+        let reqHeader = ["x-zhouyi-token": GlobalUser.token!, "x-zhouyi-userid": String(GlobalUser.id!)]
+        HTTP.POST(Api.SaveRecordUrl, parameters: reqJson, headers: reqHeader as [String : String], requestSerializer: JSONParameterSerializer()) { resp in
+            do {
+                let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                //                let result = respJson.object(forKey: "result") as? String
+                //                let reason = respJson.object(forKey: "reason") as? String
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "Oper2GuaXiangToResult", sender: nil)
+                }
+            } catch {
+                print("Save Result Error")
+                print(error)
+            }
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

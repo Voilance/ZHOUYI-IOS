@@ -3208,6 +3208,21 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caP-AO-9Aw" userLabel="SegueStackView">
+                                <rect key="frame" x="0.0" y="64" width="5" height="5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjF-kh-Unc" userLabel="ToResult">
+                                        <rect key="frame" x="0.0" y="0.0" width="5" height="5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="5" id="bWh-9k-rIR"/>
+                                            <constraint firstAttribute="height" constant="5" id="huc-jr-EBg"/>
+                                        </constraints>
+                                        <connections>
+                                            <segue destination="s7r-dL-fBd" kind="show" identifier="Oper4GuaXiangToResult" id="WYC-7s-BI8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.92550265789999997" green="0.92546778919999995" blue="0.92549145219999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -3215,13 +3230,19 @@
                             <constraint firstItem="4R7-pe-Kex" firstAttribute="trailing" secondItem="Xhj-2s-3aL" secondAttribute="trailing" id="C76-0a-v7B"/>
                             <constraint firstItem="4R7-pe-Kex" firstAttribute="trailing" secondItem="u1E-zw-KKE" secondAttribute="trailing" constant="30" id="Dwa-xG-k2p"/>
                             <constraint firstItem="4R7-pe-Kex" firstAttribute="bottom" secondItem="Xhj-2s-3aL" secondAttribute="bottom" id="SZp-Ca-PeQ"/>
+                            <constraint firstItem="caP-AO-9Aw" firstAttribute="top" secondItem="4R7-pe-Kex" secondAttribute="top" id="cnK-nl-Eat"/>
                             <constraint firstItem="Xhj-2s-3aL" firstAttribute="top" secondItem="u1E-zw-KKE" secondAttribute="bottom" constant="50" id="h4V-aw-oPb"/>
+                            <constraint firstItem="caP-AO-9Aw" firstAttribute="leading" secondItem="4R7-pe-Kex" secondAttribute="leading" id="jrE-nB-Cc0"/>
                             <constraint firstItem="u1E-zw-KKE" firstAttribute="leading" secondItem="4R7-pe-Kex" secondAttribute="leading" constant="30" id="oP4-2b-gAR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4R7-pe-Kex"/>
                     </view>
                     <navigationItem key="navigationItem" title="选卦" id="AJW-aa-1Z3">
-                        <barButtonItem key="rightBarButtonItem" title="确定" id="IKs-Hl-prk"/>
+                        <barButtonItem key="rightBarButtonItem" title="确定" id="IKs-Hl-prk">
+                            <connections>
+                                <action selector="ClickOkButton:" destination="hir-Cp-5eX" id="H6M-xx-C2X"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="BenGuaButton" destination="jV2-Xc-TaJ" id="EJO-WH-WRL"/>
@@ -4951,7 +4972,7 @@
         <segue reference="QuS-my-A6k"/>
         <segue reference="XEj-a1-oh4"/>
         <segue reference="giX-ph-xmb"/>
-        <segue reference="9CX-h2-Uiz"/>
+        <segue reference="WYC-7s-BI8"/>
         <segue reference="a4S-tW-MNB"/>
         <segue reference="eHr-1c-YXq"/>
     </inferredMetricsTieBreakers>
