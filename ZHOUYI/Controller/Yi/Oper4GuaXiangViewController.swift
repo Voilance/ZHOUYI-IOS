@@ -104,7 +104,8 @@ class Oper4GuaXiangViewController: UIViewController {
         reloadView(s: isBenGua ? guaXiangSelect[0] : guaXiangSelect[2], x: 7)
     }
     @IBAction func ClickOkButton(_ sender: Any) {
-        saveHistory()
+//         saveHistory()
+        getLiuYao()
     }
     
     var SButtonList: [UIButton] = []
@@ -182,7 +183,10 @@ class Oper4GuaXiangViewController: UIViewController {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
                 //                let result = respJson.object(forKey: "result") as? String
                 //                let reason = respJson.object(forKey: "reason") as? String
-                self.getLiuYao()
+//                 self.getLiuYao()
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "Oper4GuaXiangToResult", sender: nil)
+                }
             } catch {
                 print("Save Result Error")
                 print(error)
@@ -200,11 +204,12 @@ class Oper4GuaXiangViewController: UIViewController {
                     if code == 0 {
                         let data: [Int] = respJson.object(forKey: "data") as! [Int]
                         self.gua?.guaXiang = data
+                        self.saveHistory()
                     }
                 }
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "Oper4GuaXiangToResult", sender: nil)
-                }
+//                 DispatchQueue.main.async {
+//                     self.performSegue(withIdentifier: "Oper4GuaXiangToResult", sender: nil)
+//                 }
             } catch {
                 print("Get LiuYao Error")
                 print(error)
