@@ -72,6 +72,7 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "yyyy-MM-dd-HH"
         gua?.date = dateFormat.string(from: .init())
+        print(gua?.date)
         let yyyyMMddFormat = DateFormatter()
         yyyyMMddFormat.dateFormat = "yyyy-MM-dd"
         DateButton.setTitle(yyyyMMddFormat.string(from: .init()), for: .normal)

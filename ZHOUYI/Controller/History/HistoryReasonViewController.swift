@@ -55,7 +55,7 @@ class HistoryReasonViewController: UIViewController {
         default:
             break
         }
-        DateLabel.text = gua?.date
+        DateLabel.text = editDate()
         YongShenLabel.text = gua?.yongShen
         ReasonLabel.text = gua?.reason
         NameLabel.text = gua?.name
@@ -63,7 +63,18 @@ class HistoryReasonViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    // 裁剪日期只显示年月日
+    func editDate() -> String? {
+        let d = gua?.date?.components(separatedBy: "-")
+        if let yyyy = d?[0] {
+            if let mm = d?[1] {
+                if let dd = d?[2] {
+                    return yyyy + "-" + mm + "-" + dd
+                }
+            }
+        }
+        return gua?.date
+    }
     
     // MARK: - Navigation
 

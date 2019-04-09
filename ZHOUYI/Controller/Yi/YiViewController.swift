@@ -7,21 +7,34 @@
 //
 
 import UIKit
+import ToastSwiftFramework
 
 class YiViewController: UIViewController {
     
     
     @IBAction func ClickOper1Button(_ sender: Any) {
-        gua?.method = "LiuYao"
-        self.performSegue(withIdentifier: "YiToOper1Reason", sender: nil)
+        if GlobalUser.online ?? false {
+            gua?.method = "LiuYao"
+            self.performSegue(withIdentifier: "YiToOper1Reason", sender: nil)
+        } else {
+            self.view.makeToast("请先登录后使用！")
+        }
     }
     @IBAction func ClickOper2Button(_ sender: Any) {
-        gua?.method = "ShuZi"
-        self.performSegue(withIdentifier: "YiToOper1Reason", sender: nil)
+        if GlobalUser.online ?? false {
+            gua?.method = "ShuZi"
+            self.performSegue(withIdentifier: "YiToOper1Reason", sender: nil)
+        } else {
+            self.view.makeToast("请先登录后使用！")
+        }
     }
     @IBAction func ClickOper4Button(_ sender: Any) {
-        gua?.method = "ZiDing"
-        self.performSegue(withIdentifier: "YiToOper1Reason", sender: nil)
+        if GlobalUser.online ?? false {
+            gua?.method = "ZiDing"
+            self.performSegue(withIdentifier: "YiToOper1Reason", sender: nil)
+        } else {
+            self.view.makeToast("请先登录后使用！")
+        }
     }
     
     var gua: Gua? = Gua()

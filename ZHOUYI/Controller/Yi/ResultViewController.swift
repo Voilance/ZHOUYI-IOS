@@ -816,14 +816,34 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         for dz in FsList[0] {
             equalNumList.append(DiZhiTable.getEqualNum(str: dz))
         }
+        
         var index: Int = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((year?.last ?? "戌"))))!
-        Year.attributedText = getNSAttributedString(inputString: [String(year?.first ?? "甲"), String(year?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
+        var qin : String = String(FsList[2][index].first!)
+        if FsList[2][index] == "子孙" {
+            qin = "孙"
+        }
+        Year.attributedText = getNSAttributedString(inputString: [String(year?.first ?? "甲"), String(year?.last ?? "子"), qin], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
+        
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((month?.last ?? "戌"))))!
-        Month.attributedText = getNSAttributedString(inputString: [String(month?.first ?? "甲"), String(month?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
+        qin = String(FsList[2][index].first!)
+        if FsList[2][index] == "子孙" {
+            qin = "孙"
+        }
+        Month.attributedText = getNSAttributedString(inputString: [String(month?.first ?? "甲"), String(month?.last ?? "子"), qin], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
+        
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((day?.last ?? "戌"))))!
-        Day.attributedText = getNSAttributedString(inputString: [String(day?.first ?? "甲"), String(day?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
+        qin = String(FsList[2][index].first!)
+        if FsList[2][index] == "子孙" {
+            qin = "孙"
+        }
+        Day.attributedText = getNSAttributedString(inputString: [String(day?.first ?? "甲"), String(day?.last ?? "子"), qin], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
+        
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((hour.last ?? "戌"))))!
-        Hour.attributedText = getNSAttributedString(inputString: [String(day?.last ?? "子"), String(FsList[2][index].first!)], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
+        qin = String(FsList[2][index].first!)
+        if FsList[2][index] == "子孙" {
+            qin = "孙"
+        }
+        Hour.attributedText = getNSAttributedString(inputString: [String(hour.last ?? "子"), qin], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         
         setRiChongYuePo()
     }
@@ -831,7 +851,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     func getHour() -> String {
         let date = self.gua?.date!.components(separatedBy: "-")
         if let hour = date?[3] {
-            return DiZhiTable.DiZhi[Int(hour) ?? 0 / 2] ?? "戌"
+            let h = (Int(hour) ?? 0) / 2
+            return DiZhiTable.DiZhi[h] ?? "子"
         }
         return "戌"
     }

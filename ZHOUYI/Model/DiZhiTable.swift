@@ -287,8 +287,10 @@ class DiZhiTable : NSObject {
                 if let bgdz = DiZhiNum[BgDiZhi] {
                     if bgdz > zgdz {
                         status = "化进"
-                    } else {
+                    } else if bgdz < zgdz {
                         status = "化退"
+                    } else {
+                        return ""
                     }
                 }
             }
