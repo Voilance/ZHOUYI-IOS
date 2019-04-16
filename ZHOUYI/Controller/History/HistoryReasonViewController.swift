@@ -55,7 +55,8 @@ class HistoryReasonViewController: UIViewController {
         default:
             break
         }
-        DateLabel.text = editDate()
+//        DateLabel.text = editDate()
+        DateLabel.text = gua?.date
         YongShenLabel.text = gua?.yongShen
         ReasonLabel.text = gua?.reason
         NameLabel.text = gua?.name

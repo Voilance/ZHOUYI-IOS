@@ -14,6 +14,9 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
     // 控件
     @IBOutlet weak var MethodLabel: UILabel!
     @IBOutlet weak var DateButton: UIButton!
+    @IBOutlet weak var HourTextField: UITextField!
+    @IBOutlet weak var MinuteTextField: UITextField!
+    @IBOutlet weak var SecondTextField: UITextField!
     @IBOutlet weak var YongShenButton: UIButton!
     @IBOutlet weak var ReasonTextField: UITextField!
     @IBOutlet weak var NameTextField: UITextField!
@@ -70,12 +73,18 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
             break
         }
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy-MM-dd-HH"
-        gua?.date = dateFormat.string(from: .init())
-        print(gua?.date)
-        let yyyyMMddFormat = DateFormatter()
-        yyyyMMddFormat.dateFormat = "yyyy-MM-dd"
-        DateButton.setTitle(yyyyMMddFormat.string(from: .init()), for: .normal)
+        
+        dateFormat.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        let t = separateTime(time: dateFormat.string(from: .init()))
+//        let yyyyMMddFormat = DateFormatter()
+//        yyyyMMddFormat.dateFormat = "yyyy-MM-dd"
+//        DateButton.setTitle(dateFormat.string(from: .init()), for: .normal)
+        DateButton.setTitle(t[0] + "-" + t[1] + "-" + t[2], for: .normal)
+        HourTextField.text = t[3]
+        MinuteTextField.text = t[4]
+        SecondTextField.text = t[5]
+        gua?.date = t[0] + "-" + t[1] + "-" + t[2] + " " + t[3] + ":" + t[4] + ":" + t[5]
+        
         gua?.yongShen = YongShenList[0]
         YongShenButton.setTitle(gua?.yongShen, for: .normal)
         gua?.reason = "无"
@@ -115,14 +124,11 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         let alert = UIAlertController(title: "\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
         datePicker.locale = Locale(identifier: "zh_CN")
-        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.datePickerMode = UIDatePicker.Mode.time
         let yAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let dateFormat = DateFormatter()
             dateFormat.dateFormat = "yyyy-MM-dd-HH"
-            self.gua?.date = dateFormat.string(from: datePicker.date)
-            let yyyyMMddFormat = DateFormatter()
-            yyyyMMddFormat.dateFormat = "yyyy-MM-dd"
-            self.DateButton.setTitle(yyyyMMddFormat.string(from: datePicker.date), for: .normal)
+            self.DateButton.setTitle(dateFormat.string(from: datePicker.date), for: .normal)
         })
         let nAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.view.addSubview(datePicker)
@@ -147,10 +153,94 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         self.present(alert, animated: true, completion: nil)
     }
     
+    func separateTime(time : String?) -> [String] {
+        if let t = time {
+            let tt = t.components(separatedBy: "-");
+            if tt.count == 6 {
+                return tt;
+            }
+        }
+        return ["yy", "MM", "dd", "HH", "mm", "ss"]
+    }
+    
     func isInfoOk() -> Bool {
         gua?.reason = ReasonTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         gua?.name = NameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         gua?.note = NoteTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if let hh = HourTextField.text {
+            if hh.count == 2 {
+                if let f = hh.first {
+                    if let l = hh.last {
+                        if !(f >= "0" && f <= "1" && l >= "0" && l <= "9") && !(f == "2" && l >= "0" && l <= "4") {
+                            self.view.makeToast("请填入00到23之间的值作为时")
+                            return false
+                        }
+                    }
+                }
+            } else if hh.count == 1 {
+                if let f = hh.first {
+                    if (f >= "0" && f <= "9") {
+                        HourTextField.text = "0" + String(f)
+                    } else {
+                        self.view.makeToast("请填入00到23之间的值作为时")
+                        return false
+                    }
+                }
+            } else {
+                self.view.makeToast("请填入00到23之间的值作为时")
+                return false
+            }
+        }
+        if let mm = MinuteTextField.text {
+            if mm.count == 2 {
+                if let f = mm.first {
+                    if let l = mm.last {
+                        if !(f >= "0" && f <= "5" && l >= "0" && l <= "9") {
+                            self.view.makeToast("请填入00到59之间的值作为分")
+                            return false
+                        }
+                    }
+                }
+            } else if mm.count == 1 {
+                if let f = mm.first {
+                    if (f >= "0" && f <= "9") {
+                        MinuteTextField.text = "0" + String(f)
+                    } else {
+                        self.view.makeToast("请填入00到59之间的值作为分")
+                        return false
+                    }
+                }
+            } else {
+                self.view.makeToast("请填入00到59之间的值作为分")
+                return false
+            }
+        }
+        if let ss = SecondTextField.text {
+            if ss.count == 2 {
+                if let f = ss.first {
+                    if let l = ss.last {
+                        if !(f >= "0" && f <= "5" && l >= "0" && l <= "9") {
+                            self.view.makeToast("请填入00到59之间的值作为秒")
+                            return false
+                        }
+                    }
+                }
+            } else if ss.count == 1 {
+                if let f = ss.first {
+                    if (f >= "0" && f <= "9") {
+                        SecondTextField.text = "0" + String(f)
+                    } else {
+                        self.view.makeToast("请填入00到59之间的值作为秒")
+                        return false
+                    }
+                }
+            } else {
+                self.view.makeToast("请填入00到59之间的值作为秒")
+                return false
+            }
+        }
+        
         
         if gua?.reason == nil || gua?.reason?.count == 0 {
             gua?.reason = "无"
@@ -161,9 +251,18 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         if gua?.name == nil || gua?.name?.count == 0 {
             self.view.makeToast("请填写卜卦者姓名！")
             return false
-        } else {
-            return true
         }
+        
+        if let yyMMdd = DateButton.titleLabel?.text {
+            if let HH = HourTextField.text {
+                if let mm = MinuteTextField.text {
+                    if let ss = SecondTextField.text {
+                        gua?.date = yyMMdd + " " + HH + ":" + mm + ":" + ss
+                    }
+                }
+            }
+        }
+        return true
     }
 
     

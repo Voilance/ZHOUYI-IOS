@@ -454,6 +454,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         
         ZhanButton.layer.masksToBounds = true
         ZhanButton.layer.cornerRadius = 5
+        
+        print(gua?.date)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -719,9 +721,9 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     func setFuShen(json: AnyObject) { // 包括伏神
         let basicData = json.object(forKey: "basicData") as AnyObject
         // 变卦头
-        if let header = getGuaHeader(guaMing: basicData.object(forKey: "content") as! String, guaCi: basicData.object(forKey: "times") as! String) {
-            FsHeader.text = header
-        }
+//        if let header = getGuaHeader(guaMing: basicData.object(forKey: "content") as! String, guaCi: basicData.object(forKey: "times") as! String) {
+//            FsHeader.text = header
+//        }
         // 天干
         let tgList = fu_kString(str: basicData.object(forKey: "heavenly_stems") as! String)
         FsTianGanList[0].text = tgList[0]
@@ -819,29 +821,29 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         
         var index: Int = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((year?.last ?? "戌"))))!
         var qin : String = String(FsList[2][index].first!)
-        if FsList[2][index] == "子孙" {
-            qin = "孙"
+        if FsList[2][index] == "子孙" || FsList[2][index] == "妻财" {
+            qin = String(FsList[2][index].last!)
         }
         Year.attributedText = getNSAttributedString(inputString: [String(year?.first ?? "甲"), String(year?.last ?? "子"), qin], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((month?.last ?? "戌"))))!
         qin = String(FsList[2][index].first!)
-        if FsList[2][index] == "子孙" {
-            qin = "孙"
+        if FsList[2][index] == "子孙" || FsList[2][index] == "妻财" {
+            qin = String(FsList[2][index].last!)
         }
         Month.attributedText = getNSAttributedString(inputString: [String(month?.first ?? "甲"), String(month?.last ?? "子"), qin], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((day?.last ?? "戌"))))!
         qin = String(FsList[2][index].first!)
-        if FsList[2][index] == "子孙" {
-            qin = "孙"
+        if FsList[2][index] == "子孙" || FsList[2][index] == "妻财" {
+            qin = String(FsList[2][index].last!)
         }
         Day.attributedText = getNSAttributedString(inputString: [String(day?.first ?? "甲"), String(day?.last ?? "子"), qin], inputColor: [.black, UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         
         index = equalNumList.firstIndex(of: DiZhiTable.getEqualNum(str: String((hour.last ?? "戌"))))!
         qin = String(FsList[2][index].first!)
-        if FsList[2][index] == "子孙" {
-            qin = "孙"
+        if FsList[2][index] == "子孙" || FsList[2][index] == "妻财" {
+            qin = String(FsList[2][index].last!)
         }
         Hour.attributedText = getNSAttributedString(inputString: [String(hour.last ?? "子"), qin], inputColor: [UIColor(red: 233/255, green: 133/255, blue: 50/255, alpha: 1), UIColor(red: 132/255, green: 45/255, blue: 134/255, alpha: 1)])
         
@@ -849,7 +851,7 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
     }
     // 分离“时”,计算“时”的天干
     func getHour() -> String {
-        let date = self.gua?.date!.components(separatedBy: "-")
+        let date = self.gua?.date?.replacingOccurrences(of: " ", with: "-").replacingOccurrences(of: ":", with: "-").components(separatedBy: "-")
         if let hour = date?[3] {
             let h = (Int(hour) ?? 0) / 2
             return DiZhiTable.DiZhi[h] ?? "子"
