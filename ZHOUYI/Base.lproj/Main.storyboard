@@ -3539,7 +3539,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMy-cy-aqT">
-                                <rect key="frame" x="5" y="632" width="100" height="30"/>
+                                <rect key="frame" x="5" y="583" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="lEx-9m-yGf"/>
                                 </constraints>
@@ -3549,7 +3549,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYT-Qh-c5J">
-                                <rect key="frame" x="270" y="632" width="100" height="30"/>
+                                <rect key="frame" x="270" y="583" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="RsH-k0-ZNP"/>
                                 </constraints>
@@ -4308,7 +4308,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2019 FENGYX. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rwX-g4-Nvl">
-                                <rect key="frame" x="5" y="622" width="365" height="30"/>
+                                <rect key="frame" x="5" y="573" width="365" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5on-O0-a5c"/>
                                 </constraints>
@@ -5062,12 +5062,12 @@
         <segue reference="7Fa-Lc-xhO"/>
         <segue reference="Xoh-Yg-Uwu"/>
         <segue reference="MFR-HG-038"/>
-        <segue reference="QSb-Xj-Gdg"/>
+        <segue reference="PIK-O1-KbK"/>
         <segue reference="6go-MQ-AM9"/>
-        <segue reference="xJI-0e-sRJ"/>
+        <segue reference="WMG-m9-bKK"/>
         <segue reference="4PT-aB-kFC"/>
         <segue reference="ob7-FJ-ZY1"/>
-        <segue reference="QuS-my-A6k"/>
+        <segue reference="2jA-Nv-BwO"/>
         <segue reference="XEj-a1-oh4"/>
         <segue reference="giX-ph-xmb"/>
         <segue reference="WYC-7s-BI8"/>

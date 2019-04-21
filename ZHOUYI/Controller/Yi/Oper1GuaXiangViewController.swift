@@ -130,6 +130,7 @@ class Oper1GuaXiangViewController: UIViewController, UITableViewDelegate, UITabl
 //                let result = respJson.object(forKey: "result") as? String
 //                let reason = respJson.object(forKey: "reason") as? String
                 DispatchQueue.main.async {
+                    
                     self.performSegue(withIdentifier: "Oper1GuaXiangToResult", sender: nil)
                 }
             } catch {

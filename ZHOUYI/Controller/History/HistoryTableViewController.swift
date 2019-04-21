@@ -109,6 +109,7 @@ class HistoryTableViewController: UITableViewController {
         HTTP.POST(Api.deleteRecordUrl, parameters: reqJson, headers: reqHeader, requestSerializer: JSONParameterSerializer()) { resp in
             do {
                 let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+                print(respJson)
                 let result = respJson.object(forKey: "result") as? String
                 if result == "success" {
                     DispatchQueue.main.async {
@@ -147,6 +148,8 @@ class HistoryTableViewController: UITableViewController {
         default:
             return dateFormat.string(from: dateFormat.date(from: date)!)
         }
+        return dateFormat.string(from: dateFormat.date(from: date)!)
+        return date
     }
 
     // MARK: - Table view data source
