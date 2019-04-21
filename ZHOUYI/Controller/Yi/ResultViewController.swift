@@ -466,6 +466,10 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         Scroll.contentOffset.x +=  Scroll.frame.width
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        Scroll.contentOffset.x = 0
+    }
+    
     func convertDate() {
         let reqJson = ["time": gua?.date]
         HTTP.POST(Api.ConvertDateUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
