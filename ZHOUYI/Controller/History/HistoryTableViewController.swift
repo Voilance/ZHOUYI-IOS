@@ -35,6 +35,16 @@ class HistoryTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if !(GlobalUser.online ?? false) {
+            return
+        } else {
+            resultList = []
+            self.resultPage = 1
+            loadHistory(page: resultPage)
+        }
+    }
+    
     // 验证token，如果token有效则尝试自动登录
     func authenticateToken () {
         let reqJson = ["id": GlobalUser.id, "token": GlobalUser.token] as [String : Any]
@@ -89,6 +99,7 @@ class HistoryTableViewController: UITableViewController {
                 let reason = respJson.object(forKey: "reason") as? String
                 if (result == "success") {
                     let record = respJson.object(forKey: "record") as! [AnyObject]
+                    self.resultPage += 1
                     DispatchQueue.main.async {
                         for s in record {
                             self.resultList.append(Gua(initJson: s))
@@ -102,6 +113,8 @@ class HistoryTableViewController: UITableViewController {
             }
         }
     }
+    
+    
     
     func deleteRecord(id: String, row: Int) {
         let reqJson = ["id": id]
@@ -125,31 +138,31 @@ class HistoryTableViewController: UITableViewController {
     }
     
     func getWeek(date: String) -> String {
+        // 取日期的年月日
+        let d: String = String(date.prefix(10))
         let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormat.dateFormat = "yyyy-MM-dd"
         let weekdayFormat = DateFormatter()
         weekdayFormat.dateFormat = "EEEE"
-        let weekday = weekdayFormat.string(from: dateFormat.date(from: date)!)
+        let weekday = weekdayFormat.string(from: dateFormat.date(from: d)!)
         switch weekday {
         case "Sunday":
-            return dateFormat.string(from: dateFormat.date(from: date)!) + " 日"
+            return d + " 日"
         case "Monday":
-            return dateFormat.string(from: dateFormat.date(from: date)!) + " 一"
+            return d + " 一"
         case "Tuesday":
-            return dateFormat.string(from: dateFormat.date(from: date)!) + " 二"
+            return d + " 二"
         case "Wednesday":
-            return dateFormat.string(from: dateFormat.date(from: date)!) + " 三"
+            return d + " 三"
         case "Thursday":
-            return dateFormat.string(from: dateFormat.date(from: date)!) + " 四"
+            return d + " 四"
         case "Friday":
-            return dateFormat.string(from: dateFormat.date(from: date)!) + " 五"
+            return d + " 五"
         case "Saturday":
-            return dateFormat.string(from: dateFormat.date(from: date)!) + " 六"
+            return d + " 六"
         default:
-            return dateFormat.string(from: dateFormat.date(from: date)!)
+            return d
         }
-        return dateFormat.string(from: dateFormat.date(from: date)!)
-        return date
     }
 
     // MARK: - Table view data source
