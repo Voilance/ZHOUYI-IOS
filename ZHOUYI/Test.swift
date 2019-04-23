@@ -58,6 +58,7 @@ class Test: UIViewController, UITableViewDelegate, UITableViewDataSource, UIAler
         let yAction = UIAlertAction(title: "y", style: .default, handler: nil)
         alert.view.addSubview(mtv)
         alert.addAction(yAction)
+        let helloworld = "helloworld"
         self.present(alert, animated: true, completion: nil)
     }
     
