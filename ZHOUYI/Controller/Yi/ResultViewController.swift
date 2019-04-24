@@ -505,8 +505,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
                     let data = respJson.object(forKey: "data") as AnyObject
                     DispatchQueue.main.async {
                         self.setZhuangGua(json: data.object(forKey: "zhuangGuaTable") as AnyObject)
-                        self.setBianGua(json: data.object(forKey: "bianGuaTable") as AnyObject)
                         self.setFuShen(json: data.object(forKey: "fuShenTable") as AnyObject)
+                        self.setBianGua(json: data.object(forKey: "bianGuaTable") as AnyObject)
                         self.setMonthTable(json: data.object(forKey: "monthTable") as AnyObject)
                         self.setQinTable(json: data.object(forKey: "qingTable") as AnyObject)
                         self.setDayTable(json: data.object(forKey: "dayTable") as AnyObject)
@@ -673,7 +673,8 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         // 地支、五行、六亲、回克
         let List0 = fu_kString(str: basicData.object(forKey: "earthly_branches") as! String)
         let List1 = fu_kString(str: basicData.object(forKey: "five_elements") as! String)
-        let lqList = fu_kString(str: basicData.object(forKey: "six_relatives") as! String)
+//        let lqList = fu_kString(str: basicData.object(forKey: "six_relatives") as! String)
+        let lqList = getBianGuaLiuQin(bgdz: List0, fsdz: FsList[0], fslq: FsList[2])
         BgList.append(List0)
         BgList.append(List1)
         BgList.append(lqList)
@@ -697,7 +698,24 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
         RYBian.text = getVerticalString(inputString: basicData.object(forKey: "content") as! String);
     }
     
+    // 计算变卦六亲
+    func getBianGuaLiuQin(bgdz: [String], fsdz: [String], fslq: [String]) -> [String] {
+        var list:[String] = []
+        for i in 0..<6 {
+            for j in 0..<6 {
+                if DiZhiTable.isEqualDiZhi(a: bgdz[i], b: fsdz[j]) {
+                    list.append(fslq[j])
+                    break;
+                }
+            }
+        }
+        return list
+    }
+    
     func turnBianGua() {
+        if BgShow.count == 0 {
+            return // 全为6或9时不显示
+        }
         if self.resultCode != 0 {
             return;
         }
