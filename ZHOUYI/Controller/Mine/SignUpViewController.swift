@@ -21,6 +21,36 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var CaptchaButton: UIButton!
     @IBOutlet weak var SignUpButton: UIButton!
     // 控件功能
+    @IBAction func GetCaptcha(_ sender: Any) {
+        if let tel = TelTextField.text {
+            if tel.count != 11 {
+                return
+            }
+            let reqJson = ["phone": tel]
+            HTTP.POST(Api.GetCaptchaUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
+                DispatchQueue.main.async {
+                    self.view.makeToast(tel)
+                }
+//                do {
+//                    let respJson = try JSONSerialization.jsonObject(with: resp.data, options: .mutableContainers) as AnyObject
+//                    let result = respJson.object(forKey: "result") as? String
+//                    if result == "success" {
+//                        DispatchQueue.main.async {
+//                            self.performSegue(withIdentifier: "SignUpToSignIn", sender: nil)
+//                        }
+//                    } else {
+//                        DispatchQueue.main.async {
+//                            let reason = respJson.object(forKey: "reason") as? String
+//                            self.view.makeToast(reason)
+//                        }
+//                    }
+//                } catch {
+//                    print("Sign Up Error:")
+//                    print(error)
+//                }
+            }
+        }
+    }
     @IBAction func ClickSignUpButton(_ sender: Any) {
         if isInfoOk() {
             signUp()
@@ -73,12 +103,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             self.view.makeToast("请输入合法的手机号码")
             return false
         }
+        if Captcha == nil || Captcha?.count == 0 {
+            self.view.makeToast("请输入验证码")
+            return false
+        }
         
         return true
     }
     
     func signUp() {
-        let reqJson = ["name": Nickname, "passwd": Password, "phone": Tel]
+        let reqJson = ["name": Nickname, "passwd": Password, "phone": Tel, "captcha": Captcha]
         
         HTTP.POST(Api.SignUpUrl, parameters: reqJson, requestSerializer: JSONParameterSerializer()) { resp in
             do {

@@ -3726,6 +3726,9 @@
                                                 <state key="normal" title="获取验证码">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="GetCaptcha:" destination="VSY-Rn-3MM" eventType="touchUpInside" id="51G-cD-jmW"/>
+                                                </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入验证码" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yFf-ff-kV1">
                                                 <rect key="frame" x="83" y="0.0" width="192" height="40"/>

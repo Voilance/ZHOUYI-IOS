@@ -15,6 +15,7 @@ class Api: NSObject {
     static let HOST: String = "120.76.128.110"
     static let PORT: String = ":12510"
     
+    static let GetCaptchaUrl: String = PROTOCOL + HOST + PORT + "user/GetCAPTCHA"
     static let SignInUrl: String = PROTOCOL + HOST + PORT + "/user/UserLogin"
     static let SignUpUrl: String = PROTOCOL + HOST + PORT + "/user/UserSignUp"
     static let AuthTokenUrl: String = PROTOCOL + HOST + PORT + "/user/CheckLogin"
