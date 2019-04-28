@@ -639,9 +639,17 @@ class ResultViewController: UIViewController, UIScrollViewDelegate, UITableViewD
                 ZgDiZhiList[i].setBackgroundImage(UIImage(named: "kong"), for: .normal)
                 k.append(List0[i])
             }
-            RYKong.text = getVerticalString(inputString: k)
+//            RYKong.text = getVerticalString(inputString: k)
         }
         turnZhuangGua()
+        // Scroll空
+        if let kList = json.object(forKey: "kongDiZhi") as? [String] {
+            var k = "";
+            for i in kList {
+                k += i
+            }
+            RYKong.text = getVerticalString(inputString: k)
+        }
         // Scroll本
         RYBen.text = getVerticalString(inputString: basicData.object(forKey: "content") as! String)
         // Scroll身
