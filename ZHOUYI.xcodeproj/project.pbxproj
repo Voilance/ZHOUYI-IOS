@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18088B532252075B00DD6632 /* TianGanTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18088B522252075B00DD6632 /* TianGanTable.swift */; };
 		18088B5522520A1200DD6632 /* DiZhiTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18088B5422520A1200DD6632 /* DiZhiTable.swift */; };
+		34F3C6AD22756DA8004A8C7D /* ziDingGuaXiang.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F3C6AC22756DA8004A8C7D /* ziDingGuaXiang.swift */; };
 		7E0993E121F45AD700BA3DE6 /* Oper1ReasonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0993E021F45AD700BA3DE6 /* Oper1ReasonViewController.swift */; };
 		7E0993E521F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0993E421F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift */; };
 		7E11EF8621BE06CD0013F75D /* ToastSwiftFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E11EF8521BE06BD0013F75D /* ToastSwiftFramework.framework */; };
@@ -109,6 +110,7 @@
 /* Begin PBXFileReference section */
 		18088B522252075B00DD6632 /* TianGanTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TianGanTable.swift; sourceTree = "<group>"; };
 		18088B5422520A1200DD6632 /* DiZhiTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiZhiTable.swift; sourceTree = "<group>"; };
+		34F3C6AC22756DA8004A8C7D /* ziDingGuaXiang.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ziDingGuaXiang.swift; sourceTree = "<group>"; };
 		7E0993E021F45AD700BA3DE6 /* Oper1ReasonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper1ReasonViewController.swift; path = ZHOUYI/Controller/Yi/Oper1ReasonViewController.swift; sourceTree = SOURCE_ROOT; };
 		7E0993E421F46A3E00BA3DE6 /* Oper1GuaXiangViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Oper1GuaXiangViewController.swift; path = ZHOUYI/Controller/Yi/Oper1GuaXiangViewController.swift; sourceTree = SOURCE_ROOT; };
 		7E11EF7D21BE06BC0013F75D /* Toast-Swift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Toast-Swift.xcodeproj"; path = "Toast-Swift-master/Toast-Swift.xcodeproj"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				18088B522252075B00DD6632 /* TianGanTable.swift */,
 				18088B5422520A1200DD6632 /* DiZhiTable.swift */,
 				7E7FF1F022544920003491AE /* ZhanTable.swift */,
+				34F3C6AC22756DA8004A8C7D /* ziDingGuaXiang.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				7E5120FD2199C90B00DE06B3 /* AppDelegate.swift in Sources */,
 				7E15C82A21ECB33200E794F9 /* Test.swift in Sources */,
 				7E2FCC262238B77700E2F944 /* HistoryReasonViewController.swift in Sources */,
+				34F3C6AD22756DA8004A8C7D /* ziDingGuaXiang.swift in Sources */,
 				7E77A51821F8489000090D6A /* HistoryTableViewController.swift in Sources */,
 				7E7FF1F122544920003491AE /* ZhanTable.swift in Sources */,
 				7E20E53E222B9F3700ADFD72 /* ResultViewController.swift in Sources */,

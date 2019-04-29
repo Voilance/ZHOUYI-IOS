@@ -14,9 +14,7 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
     // 控件
     @IBOutlet weak var MethodLabel: UILabel!
     @IBOutlet weak var DateButton: UIButton!
-    @IBOutlet weak var HourTextField: UITextField!
-    @IBOutlet weak var MinuteTextField: UITextField!
-    @IBOutlet weak var SecondTextField: UITextField!
+    //删除了hourTextField minutesTextField secondTextField
     @IBOutlet weak var YongShenButton: UIButton!
     @IBOutlet weak var ReasonTextField: UITextField!
     @IBOutlet weak var NameTextField: UITextField!
@@ -43,10 +41,18 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
             
         }
     }
+    @IBOutlet weak var HourAndMinutesButton: UIButton!
+    
+    @IBAction func ClickHourAndMinutesButton(_ sender: Any) {
+        selectHourAndMinutes()
+    }
+    
     
     let YongShenList: [String] = ["用爻", "父母", "兄弟", "官鬼", "子孙", "妻财", "世", "应"]
     var gua: Gua?
     let PickerRowHeight: CGFloat = 50
+    //获取虚拟键盘的x大小
+    var keyboard: CGRect = CGRect()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +78,7 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         default:
             break
         }
+        
         let dateFormat = DateFormatter()
         
         dateFormat.dateFormat = "yyyy-MM-dd-HH-mm-ss"
@@ -80,9 +87,10 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
 //        yyyyMMddFormat.dateFormat = "yyyy-MM-dd"
 //        DateButton.setTitle(dateFormat.string(from: .init()), for: .normal)
         DateButton.setTitle(t[0] + "-" + t[1] + "-" + t[2], for: .normal)
-        HourTextField.text = t[3]
-        MinuteTextField.text = t[4]
-        SecondTextField.text = t[5]
+        HourAndMinutesButton.setTitle(t[3] + ":" + t[4], for: .normal)
+//        HourTextField.text = t[3]
+//        MinuteTextField.text = t[4]
+//        SecondTextField.text = t[5]
         gua?.date = t[0] + "-" + t[1] + "-" + t[2] + " " + t[3] + ":" + t[4] + ":" + t[5]
         
         gua?.yongShen = YongShenList[0]
@@ -93,6 +101,11 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         NameTextField.text = gua?.name
         gua?.note = "无"
         NoteTextField.text = gua?.note
+        
+        //如果键盘出现或消失，捕获这两个消息
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -124,11 +137,29 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         let alert = UIAlertController(title: "\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
         let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
         datePicker.locale = Locale(identifier: "zh_CN")
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.maximumDate = Date()
+        let yAction = UIAlertAction(title: "确定", style: .default, handler: { action in
+            let dateFormat = DateFormatter()
+            dateFormat.dateFormat = "yyyy-MM-dd"
+            self.DateButton.setTitle(dateFormat.string(from: datePicker.date), for: .normal)
+        })
+        let nAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alert.view.addSubview(datePicker)
+        alert.addAction(yAction)
+        alert.addAction(nAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func selectHourAndMinutes() {
+        let alert = UIAlertController(title: "\n\n\n\n\n\n\n", message: nil, preferredStyle: .alert)
+        let datePicker = UIDatePicker(frame: CGRect(x: 0, y: 0, width: 270, height: 200))
+        datePicker.locale = Locale(identifier: "zh_CN")
         datePicker.datePickerMode = UIDatePicker.Mode.time
         let yAction = UIAlertAction(title: "确定", style: .default, handler: { action in
             let dateFormat = DateFormatter()
-            dateFormat.dateFormat = "yyyy-MM-dd-HH"
-            self.DateButton.setTitle(dateFormat.string(from: datePicker.date), for: .normal)
+            dateFormat.dateFormat = "HH:mm"
+            self.HourAndMinutesButton.setTitle(dateFormat.string(from: datePicker.date), for: .normal)
         })
         let nAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         alert.view.addSubview(datePicker)
@@ -168,6 +199,7 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
         gua?.name = NameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         gua?.note = NoteTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        /*
         if let hh = HourTextField.text {
             if hh.count == 2 {
                 if let f = hh.first {
@@ -240,7 +272,7 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
                 return false
             }
         }
-        
+ 
         
         if gua?.reason == nil || gua?.reason?.count == 0 {
             gua?.reason = "无"
@@ -262,8 +294,10 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
                 }
             }
         }
+ */
         return true
     }
+ 
 
     
     // MARK: - Navigation
@@ -288,4 +322,23 @@ class Oper1ReasonViewController: UIViewController, UITextFieldDelegate, UIPicker
     }
     
 
+    @objc func keyboardWillShow(_ notification: Notification) {
+        let rect = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey]!) as! NSValue
+        keyboard = rect.cgRectValue
+        UIView.animate(withDuration: 0.4, animations: {() -> Void in
+            let yOfView = self.view.frame.origin.y
+            self.view.frame.origin.y = yOfView - self.keyboard.height + 80
+            
+        })
+    }
+    
+    //将控件还原到初始状态
+    @objc func keyboardWillHide(_ notification: Notification) {
+        UIView.animate(withDuration: 0.4, animations: {() -> Void in
+            let yOfView = self.view.frame.origin.y
+            self.view.frame.origin.y = yOfView + self.keyboard.height - 80
+            
+        })
+    }
+    
 }
